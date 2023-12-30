@@ -1,49 +1,62 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background: #f0f2f5;
+    background: linear-gradient(to right, #e6f1ff, #f0f8ff); /* Subtle blue gradient */
     color: #333;
-    font-size: 1.6em;
-}
-
-header {
-    background-color: #4A90E2;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-}
-
-main {
-    padding: 20px;
+    font-size: 1.2em;
 }
 
 section {
     background: white;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    padding: 20px;
-    max-width: 1000px; /* Set maximum width */
-    margin-left: auto; /* Center the section */
-    margin-right: auto; /* Center the section */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px; /* Increased margin for separation */
+    padding: 25px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: box-shadow 0.3s; /* Smooth transition for hover effect */
+}
+
+section:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 
+header {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    background-color: #1565C0; /* Adjust the color as per your theme */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px; /* Adds space from the top */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+}
+
+
+header h1 {
+    margin: 0;
+    font-size: 3em; /* Larger font size for header */
+}
+
+main {
+    padding: 25px;
+}
+
 section h2, section h3 {
-    color: #333;
-    margin-bottom: 10px;
+    color: #1E88E5; /* Softer blue for headings */
+    margin-bottom: 15px;
 }
 
 .event-details {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
 
 .event-details div {
@@ -58,38 +71,36 @@ iframe {
 }
 
 footer {
-    background-color: #2E312F;
+    background-color: #123E6B; /* Darker blue for footer */
     color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 15px 0;
     bottom: 0;
     width: 100%;
 }
 
-
 .intro-container {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centering horizontally */
-    text-align: center; /* Centering text */
-    margin: auto; /* Centers the container */
-    max-width: 800px; /* Adjust this value as needed */
+    margin: auto;
+    max-width: 800px;
 }
 
 .intro-text, .intro-image {
-    flex: 1; /* Equal width for both */
-    padding: 10px; /* Optional: Adds some space inside each box */
+    flex: 1;
+    padding: 15px;
 }
 
 .intro-text {
-    /* If you want to specifically center-align the text inside the intro-text */
-    text-align: left; /* Or 'center' if you prefer */
+    text-align: left;
 }
 
 .intro-image img {
     width: 100%;
     height: auto;
-    max-width: 400px; /* Adjust as needed */
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Responsive behavior */
@@ -105,4 +116,13 @@ footer {
     .intro-image img {
         max-width: 100%;
     }
+}
+
+/* Interactive Elements */
+a, button {
+    transition: color 0.3s, background-color 0.3s;
+}
+
+a:hover, button:hover {
+    color: #0A47A9; /* Darker blue for hover effect */
 }

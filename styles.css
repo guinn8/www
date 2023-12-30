@@ -70,7 +70,7 @@ section h2 {
 }
 
 section h3 {
-    color: var(--soft-blue);
+    color: var(--dark-blue);
     margin-bottom: 15px;
     font-family: var(--secondary-font);
 }
@@ -111,7 +111,7 @@ footer {
 
 .intro-container {
     display: flex;
-    align-items: center;
+    align-items: top;
     margin: auto;
     max-width: 800px;
 }

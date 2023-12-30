@@ -1,10 +1,19 @@
 /* General Styles */
+:root {
+    --primary-blue: #1565C0;
+    --dark-blue: #123E6B;
+    --soft-blue: #1E88E5;
+    --accent-color: #0A47A9;
+    --text-color: #333;
+    --secondary-font: 'Playfair Display', serif;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #e6f1ff, #f0f8ff); /* Subtle blue gradient */
-    color: #333;
+    background: linear-gradient(to right, #e6f1ff, #f0f8ff);
+    color: var(--text-color);
     font-size: 1.2em;
 }
 
@@ -12,15 +21,20 @@ section {
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px; /* Increased margin for separation */
+    margin-bottom: 30px;
     padding: 25px;
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
-    transition: box-shadow 0.3s; /* Smooth transition for hover effect */
+    transition: box-shadow 0.3s;
 }
 
 section:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+
+header:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
@@ -29,30 +43,46 @@ header {
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px;
-    background-color: #1565C0; /* Adjust the color as per your theme */
+    background: linear-gradient(to right, #123E6B, #12497C); /* Very subtle gradient from dark to slightly lighter blue */
     color: white;
     text-align: center;
     padding: 20px 0;
-    margin-top: 30px; /* Adds space from the top */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    border-radius: 10px; /* Optional: Adds rounded corners */
+    margin-top: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: box-shadow 0.3s;
 }
 
 
 header h1 {
     margin: 0;
-    font-size: 3em; /* Larger font size for header */
+    font-size: 3em;
+    font-family: var(--secondary-font);
 }
-
 main {
-    padding: 25px;
+    padding: 30px;
 }
 
-section h2, section h3 {
-    color: #1E88E5; /* Softer blue for headings */
+section h2 {
+    color: var(--dark-blue);
     margin-bottom: 15px;
+    font-family: var(--secondary-font);
 }
 
+section h3 {
+    color: var(--soft-blue);
+    margin-bottom: 15px;
+    font-family: var(--secondary-font);
+}
+
+footer {
+    background-color: var(--dark-blue);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    bottom: 0;
+    width: 100%;
+}
 .event-details {
     display: flex;
     justify-content: space-between;
@@ -101,6 +131,11 @@ footer {
     max-width: 400px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.intro-image img:hover {
+    transform: scale(1.05);
 }
 
 /* Responsive behavior */

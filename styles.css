@@ -1,85 +1,62 @@
-/* General Body Styling */
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: #f0f2f5;
     color: #333;
 }
 
-/* Header and Navigation */
 header {
-    background: #2E312F;
-    color: #fff;
-    padding: 10px 0;
+    background-color: #4A90E2;
+    color: white;
     text-align: center;
+    padding: 20px 0;
 }
 
 header h1 {
     margin: 0;
+    font-size: 2.5em;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+main {
+    padding: 20px;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-/* Section Styling */
 section {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
     padding: 20px;
-    margin-top: 20px;
 }
 
-/* Specific Section Styles */
-#story, #ceremony, #reception, #rsvp, #directions {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+section h2, section h3 {
+    color: #333;
+    margin-bottom: 10px;
 }
 
-#story h2, #ceremony h2, #reception h2, #rsvp h2, #directions h2 {
-    background: #4A90E2;
-    color: #fff;
-    padding: 10px;
-    margin-top: 0;
-    border-radius: 5px 5px 0 0;
+.event-details {
+    display: flex;
+    justify-content: space-between;
 }
 
-/* Footer Styling */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #2E312F;
-    color: #fff;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+.event-details div {
+    flex-basis: 48%;
 }
 
-/* Responsive iframe for Google Form and Map */
 iframe {
     width: 100%;
     border: none;
-    border-radius: 5px;
+    margin-top: 10px;
+    border-radius: 10px;
 }
 
-/* Adjust iframe height as needed for better appearance */
-#rsvp iframe {
-    height: 600px; /* Adjust as necessary */
-}
-
-#directions iframe {
-    height: 450px; /* Adjust as necessary */
+footer {
+    background-color: #2E312F;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
 }

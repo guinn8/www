@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shauna and Gavin's Wedding</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Guinn-Pelletier Wedding</h1>
+        <h2><em>June 1, 2024</em></h2>
+    </header>
+
+    <main>
+        <section id="intro">
+            <h2>Celebrating our Relationship</h2>
+
+            <div class="intro-container">
+                <div class="intro-text">
+                    <p>We are delighted to invite you to the Guinn-Pelletier wedding on June 1st, 2024. Please RSVP and review the event details below.</p>
+                    <p>Shauna and Gavin's story began in 2013 in the Bishop Grandin Marching Ghosts, sparking a lasting bond in the intensity of the program. Years of friendship and growth led to a memorable proposal at Lake O'Hara in Yoho National Park on December 11, 2022. We invite you to join us as we celebrate the next step in our journey together.</p>
+                </div>
+                <div class="intro-image">
+                    <img src="proposal.JPG" alt="Shauna and Gavin's Proposal" />
+                </div>
+            </div>
+        </section>
+        
+        <section id="rsvp">
+            <h2>Confirm Your Attendance</h2>
+            <p>Please confirm your intention to attend the ceremony and reception on June 1st, 2024 by submitting the form below. We are accepting cash gifts to help finance our honeymoon to Japan and Korea!</p>
+            <iframe id="google-form-iframe" width="1000" height="1150" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </section>
+
+        <section id="details">
+            <h2>Event Details</h2>
+            <div class="event-details">
+                <div>
+                    <h3>Ceremony</h3>
+                    <p><strong>Location:</strong> Glenfield Day Use, Fish Creek Park</p>
+                    <p><strong>Time:</strong> 1-2 PM, June 1, 2024</p>
+                    <p><strong>Description:</strong> At this outdoor venue we will have a covered group-use area reserved for our party.</p>
+                    <iframe id="ceremony-map-iframe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div>
+                    <h3>Reception</h3>
+                    <p><strong>Location:</strong> Skunk Works Distillery</p>
+                    <p><strong>Time:</strong> 6 PM-Late, June 1, 2024</p>
+                    <p><strong>Description:</strong> Private party space with catered food and drink tickets provided.</p>
+                    <iframe id="reception-map-iframe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <footer><p>Contact: gavinguinn1@gmail.com</p></footer>
+        
+    </main>
+
+    <script>
+        const CEREMONY_MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2514.8448013825196!2d-114.06992069879549!3d50.92658787996619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5371746c31c0452f%3A0xcd9fb4fc59ef068f!2sGlennfield%20-%20Fish%20Creek%20Provincial%20Park!5e0!3m2!1sen!2sca!4v1703953560682!5m2!1sen!2sca";
+        const RECEPTION_MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2509.8973627508217!2d-114.0552422234091!3d51.01804497170605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x537171064c3a4c49%3A0x1a2b7f9a9f3d52e4!2sSkunkworks%20Distillery%20-%20Moonshine%20and%20Small%20Party%20Room!5e0!3m2!1sen!2sca!4v1703953474420!5m2!1sen!2sca";
+        const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdWxLZ0pPXBaJyPKIZ0-dVtJPintHkz9d22sMVWgfns_YTl6w/viewform?embedded=true";
+
+        function setIframeSources() {
+            document.getElementById('ceremony-map-iframe').src = CEREMONY_MAP_URL;
+            document.getElementById('reception-map-iframe').src = RECEPTION_MAP_URL;
+            document.getElementById('google-form-iframe').src = GOOGLE_FORM_URL;
+        }
+
+        document.addEventListener('DOMContentLoaded', setIframeSources);
+    </script>
+
+</body>
+</html>

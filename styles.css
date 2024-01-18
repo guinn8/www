@@ -115,7 +115,6 @@ footer {
     align-items: center; /* Centers items on the cross-axis (vertically for column) */
     justify-content: center; /* Centers items on the main-axis (horizontally for column) */
     margin: auto;
-    max-width: 800px;
 }
 
 .intro-text, .intro-image {

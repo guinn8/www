@@ -24,27 +24,22 @@ body {
     max-width: 1000px;
     transition: box-shadow 0.3s;
     padding: 25px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.card-style:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 section {
     background: white;
-    margin-bottom: 30px;
 }
 
 header {
     background: linear-gradient(to right, #123E6B, #12497C);
     color: white;
     text-align: center;
-    margin-top: 30px;
-}
-
-
-section:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-}
-
-header:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 header h1 {

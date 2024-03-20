@@ -16,13 +16,31 @@ body {
 
 .slide {
     height: 100vh;
-    padding: 20px;
+    padding: 50px 20px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     position: relative;
 }
+
+.slide h2 {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.slide ul {
+    list-style: inside;
+    text-align: center;
+    padding: 0;
+}
+
+.slide li {
+    font-size: 20px;
+}
+
 
 .slide:nth-child(odd) {
     background-color: #fff;

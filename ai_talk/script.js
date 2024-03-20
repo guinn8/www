@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     let currentIndex = findCurrentSlideIndex();
-    if (currentIndex === -1) currentIndex = 0; // Default to first slide if hash is not found
+    if (currentIndex === -1) currentIndex = 0;
 
     const scrollToSlide = (index) => {
         const targetSlide = slides[index];
@@ -27,10 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (direction === 'next' && currentIndex < slides.length - 1) {
             currentIndex++;
         } else {
-            // Do nothing if we're at the first/last slide and trying to go further
             return;
         }
-        window.location.hash = slides[currentIndex].id; // Update URL's fragment
+        window.location.hash = slides[currentIndex].id;
         scrollToSlide(currentIndex);
     };
 

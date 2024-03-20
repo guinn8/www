@@ -10,7 +10,7 @@
 
 <body>
     <div class="slide-container">
-        <section  class="slide">
+        <section class="slide">
             <div class="slide-content">
                 <h2>Who Am I?</h2>
                 <ul>
@@ -23,7 +23,7 @@
     </div>
 
     <div class="slide-container">
-        <section  class="slide">
+        <section class="slide">
             <div class="slide-content">
                 <h2>Motivation</h2>
                 <ul>
@@ -37,7 +37,7 @@
     </div>
 
     <div class="slide-container">
-        <section  class="slide">
+        <section class="slide">
             <div class="slide-content">
                 <h2>Agenda</h2>
                 <ul>
@@ -49,9 +49,9 @@
             </div>
         </section>
     </div>
-    
+
     <div class="slide-container">
-        <section  class="slide">
+        <section class="slide">
             <div class="slide-content">
                 <h2>AI basics</h2>
                 <ul>
@@ -67,7 +67,7 @@
         </section>
     </div>
     <div class="slide-container">
-        <section  class="slide">
+        <section class="slide">
             <div class="slide-content">
                 <h2>Machine Learning: The Foundation of Modern AI</h2>
                 <ul>
@@ -82,7 +82,7 @@
         </section>
     </div>
     <div class="slide-container">
-        <section  class="slide">
+        <section class="slide">
             <div class="slide-content">
                 <h2>Three Types of Machine Learning</h2>
                 <ul>
@@ -108,7 +108,7 @@
         </section>
     </div>
     <div class="slide-container">
-        <section  class="slide">
+        <section class="slide">
             <div class="slide-content">
                 <h2>Supervised Learning and Image Classification</h2>
                 <ul>
@@ -125,7 +125,7 @@
         </section>
     </div>
     <div class="slide-container">
-        <section  class="slide">
+        <section class="slide">
             <div class="slide-content">
                 <h2>A Minimal Example: Classifying Cats and Dogs</h2>
                 <ul>
@@ -147,7 +147,7 @@
         </section>
     </div>
     <div class="slide-container">
-        <section  class="slide">
+        <section class="slide">
             <div class="slide-content">
                 <h2>The Role of Labeled Data</h2>
                 <ul>
@@ -161,7 +161,7 @@
         </section>
     </div>
     <div class="slide-container">
-        <section  class="slide">
+        <section class="slide">
             <div class="slide-content">
                 <h2>Training the Image Classifier</h2>
                 <ul>
@@ -177,7 +177,7 @@
         </section>
     </div>
     <div class="slide-container">
-        <section  class="slide">
+        <section class="slide">
             <div class="slide-content">
                 <h2>Evaluating the Trained Model</h2>
                 <ul>
@@ -196,7 +196,7 @@
         </section>
     </div>
     <div class="slide-container">
-        <section  class="slide">
+        <section class="slide">
             <div class="slide-content">
                 <h2>From Image Classification to Generative AI</h2>
                 <ul>
@@ -208,6 +208,169 @@
                     <li>Potential to revolutionize industries (art, design, data augmentation, simulation)</li>
                 </ul>
                 <!-- The principles of supervised learning, as demonstrated in the image classification example, extend to other domains and applications of AI. Generative AI is an exciting area that focuses on creating new content, such as images, text, or music, based on learned patterns from training data. Generative models, like Generative Adversarial Networks (GANs) and Variational Autoencoders (VAEs), learn to capture the underlying distribution of the training data and generate new samples that resemble the original data. The success of generative AI relies on large-scale datasets, advanced model architectures, and powerful computational resources. Generative AI has the potential to revolutionize various industries, from creative applications like art and design to practical use cases like data augmentation and simulation. -->
+            </div>
+        </section>
+    </div>
+
+    <div class="slide-container">
+        <section class="slide">
+            <div class="slide-content">
+                <h2>Large Language Models</h2>
+                <ul>
+                    <li>What is an LLM?</li>
+                    <li>ChatGPT is a commercial product running on the GPT-3.5 or GPT-4 model</li>
+                    <li>Related to what people have seen (i.e., GPT-3.5)</li>
+                    <li>The most popular example is a large language model (LLM) based on the attention mechanism</li>
+                    <li>LLMs are next-word prediction engines</li>
+                </ul>
+                <!-- Speaker notes: - Explain what an LLM is and how it works - Discuss ChatGPT as a popular example of an LLM - Mention that LLMs are based on the attention mechanism and are essentially next-word prediction engines -->
+            </div>
+        </section>
+    </div>
+    <div class="slide-container">
+        <section class="slide">
+            <div class="slide-content">
+                <h2>What is inside an LLM?</h2>
+                <ul>
+                    <li>An LLM generates text by referencing a parameters file to predict the next word in the sequence
+                    </li>
+                    <li>This file can be small and run on consumer hardware (think Macbook)</li>
+                    <li>The best models use huge parameters files (hundreds of GBs) and require specialized hardware
+                    </li>
+                    <li>A parameters file is the result of training the neural network</li>
+                    <li>This process compresses info from the training data into the output file</li>
+                    <li>The training data is often a corpus of text scraped off the internet (think sites like Reddit or
+                        Wikipedia)</li>
+                    <li>The best models train on a substantial portion of the data available on the internet at huge
+                        expense</li>
+                </ul>
+                <!-- Speaker notes: - Explain how an LLM generates text using a parameters file - Discuss the size of the parameters file and the hardware requirements for the best models - Mention that the parameters file is the result of training the neural network on a large corpus of text data - Highlight that the best models train on a substantial portion of the internet data at a huge expense -->
+            </div>
+        </section>
+    </div>
+    <div class="slide-container">
+        <section class="slide">
+            <div class="slide-content">
+                <h2>The Attention Mechanism</h2>
+                <ul>
+                    <li>Attention as the key innovation in LLMs</li>
+                    <li>Text prediction has existed for a long time, but hasn't been particularly impressive</li>
+                    <li>Example: "I went to the Calgary Stampede and met a nice [day]" (phone keyboard)</li>
+                    <li>Example: "I went to the Calgary Stampede and met a nice [cowboy]." (GPT-3.5)</li>
+                </ul>
+                <!-- Speaker notes: - Explain the attention mechanism as the key innovation in LLMs - Compare the performance of traditional text prediction (e.g., phone keyboards) with LLMs like GPT-3.5 - Provide examples to illustrate the difference in text completion quality between traditional methods and LLMs -->
+            </div>
+        </section>
+    </div>
+    <div class="slide-container">
+        <section class="slide">
+            <div class="slide-content">
+                <h2>Text Completion</h2>
+                <ul>
+                    <li>Example prompt: "I have a dog and I want to name him but I don't know what to name him. I want a
+                        name that is not too common and not too weird."</li>
+                    <li>Example completion: "List of dog name ideas: Rex, Spot, Buddy, Max, Charlie, Bailey, Molly,
+                        Daisy, Lucy, Maggie, Rocky, Shadow, Toby, Bailey, Sadie, Molly, Maggie, Max, Charlie, Buddy,
+                        Jack"</li>
+                    <li>Generated by davinci-002</li>
+                </ul>
+                <!-- Speaker notes: - Provide an example of a text completion prompt and the generated output - Mention the specific model used for the completion (e.g., davinci-002) - Discuss how LLMs can generate coherent and relevant text based on the given prompt -->
+            </div>
+        </section>
+    </div>
+    <div class="slide-container">
+        <section class="slide">
+            <div class="slide-content">
+                <h2>Helpful Assistant</h2>
+                <ul>
+                    <li>We want AI to respond to queries like a dedicated and helpful human</li>
+                    <li>Continuing a sentence in the most likely way possible doesn't get you a helpful assistant</li>
+                    <li>The AI system is trained to roleplay as a helpful assistant</li>
+                </ul>
+                <!-- Speaker notes: - Explain the goal of creating AI systems that can respond to queries like a dedicated and helpful human - Mention that simply continuing a sentence in the most likely way is not enough to create a helpful assistant - Discuss how AI systems are trained to roleplay as helpful assistants to provide more useful and relevant responses -->
+            </div>
+        </section>
+    </div>
+    <div class="slide-container">
+        <section class="slide">
+            <div class="slide-content">
+                <h2>AI Safety in Practice</h2>
+                <ul>
+                    <li>Trade-off between safety and usefulness</li>
+                    <li>Tips for Effective LLM Use: <ul>
+                            <li>Crafting specific prompts and breaking tasks into steps</li>
+                            <li>Iterative refinement and providing examples</li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Speaker notes: - Discuss the trade-off between safety and usefulness in AI systems - Provide tips for effective LLM use, such as crafting specific prompts, breaking tasks into steps, iterative refinement, and providing examples - Emphasize the importance of responsible AI development and deployment -->
+            </div>
+        </section>
+    </div>
+    <div class="slide-container">
+        <section class="slide">
+            <div class="slide-content">
+                <h2>Diffusion Models</h2>
+                <ul>
+                    <li>Introduction to diffusion for generating media</li>
+                    <li>High-level overview of the diffusion process</li>
+                </ul>
+                <!-- Speaker notes: - Introduce the concept of diffusion models for generating media - Provide a high-level overview of the diffusion process and how it works - Explain the potential applications of diffusion models in various domains -->
+            </div>
+        </section>
+    </div>
+    <div class="slide-container">
+        <section class="slide">
+            <div class="slide-content">
+                <h2>Diffusion Model Results</h2>
+                <ul>
+                    <li>Showcase of impressive generated images and media</li>
+                    <li>Current limitations and lack of full control</li>
+                </ul>
+                <!-- Speaker notes: - Present a showcase of impressive images and media generated using diffusion models - Discuss the current limitations of diffusion models and the lack of full control over the generated output - Highlight the potential for future improvements and advancements in diffusion models -->
+            </div>
+        </section>
+    </div>
+    <div class="slide-container">
+        <section class="slide">
+            <div class="slide-content">
+                <h2>Demo: Comfy UI</h2>
+                <ul>
+                    <li>Platforms and workflows being developed to use this tech locally and on the cloud</li>
+                </ul>
+                <!-- Speaker notes: - Introduce Comfy UI as an example of a platform or workflow being developed to use diffusion models locally and on the cloud - Provide a brief demo or overview of how Comfy UI works and its key features - Discuss the potential benefits of using platforms like Comfy UI for diffusion model workflows -->
+            </div>
+        </section>
+    </div>
+    <div class="slide-container">
+        <section class="slide">
+            <div class="slide-content">
+                <h2>Tips for Using Diffusion Models</h2>
+                <ul>
+                    <li>Prompt engineering strategies for diffusion</li>
+                    <li>Experimenting with different tools and upscaling</li>
+                </ul>
+                <!-- Speaker notes: - Share tips and strategies for effective prompt engineering when using diffusion models - Encourage experimentation with different tools and techniques, such as upscaling, to enhance the quality of generated media - Provide examples or case studies of successful prompt engineering and experimentation with diffusion models -->
+            </div>
+        </section>
+    </div>
+    <div class="slide-container">
+        <section class="slide">
+            <div class="slide-content">
+                <h2>Advances in Diffusion Models</h2>
+                <ul>
+                    <li>Recent progress and demos (e.g., ControlNet)</li>
+                    <li>Potential for enhanced user control and customization</li>
+                </ul>
+                <!-- Speaker notes: - Discuss recent progress and advancements in diffusion models, such as ControlNet - Highlight the potential for enhanced user control and customization in future diffusion models - Provide examples or demos of cutting-edge diffusion model techniques and their implications -->
+            </div>
+        </section>
+    </div>
+    <div class="slide-container">
+        <section class="slide">
+            <div class="slide-content">
+                <h2>Conclusion and AGI</h2>
+                <!-- Speaker notes: - Summarize the key points covered in the presentation - Discuss the potential implications of LLMs and diffusion models for the development of Artificial General Intelligence (AGI) - Encourage further exploration and responsible development of these technologies - Open the floor for questions and discussion -->
             </div>
         </section>
     </div>

@@ -56,13 +56,14 @@ body {
 }
 
 .navigation {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: fixed; /* Fixed positioning relative to the viewport */
+    bottom: 20px; /* 20px from the bottom */
+    right: 20px; /* 20px from the right */
     display: flex;
+    flex-direction: column; /* Stack buttons vertically */
     gap: 10px;
-  }
+}
+
 .prev-btn,
 .next-btn {
     background-color: transparent;
@@ -70,5 +71,5 @@ body {
     font-size: 24px;
     color: #333;
     cursor: pointer;
-    padding: 10px 10px;
+    padding: 10px;
 }

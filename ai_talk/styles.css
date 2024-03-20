@@ -25,35 +25,33 @@ body {
     padding: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: top;
+    align-items: left;
+    background-color: #fff;
     position: relative;
 }
 
 .slide h2 {
   font-size: 40px;
   font-weight: bold;
-  text-align: center;
+  text-align: left; /* Align to the left */
   margin-bottom: 30px;
+  margin-left: 50px; /* Add a left margin */
 }
 
 .slide ul {
   list-style: inside;
-  text-align: center;
+  text-align: left; /* Align to the left */
   padding: 0;
+  margin-left: 50px; /* Add a left margin for the bullet points */
 }
 
 .slide li {
   font-size: 24px;
+  margin-bottom: 10px; /* Add some space between list items */
 }
 
-.slide:nth-child(odd) {
-    background-color: #fff;
-}
 
-.slide:nth-child(even) {
-    background-color: #f0f0f0;
-}
 
 .navigation {
     position: fixed; /* Fixed positioning relative to the viewport */

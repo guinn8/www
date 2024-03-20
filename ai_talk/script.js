@@ -2,13 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.slide');
     const [prevButton, nextButton] = ['.prev-btn', '.next-btn'].map(selector => document.querySelector(selector));
 
-    const findCurrentSlideIndex = () => {
-        const currentHash = window.location.hash;
-        return Array.from(slides).findIndex(slide => `#${slide.id}` === currentHash);
-    };
-
     let currentIndex = findCurrentSlideIndex();
     if (currentIndex === -1) currentIndex = 0;
+    updateHashSilently(currentIndex); // Update hash without scroll
 
     const scrollToSlide = (index) => {
         const targetSlide = slides[index];
@@ -29,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             return;
         }
-        window.location.hash = slides[currentIndex].id;
+        updateHashSilently(currentIndex); // Change for silent update
         scrollToSlide(currentIndex);
     };
 
@@ -43,5 +39,35 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollToSlide(currentIndex);
         }
     });
-});
 
+    window.addEventListener('scroll', updateHashOnScroll);
+
+    function findCurrentSlideIndex() {
+        const currentHash = window.location.hash;
+        return Array.from(slides).findIndex(slide => `#${slide.id}` === currentHash);
+    }
+
+    function updateHashSilently(index) {
+        const id = slides[index].id;
+        history.replaceState(null, null, '#' + id);
+    }
+
+    function updateHashOnScroll() {
+        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        let closestSlideIndex = 0;
+        let smallestDifference = Infinity;
+
+        slides.forEach((slide, index) => {
+            const difference = Math.abs(slide.offsetTop - scrollPosition);
+            if (difference < smallestDifference) {
+                smallestDifference = difference;
+                closestSlideIndex = index;
+            }
+        });
+
+        if (closestSlideIndex !== currentIndex) {
+            currentIndex = closestSlideIndex;
+            updateHashSilently(currentIndex);
+        }
+    }
+});

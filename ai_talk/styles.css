@@ -1,73 +1,70 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
 }
 
 .slide-container {
-  width: 100vw;  /* Set width to 100% of the viewport width */
-  height: 100vh; /* Set height to 100% of the viewport height */
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Prevent scrolling */
+  overflow: hidden;
 }
 
-
 .slide {
-    width: 1200px; /* Fixed width for each slide */
-    height: 800px; /* Optional: Fixed height for each slide if needed */
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: top;
-    align-items: left;
-    background-color: #fff;
-    position: relative;
+  width: 1200px;
+  height: 800px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: left;
+  background-color: #fff;
+  position: relative;
 }
 
 .slide h2 {
   font-size: 40px;
   font-weight: bold;
-  text-align: left; /* Align to the left */
+  text-align: left;
   margin-bottom: 30px;
-  margin-left: 50px; /* Add a left margin */
+  margin-left: 50px;
 }
 
 .slide ul {
   list-style: inside;
-  text-align: left; /* Align to the left */
+  text-align: left;
   padding: 0;
-  margin-left: 50px; /* Add a left margin for the bullet points */
+  margin-left: 50px;
 }
 
 .slide li {
   font-size: 24px;
-  margin-bottom: 10px; /* Add some space between list items */
+  margin-bottom: 10px;
 }
 
-
-
 .navigation {
-    position: fixed; /* Fixed positioning relative to the viewport */
-    bottom: 20px; /* 20px from the bottom */
-    right: 20px; /* 20px from the right */
-    display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 10px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .prev-btn,
 .next-btn {
-    background-color: transparent;
-    border: none;
-    font-size: 24px;
-    color: #333;
-    cursor: pointer;
-    padding: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  padding: 10px;
 }

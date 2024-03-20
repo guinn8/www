@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     function updateHashSilently(index) {
         const id = slides[index].id;
-        history.replaceState(null, null, '#' + id);
+        history.replaceState(null, null, '#' + index);
     }
     function updateHashOnScroll() {
         const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;

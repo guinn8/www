@@ -1,49 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Talks Slideshow</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="slide-container">
-        <section id="slide1" class="slide">
+        <section  class="slide">
             <div class="slide-content">
-                <h2>Slide 1 Heading</h2>
+                <h2>Who Am I?</h2>
                 <ul>
-                    <li>Bullet point 1</li>
-                    <li>Bullet point 2</li>
+                    <li>Professional software engineer with a BSc in Computer Science</li>
+                    <li>Extensive experience using GPT-4 almost every day for about a year</li>
+                    <li>Passionate about the advancements in AI and eager to share knowledge and insights</li>
                 </ul>
+            </div>
+        </section>
+    </div>
+
+    <div class="slide-container">
+        <section  class="slide">
+            <div class="slide-content">
+                <h2>Motivation</h2>
+                <ul>
+                    <li>Excitement and concern over recent developments in AI</li>
+                    <li>Desire to help others understand and effectively use AI tools</li>
+                    <li>Belief that knowledge of AI workings can enhance user outcomes</li>
+                    <li>Observation of AI's rapid improvement and its impact on daily life</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <div class="slide-container">
+        <section  class="slide">
+            <div class="slide-content">
+                <h2>Agenda</h2>
+                <ul>
+                    <li>Introduction to AI basics and their significance</li>
+                    <li>Deep dive into Large Language Models (LLM): Capabilities and practical uses</li>
+                    <li>Exploration of Diffusion Models: Media generation and user control</li>
+                    <li>Current limitations, ongoing rapid progress, and future prospects in AI technology</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    
+    <div class="slide-container">
+        <section  class="slide">
+            <div class="slide-content">
+                <h2>AI basics</h2>
+                <ul>
+                    <li>What is AI?</li>
+                    <li>AI: Artificial Intelligence</li>
+                    <li>Computer systems that perform tasks requiring human-like intelligence</li>
+                    <li>Based on artificial neural networks inspired by the human brain</li>
+                    <li>AI systems "learn" and improve over time</li>
+                    <li>Machine Learning: Enabling computers to learn from data</li>
+                </ul>
+                <!-- AI, or Artificial Intelligence, refers to the development of computer systems that can perform tasks that typically require human intelligence. Today's AI is largely based on artificial neural networks, which are inspired by the structure and function of the human brain. AI systems are designed to "learn" and improve their performance on a specific task over time, without being explicitly programmed. The field of AI that focuses on enabling computers to learn from data is called Machine Learning. -->
             </div>
         </section>
     </div>
     <div class="slide-container">
-        <section id="slide2" class="slide">
+        <section  class="slide">
             <div class="slide-content">
-                <h2>Slide 2 Heading</h2>
+                <h2>Machine Learning: The Foundation of Modern AI</h2>
                 <ul>
-                    <li>Bullet point 1</li>
-                    <li>Bullet point 2</li>
+                    <li>Machine Learning: A subfield of AI</li>
+                    <li>Enables computers to learn and improve without explicit programming</li>
+                    <li>Computers learn from large amounts of data</li>
+                    <li>Identify patterns, make predictions, and decisions</li>
+                    <li>Driving force behind recent AI advancements</li>
                 </ul>
+                <!-- Machine Learning is a subfield of AI that focuses on enabling computers to learn and improve their performance on a task without being explicitly programmed. In Machine Learning, the computer is fed large amounts of data and learns to identify patterns and make predictions or decisions based on that data. The more data the machine learning algorithm is exposed to, the better it becomes at its task. Machine Learning has been the driving force behind the recent advancements and applications of AI in various domains. -->
             </div>
         </section>
     </div>
     <div class="slide-container">
-        <section id="slide3" class="slide">
+        <section  class="slide">
             <div class="slide-content">
-                <h2>Slide 3 Heading</h2>
+                <h2>Three Types of Machine Learning</h2>
                 <ul>
-                    <li>Bullet point 1</li>
-                    <li>Bullet point 2</li>
+                    <li>Three Types of Machine Learning</li>
+                    <li>Supervised Learning</li>
+                    <ul>
+                        <li>Learning from labeled data</li>
+                        <li>Mapping input data to correct output labels</li>
+                    </ul>
+                    <li>Unsupervised Learning</li>
+                    <ul>
+                        <li>Finding patterns in unlabeled data</li>
+                        <li>Discovering hidden patterns or groupings</li>
+                    </ul>
+                    <li>Reinforcement Learning</li>
+                    <ul>
+                        <li>Learning through interaction with an environment</li>
+                        <li>Receiving rewards or penalties for actions</li>
+                    </ul>
                 </ul>
+                <!-- There are three main types of Machine Learning: supervised learning, unsupervised learning, and reinforcement learning. Supervised learning involves learning from labeled data, where the desired output is known. The algorithm learns to map input data to the correct output labels. Unsupervised learning involves finding patterns and structures in unlabeled data. The algorithm discovers hidden patterns or groupings in the data without any predefined labels. Reinforcement learning involves an agent learning to make decisions through interaction with an environment. The agent learns by receiving rewards or penalties for its actions. -->
             </div>
         </section>
     </div>
-    <div class="navigation">
-        <button class="prev-btn">&#8593;</button>
-        <button class="next-btn">&#8595;</button>
-    </div>    
+    <div class="slide-container">
+        <section  class="slide">
+            <div class="slide-content">
+                <h2>Supervised Learning and Image Classification</h2>
+                <ul>
+                    <li>Supervised Learning</li>
+                    <li>Most common type of Machine Learning</li>
+                    <li>Trained on labeled data (input + corresponding output label)</li>
+                    <li>Learns a mapping function to predict labels for new data</li>
+                    <li>Image Classification</li>
+                    <li>Application of supervised learning</li>
+                    <li>Assigning class labels to input images based on content</li>
+                </ul>
+                <!-- Supervised learning is the most common type of Machine Learning and is widely used in applications like image classification. In supervised learning, the algorithm is trained on a labeled dataset, where each example consists of an input (e.g., an image) and its corresponding output label (e.g., "cat" or "dog"). The goal is to learn a mapping function that can predict the correct label for new, unseen input data. Image classification is a popular application of supervised learning, where the task is to assign a class label to an input image based on its content. -->
+            </div>
+        </section>
+    </div>
+    <div class="slide-container">
+        <section  class="slide">
+            <div class="slide-content">
+                <h2>A Minimal Example: Classifying Cats and Dogs</h2>
+                <ul>
+                    <li>Example: Classifying Cats and Dogs</li>
+                    <li>Labeled dataset:</li>
+                    <ul>
+                        <li>Images of cats and dogs</li>
+                        <li>Corresponding labels ("cat" or "dog")</li>
+                    </ul>
+                    <li>Dataset split:</li>
+                    <ul>
+                        <li>Training set: Used to train the model</li>
+                        <li>Test set: Used to evaluate the model's performance</li>
+                    </ul>
+                    <li>Model learns to extract features and map them to labels</li>
+                </ul>
+                <!-- Let's consider a minimal example of image classification: distinguishing between images of cats and dogs. To train a machine learning model for this task, we need a labeled dataset consisting of images of cats and dogs, along with their respective labels. The dataset is typically split into a training set, used to train the model, and a test set, used to evaluate the model's performance on unseen data. The model learns to extract relevant features from the images and map them to the corresponding labels during training. -->
+            </div>
+        </section>
+    </div>
+    <div class="slide-container">
+        <section  class="slide">
+            <div class="slide-content">
+                <h2>The Role of Labeled Data</h2>
+                <ul>
+                    <li>Labeled Data: Crucial for Supervised Learning</li>
+                    <li>Each example: Input + Corresponding Output Label</li>
+                    <li>Quality and diversity of labeled data impact model performance</li>
+                    <li>Collecting and annotating labeled data can be time-consuming and expensive</li>
+                </ul>
+                <!-- Labeled data plays a crucial role in supervised learning, as it provides the ground truth for the model to learn from. Each example in the labeled dataset consists of an input (e.g., an image) and its corresponding output label (e.g., "cat" or "dog"). The quality and diversity of the labeled data directly impact the model's performance and its ability to generalize to new, unseen data. Collecting and annotating large amounts of labeled data can be time-consuming and expensive, but it is essential for training accurate models. -->
+            </div>
+        </section>
+    </div>
+    <div class="slide-container">
+        <section  class="slide">
+            <div class="slide-content">
+                <h2>Training the Image Classifier</h2>
+                <ul>
+                    <li>Training an Image Classifier</li>
+                    <li>Feed labeled dataset to a machine learning model (neural network)</li>
+                    <li>Model learns to map input images to corresponding labels</li>
+                    <li>Loss function measures the model's performance</li>
+                    <li>Model's parameters are updated to minimize the loss</li>
+                    <li>Training continues until satisfactory performance is reached</li>
+                </ul>
+                <!-- Training an image classifier involves feeding the labeled dataset to a machine learning model, typically a neural network. The model learns to map input images to their corresponding labels by adjusting its internal parameters. During training, the model's performance is measured using a loss function, which quantifies the difference between the predicted labels and the true labels. The model's parameters are iteratively updated to minimize the loss function, allowing the model to improve its predictions over time. The training process continues until the model reaches a satisfactory level of performance on the training data. -->
+            </div>
+        </section>
+    </div>
+    <div class="slide-container">
+        <section  class="slide">
+            <div class="slide-content">
+                <h2>Evaluating the Trained Model</h2>
+                <ul>
+                    <li>Evaluating the Trained Model</li>
+                    <li>Assess the model's performance on unseen data (test set)</li>
+                    <li>Evaluation metrics:</li>
+                    <ul>
+                        <li>Accuracy: Overall correctness of predictions</li>
+                        <li>Precision and Recall: Performance for each class</li>
+                    </ul>
+                    <li>Good performance on the test set indicates generalization ability</li>
+                    <li>Poor performance may suggest overfitting or biased data</li>
+                </ul>
+                <!-- After training, it is crucial to evaluate the model's performance on unseen data to assess its ability to generalize. The test set, which consists of labeled examples that were not used during training, is used for evaluation. Common evaluation metrics for image classification include accuracy, precision, recall, and F1 score. Accuracy measures the overall correctness of the model's predictions, while precision and recall focus on the model's performance for each class. If the model performs well on the test set, it indicates that it has learned meaningful patterns and can generalize to new data. However, if the model performs poorly on the test set, it may suggest issues like overfitting or biased data. -->
+            </div>
+        </section>
+    </div>
+    <div class="slide-container">
+        <section  class="slide">
+            <div class="slide-content">
+                <h2>From Image Classification to Generative AI</h2>
+                <ul>
+                    <li>From Image Classification to Generative AI</li>
+                    <li>Principles of supervised learning extend to other domains</li>
+                    <li>Generative AI: Creating new content based on learned patterns</li>
+                    <li>Generative models (GANs, VAEs) capture data distribution and generate new samples</li>
+                    <li>Success relies on large-scale datasets, advanced architectures, and computational resources</li>
+                    <li>Potential to revolutionize industries (art, design, data augmentation, simulation)</li>
+                </ul>
+                <!-- The principles of supervised learning, as demonstrated in the image classification example, extend to other domains and applications of AI. Generative AI is an exciting area that focuses on creating new content, such as images, text, or music, based on learned patterns from training data. Generative models, like Generative Adversarial Networks (GANs) and Variational Autoencoders (VAEs), learn to capture the underlying distribution of the training data and generate new samples that resemble the original data. The success of generative AI relies on large-scale datasets, advanced model architectures, and powerful computational resources. Generative AI has the potential to revolutionize various industries, from creative applications like art and design to practical use cases like data augmentation and simulation. -->
+            </div>
+        </section>
+    </div>
+    <div class="navigation"> <button class="prev-btn">&#8593;</button> <button class="next-btn">&#8595;</button> </div>
     <script src="script.js"></script>
 </body>
+
 </html>

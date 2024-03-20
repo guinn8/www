@@ -7,15 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
   updateHashSilently(currentIndex); // Update hash without scroll
 
   const scrollToSlide = (index) => {
-      const targetSlide = slides[index];
-      if (targetSlide) {
-          const topPosition = targetSlide.offsetTop;
-          window.scrollTo({
-              top: topPosition,
-              behavior: 'smooth'
-          });
-      }
-  };
+    const targetSlide = slides[index];
+    if (targetSlide) {
+        const topPosition = targetSlide.offsetTop;
+        const offset = (window.innerHeight - targetSlide.offsetHeight) / 2;
+        window.scrollTo({
+            top: topPosition - offset,
+            behavior: 'smooth'
+        });
+    }
+};
 
   const navigateSlide = (direction) => {
       if (direction === 'prev' && currentIndex > 0) {

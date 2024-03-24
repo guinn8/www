@@ -64,7 +64,7 @@ body {
   gap: 20px;
   width: 100%;
   max-width: 80%;
-  height: 80px;
+  height: 110px;
 }
 
 .bird-image {
@@ -90,7 +90,7 @@ body {
 .slide li {
   font-size: clamp(1rem, 1.5vw, 2rem);
   margin-bottom: 10px;
-  text-indent: -1.5em; /* Adjust this value as needed */
+  text-indent: -1.5em;
   padding-left: 1.5em;
 }
 

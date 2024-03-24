@@ -52,6 +52,12 @@ body {
   position: relative;
 }
 
+.floating-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .bird-container {
   position: absolute;
   bottom: 20px;
@@ -71,6 +77,15 @@ body {
   max-height: 100%;
   object-fit: contain;
 }
+
+.slide h1 {
+  font-size: clamp(2rem, 5vw, 5rem); /* Responsive font size */
+  color: #ffffff; /* White text color for contrast */
+  text-shadow: 2px 2px  rgb(0, 0, 0); /* Text shadow for legibility */
+  text-align: center; /* Center the text */
+  margin-top: var(--slide-min-padding); /* Use the defined padding variable for margin */
+}
+
 .slide h2 {
   font-size: clamp(1.5rem, 2.5vw, 3rem);
   font-weight: bold;

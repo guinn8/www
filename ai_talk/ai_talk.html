@@ -69,6 +69,33 @@
     </div>
     <div class="slide">
         <div>
+            <h2>Presentation structure</h2>
+            <ul>
+                <li>AI basics 🧠</li>
+                <ul>
+                    <li>Key terms: AI, AGI</li>
+                    <li>High-level walkthrough of image classification as a minimal example of a neural network</li>
+                </ul>
+                <li>Deep dive into Large Language Models 🗣️</li>
+                <ul>
+                    <li>Focus on next word prediction and attention mechanism</li>
+                    <li>Concrete demonstrations to build an effective mental model</li>
+                </ul>
+                <li>Diffusion models for media generation 🎨</li>
+                <ul>
+                    <li>A whirlwind tour of media generation and future prospects</li>
+                </ul>
+                <li>Conclusion and AI trajectory 🚀</li>
+                <ul>
+                    <li>Scaling laws and model parameter count</li>
+                    <li>Speculation about the capacity of models powered by next-generation computers</li>
+                    <li>Tying back to the discussion of AGI and its implications</li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="slide">
+        <div>
             <h2>Why learn about AI tools?</h2>
             <ul>
                 <li><strong>Empowerment:</strong> Leveraging AI tools can empower you to create amazing work.</li>
@@ -86,7 +113,7 @@
         </div>
     </div>
     <div class="slide">
-    <!--
+        <!--
         This slide shows a graph of gpt model sizes overtime to demonstrate the rapid growth in parameter count
     -->
         <div>
@@ -114,33 +141,7 @@
             </div>
         </div>
     </div>
-    <div class="slide">
-        <div>
-            <h2>Presentation structure</h2>
-            <ul>
-                <li>AI basics 🧠</li>
-                <ul>
-                    <li>Key terms: AI, AGI</li>
-                    <li>High-level walkthrough of image classification as a minimal example of a neural network</li>
-                </ul>
-                <li>Deep dive into Large Language Models 🗣️</li>
-                <ul>
-                    <li>Focus on next word prediction and attention mechanism</li>
-                    <li>Concrete demonstrations to build an effective mental model</li>
-                </ul>
-                <li>Diffusion models for media generation 🎨</li>
-                <ul>
-                    <li>A whirlwind tour of media generation and future prospects</li>
-                </ul>
-                <li>Conclusion and AI trajectory 🚀</li>
-                <ul>
-                    <li>Scaling laws and model parameter count</li>
-                    <li>Speculation about the capacity of models powered by next-generation computers</li>
-                    <li>Tying back to the discussion of AGI and its implications</li>
-                </ul>
-            </ul>
-        </div>
-    </div>
+
 
     <!-- 
         SECTION START: AI BASICS
@@ -151,218 +152,154 @@
             <ul>
                 <li>AI encompasses the development of computer systems capable of performing tasks that traditionally
                     require human intelligence.</li>
-                <li>
-                    <strong>Task-Specific AI:</strong>
+                <li> <strong>Task-Specific AI:</strong>
                     <ul>
                         <li>Designed for specialized tasks, demonstrating intelligence in a narrow domain.</li>
-                        <li>image recognition is an example of this kind of AI.</li>
+                        <li>Image recognition, speech recognition, and game-playing AI are examples of task-specific AI.
+                        </li>
                     </ul>
                 </li>
-                <li>
-                    <strong>General AI (AGI):</strong>
+                <li> <strong>General AI (AGI):</strong>
                     <ul>
-                        <li>Systems that excel across a wide range of tasks outperforming human capabilities.</li>
-                        <li>Such a system could potentially improve itself.</li>
+                        <li>Systems that excel across a wide range of tasks, potentially surpassing human capabilities.
+                        </li>
+                        <li>AGI could learn and adapt to new situations without explicit programming.</li>
                     </ul>
                 </li>
-                <li>
-                    <strong>Shifting Perception of AI</strong>
+                <li> <strong>Shifting Perception of AI</strong>
                     <ul>
-                        <li>AI definition is fluid, adapting over time.</li>
-                        <li>Computers achieve tasks once thought uniquely human.</li>
-                        <li>Past AI breakthroughs may not be considered AI anymore.</li>
+                        <li>The definition of AI evolves as technology advances.</li>
+                        <li>Tasks once considered uniquely human are now routinely performed by AI systems.</li>
+                        <li>As AI capabilities expand, our understanding of what constitutes "true" intelligence also
+                            shifts.</li>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
-
-
     <div class="slide">
-        <!-- Speaker's Notes:
-        - Adaptability: Machine learning models become more accurate as they process more data, contrasting with the static nature of traditional programs.
-        - Generalization: These models can generalize from their training data to recognize and act upon patterns in new data, a task that is complex for traditional programming.
-        - Efficiency: Automating the learning process from data itself makes machine learning viable for solving really complex problems. 
-        -->
         <div>
             <h2>Machine Learning: Bridging Data and AI</h2>
             <ul>
-                <li>Unlike traditional programming, which relies on explicit rules, machine learning empowers computers
-                    to
-                    learn from data, improving their ability to perform tasks over time.</li>
-                <li><strong>Adaptability:</strong> Models refine their accuracy with each new piece of data.</li>
-                <li><strong>Generalization:</strong> They apply learned patterns to new, unseen situations.</li>
-                <li><strong>Efficiency:</strong> This approach streamlines the development of complex AI systems.</li>
+                <li>Machine learning enables computers to learn from data and improve their performance on tasks without
+                    being explicitly programmed.</li>
+                <li><strong>Adaptability:</strong> Just like humans learn from experience, machine learning models
+                    refine their accuracy as they process more data.</li>
+                <li><strong>Generalization:</strong> Machine learning models can identify patterns in data and apply
+                    them to new, unseen situations, similar to how we use past experiences to navigate new challenges.
+                </li>
+                <li><strong>Efficiency:</strong> Automating the learning process allows machine learning to tackle
+                    complex problems that would be impractical to solve with traditional programming methods.</li>
             </ul>
         </div>
     </div>
-
-
-
-
     <div class="slide">
-        <!-- 
-            There are three main types of Machine Learning: supervised learning, unsupervised learning, and reinforcement learning.
-            Supervised learning involves learning from labeled data, where the desired output is known.
-            The algorithm learns to map input data to the correct output labels.
-            Unsupervised learning involves finding patterns and structures in unlabeled data.
-            The algorithm discovers hidden patterns or groupings in the data without any predefined labels. 
-            Reinforcement learning involves an agent learning to make decisions through interaction with an environment. 
-            The agent learns by receiving rewards or penalties for its actions.
-        -->
         <div>
             <h2>Three Types of Machine Learning</h2>
             <ul>
-                <li>Three Types of Machine Learning</li>
-                <li>Supervised Learning</li>
+                <li><strong>Supervised Learning:</strong></li>
                 <ul>
-                    <li>Learning from labeled data</li>
-                    <li>Mapping input data to correct output labels</li>
+                    <li>Learning from labeled examples, like a teacher guiding a student.</li>
+                    <li>The algorithm learns to map input data to the correct output labels.</li>
                 </ul>
-                <li>Unsupervised Learning</li>
+                <li><strong>Unsupervised Learning:</strong></li>
                 <ul>
-                    <li>Finding patterns in unlabeled data</li>
-                    <li>Discovering hidden patterns or groupings</li>
+                    <li>Discovering hidden patterns and structures in unlabeled data.</li>
+                    <li>Similar to grouping similar objects together without prior knowledge of the categories.</li>
                 </ul>
-                <li>Reinforcement Learning</li>
+                <li><strong>Reinforcement Learning:</strong></li>
                 <ul>
-                    <li>Learning through interaction with an environment</li>
-                    <li>Receiving rewards or penalties for actions</li>
+                    <li>Learning through interaction with an environment, like a child learning from trial and error.
+                    </li>
+                    <li>The algorithm receives rewards or penalties for its actions and learns to make better decisions
+                        over time.</li>
                 </ul>
             </ul>
         </div>
     </div>
-
     <div class="slide">
-        <!-- 
-            Supervised learning is the most common type of Machine Learning and is widely used in applications like image classification. 
-            In supervised learning, the algorithm is trained on a labeled dataset,
-            where each example consists of an input (e.g., an image) and its corresponding output label (e.g., "cat" or "dog").
-            The goal is to learn a mapping function that can predict the correct label for new, unseen input data. 
-            Image classification is a popular application of supervised learning, where the task is to assign a class label to an input image based on its content.
-        -->
         <div>
-            <h2>Supervised Learning and Image Classification</h2>
+            <h2>Neural Networks: The Building Blocks of Modern AI</h2>
             <ul>
-                <li>Supervised Learning</li>
-                <li>Most common type of Machine Learning</li>
-                <li>Trained on labeled data (input + corresponding output label)</li>
-                <li>Learns a mapping function to predict labels for new data</li>
-                <li>Image Classification</li>
-                <li>Application of supervised learning</li>
-                <li>Assigning class labels to input images based on content</li>
+                <li>What are Neural Networks?
+                    <ul>
+                        <li>Neural networks are a type of machine learning algorithm inspired by the human brain.</li>
+                        <li>Consist of interconnected nodes (neurons) organized in layers</li>
+                    </ul>
+                </li>
+                <li>How do Neural Networks Learn?
+                    <ul>
+                        <li>Neurons receive inputs, process them, and pass outputs to the next layer</li>
+                        <li>Connections between neurons have weights that determine the strength of the signal</li>
+                        <li>Learning occurs by adjusting the weights to minimize prediction errors</li>
+                    </ul>
+                </li>
+                <li>Advantages of Neural Networks
+                    <ul>
+                        <li>Able to learn complex patterns and relationships in data</li>
+                        <li>Can handle large amounts of data and make accurate predictions</li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
-
     <div class="slide">
-        <!-- 
-            Let's consider a minimal example of image classification: distinguishing between images of cats and dogs.
-            To train a machine learning model for this task, we need a labeled dataset consisting of images of cats and dogs, along with their respective labels.
-            The dataset is typically split into a training set, used to train the model, and a test set, used to evaluate the model's performance on unseen data. 
-            The model learns to extract relevant features from the images and map them to the corresponding labels during training.
-        -->
         <div>
-            <h2>A Minimal Example: Classifying Cats and Dogs</h2>
+            <h2>A Concrete Example: Recognizing Cats and Dogs</h2>
             <ul>
-                <li>Example: Classifying Cats and Dogs</li>
-                <li>Labeled dataset:</li>
-                <ul>
-                    <li>Images of cats and dogs</li>
-                    <li>Corresponding labels ("cat" or "dog")</li>
-                </ul>
-                <li>Dataset split:</li>
-                <ul>
-                    <li>Training set: Used to train the model</li>
-                    <li>Test set: Used to evaluate the model's performance</li>
-                </ul>
-                <li>Model learns to extract features and map them to labels</li>
+                <li>Problem: Teach a neural network to recognize images of cats and dogs</li>
+                <li>Step 1: Collect and label a dataset of cat and dog images
+                    <ul>
+                        <li>Each image is labeled as either "cat" or "dog"</li>
+                        <li>The dataset should be diverse and representative of various breeds, angles, and backgrounds
+                        </li>
+                    </ul>
+                </li>
+                <li>Step 2: Feed the labeled images into the neural network
+                    <ul>
+                        <li>The network processes the images and learns to extract relevant features</li>
+                        <li>Features may include fur texture, ear shape, nose structure, etc.</li>
+                    </ul>
+                </li>
+                <li>Step 3: The network learns by adjusting its weights to minimize prediction errors
+                    <ul>
+                        <li>It learns to associate certain features with cats and others with dogs</li>
+                        <li>The goal is to minimize the difference between predicted and actual labels</li>
+                    </ul>
+                </li>
+                <li>Step 4: Test the trained network on new, unseen cat and dog images
+                    <ul>
+                        <li>The network uses its learned features to classify the new images</li>
+                        <li>The accuracy of the predictions is evaluated to assess the network's performance</li>
+                    </ul>
+                </li>
+                <li>Result: The network can accurately classify new cat and dog images
+                    <ul>
+                        <li>It has learned to generalize from the training examples to make predictions on unseen data
+                        </li>
+                        <li>The network can be further improved by training on larger and more diverse datasets</li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
 
     <div class="slide">
-        <!-- 
-            Labeled data plays a crucial role in supervised learning, as it provides the ground truth for the model to learn from.
-            Each example in the labeled dataset consists of an input (e.g., an image) and its corresponding output label (e.g., "cat" or "dog").
-            The quality and diversity of the labeled data directly impact the model's performance and its ability to generalize to new, unseen data.
-            Collecting and annotating large amounts of labeled data can be time-consuming and expensive, but it is essential for training accurate models.
-        -->
-        <div>
-            <h2>The Role of Labeled Data</h2>
-            <ul>
-                <li>Labeled Data: Crucial for Supervised Learning</li>
-                <li>Each example: Input + Corresponding Output Label</li>
-                <li>Quality and diversity of labeled data impact model performance</li>
-                <li>Collecting and annotating labeled data can be time-consuming and expensive</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <!-- 
-            Training an image classifier involves feeding the labeled dataset to a machine learning model, typically a neural network.
-            The model learns to map input images to their corresponding labels by adjusting its internal parameters. 
-            During training, the model's performance is measured using a loss function, which quantifies the difference between the predicted labels and the true labels.
-            The model's parameters are iteratively updated to minimize the loss function, allowing the model to improve its predictions over time.
-            The training process continues until the model reaches a satisfactory level of performance on the training data.
-        -->
-        <div>
-            <h2>Training the Image Classifier</h2>
-            <ul>
-                <li>Training an Image Classifier</li>
-                <li>Feed labeled dataset to a machine learning model (neural network)</li>
-                <li>Model learns to map input images to corresponding labels</li>
-                <li>Loss function measures the model's performance</li>
-                <li>Model's parameters are updated to minimize the loss</li>
-                <li>Training continues until satisfactory performance is reached</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <!-- 
-            After training, it is crucial to evaluate the model's performance on unseen data to assess its ability to generalize.
-            The test set, which consists of labeled examples that were not used during training, is used for evaluation.
-            Common evaluation metrics for image classification include accuracy, precision, recall, and F1 score. 
-            Accuracy measures the overall correctness of the model's predictions, while precision and recall focus on the model's performance for each class. 
-            If the model performs well on the test set, it indicates that it has learned meaningful patterns and can generalize to new data. 
-            However, if the model performs poorly on the test set, it may suggest issues like overfitting or biased data. 
-        -->
-        <div>
-            <h2>Evaluating the Trained Model</h2>
-            <ul>
-                <li>Evaluating the Trained Model</li>
-                <li>Assess the model's performance on unseen data (test set)</li>
-                <li>Evaluation metrics:</li>
-                <ul>
-                    <li>Accuracy: Overall correctness of predictions</li>
-                    <li>Precision and Recall: Performance for each class</li>
-                </ul>
-                <li>Good performance on the test set indicates generalization ability</li>
-                <li>Poor performance may suggest overfitting or biased data</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <!-- 
-            The principles of supervised learning, as demonstrated in the image classification example, extend to other domains and applications of AI. 
-            Generative AI is an exciting area that focuses on creating new content, such as images, text, or music, based on learned patterns from training data.
-            Generative models, like Generative Adversarial Networks (GANs) and Variational Autoencoders (VAEs),
-            learn to capture the underlying distribution of the training data and generate new samples that resemble the original data.
-            The success of generative AI relies on large-scale datasets, advanced model architectures, and powerful computational resources.
-            Generative AI has the potential to revolutionize various industries, from creative applications like art and design to practical use cases like data augmentation and simulation.
-        -->
         <div>
             <h2>From Image Classification to Generative AI</h2>
             <ul>
-                <li>From Image Classification to Generative AI</li>
-                <li>Principles of supervised learning extend to other domains</li>
-                <li>Generative AI: Creating new content based on learned patterns</li>
-                <li>Generative models (GANs, VAEs) capture data distribution and generate new samples</li>
-                <li>Success relies on large-scale datasets, advanced architectures, and computational resources</li>
-                <li>Potential to revolutionize industries (art, design, data augmentation, simulation)</li>
+                <li>The principles of supervised learning, as demonstrated in the image classification example,
+                    extend
+                    to other domains and applications of AI.</li>
+                <li>Generative AI is an exciting area that focuses on creating new content, such as images, text, or
+                    music, based on learned patterns from training data.</li>
+                <li>The success of generative AI relies on large-scale datasets, advanced model architectures, and
+                    powerful computational resources.</li>
+                <li>Generative AI has the potential to revolutionize various industries, from creative applications
+                    like
+                    art and design to practical use cases like data augmentation and simulation, by enabling
+                    machines to
+                    generate novel content that mimics human creativity.</li>
             </ul>
         </div>
     </div>

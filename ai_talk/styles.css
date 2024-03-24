@@ -47,7 +47,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  align-items: flex-start;
   aspect-ratio: 3 / 2;
   background-color: #fff;
   position: relative;

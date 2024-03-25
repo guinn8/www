@@ -56,11 +56,11 @@
     -->
     <div class="slide">
         <div>
-          <img src="mountain_timelapse.webp" alt="timelapse" style="max-width:100%;height:auto;">
-          <h1 class="floating-title">Using AI tools</h1>
+            <img src="mountain_timelapse.webp" alt="timelapse" style="max-width:100%;height:auto;">
+            <h1 class="floating-title">Using AI tools</h1>
         </div>
-      </div>
-    
+    </div>
+
     <div class="slide">
         <div>
             <h2>Who Am I?</h2>
@@ -254,37 +254,82 @@
         <div>
             <h2>A Concrete Example: Recognizing Cats and Dogs</h2>
             <ul>
-                <li>Problem: Teach a neural network to recognize images of cats and dogs</li>
-                <li>Step 1: Collect and label a dataset of cat and dog images
-                    <ul>
-                        <li>Each image is labeled as either "cat" or "dog"</li>
-                        <li>The dataset should be diverse and representative of various breeds, angles, and backgrounds
+                <li>Let's explore a practical application of neural networks: teaching a model to recognize images of
+                    cats and dogs.</li>
+                <li>This example will demonstrate the key steps involved in training a neural network for image
+                    classification.</li>
+                <li>By understanding this process, you'll gain insights into how AI systems learn from data and make
+                    predictions.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="slide">
+        <div>
+            <h2>Step 1: Collect and Label a Dataset</h2>
+            <ul>
+                <li>The first step is to gather a dataset of cat and dog images and label each image accordingly.</li>
+                <li>Labeling involves assigning the correct category ("cat" or "dog") to each image in the dataset.</li>
+                <li>Key Point: The quality and diversity of the dataset are crucial for the model's performance. The
+                    dataset should include various breeds, angles, and backgrounds to ensure the model learns robust
+                    features.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="slide">
+        <div>
+            <h2>Step 2: Feed the Labeled Images into the Neural Network</h2>
+            <ul>
+                <li>The labeled images are then fed into the neural network for training.</li>
+                <li>The network processes the images and learns to extract relevant features that distinguish cats from
+                    dogs.</li>
+                <li>Key Point: The neural network automatically learns hierarchical features from the raw pixel data.
+                    Lower layers capture simple features like edges and textures, while higher layers learn more complex
+                    and abstract features specific to cats and dogs.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="slide">
+        <div>
+            <h2>Step 3: Adjusting Weights to Minimize Prediction Errors</h2>
+            <ul>
+                <li>During training, the network adjusts its internal weights to minimize the difference between
+                    predicted and actual labels.</li>
+                <li>It learns to associate certain features with cats and others with dogs based on the labeled
+                    examples.</li>
+                <li>Key Point: The learning process involves iteratively updating the weights through a technique called
+                    backpropagation. By minimizing the prediction errors, the network gradually improves its ability to
+                    classify cats and dogs accurately.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="slide">
+        <div>
+            <h2>Step 4: Testing the Trained Network</h2>
+            <ul>
+                <li>After training, the network is tested on new, unseen cat and dog images to evaluate its performance.
+                </li>
+                <li>The network uses its learned features to classify the new images as either cats or dogs.</li>
+                <li>Key Point: Testing on unseen data helps assess the network's ability to generalize beyond the
+                    training examples. A well-trained model should be able to accurately classify new images it hasn't
+                    encountered before.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="slide">
+        <div>
+            <h2>Conclusion: Recognizing Cats and Dogs</h2>
+            <ul>
+                <li>Through this example, we've seen how a neural network can be trained to recognize cats and dogs in
+                    images.</li>
+                <li>The network learns from labeled examples, extracts relevant features, and adjusts its weights to
+                    make accurate predictions.</li>
+                <li>Key Takeaways: <ul>
+                        <li>AI systems learn from data by identifying patterns and relationships.</li>
+                        <li>The quality and diversity of the training data significantly impact the model's performance.
                         </li>
-                    </ul>
-                </li>
-                <li>Step 2: Feed the labeled images into the neural network
-                    <ul>
-                        <li>The network processes the images and learns to extract relevant features</li>
-                        <li>Features may include fur texture, ear shape, nose structure, etc.</li>
-                    </ul>
-                </li>
-                <li>Step 3: The network learns by adjusting its weights to minimize prediction errors
-                    <ul>
-                        <li>It learns to associate certain features with cats and others with dogs</li>
-                        <li>The goal is to minimize the difference between predicted and actual labels</li>
-                    </ul>
-                </li>
-                <li>Step 4: Test the trained network on new, unseen cat and dog images
-                    <ul>
-                        <li>The network uses its learned features to classify the new images</li>
-                        <li>The accuracy of the predictions is evaluated to assess the network's performance</li>
-                    </ul>
-                </li>
-                <li>Result: The network can accurately classify new cat and dog images
-                    <ul>
-                        <li>It has learned to generalize from the training examples to make predictions on unseen data
-                        </li>
-                        <li>The network can be further improved by training on larger and more diverse datasets</li>
+                        <li>Neural networks can automatically learn hierarchical features from raw data.</li>
+                        <li>Generalization is a crucial aspect of AI, enabling models to make predictions on unseen
+                            data.</li>
                     </ul>
                 </li>
             </ul>
@@ -316,11 +361,6 @@
     -->
 
     <div class="slide">
-        <!-- 
-            Explain what an LLM is and how it works.
-            Discuss ChatGPT as a popular example of an LLM.
-            Mention that LLMs are based on the attention mechanism and are essentially next-word prediction engines.
-        -->
         <div>
             <h2>Large Language Models</h2>
             <ul>
@@ -334,12 +374,6 @@
     </div>
 
     <div class="slide">
-        <!-- 
-            Explain how an LLM generates text using a parameters file.
-            Discuss the size of the parameters file and the hardware requirements for the best models.
-            Mention that the parameters file is the result of training the neural network on a large corpus of text data.
-            Highlight that the best models train on a substantial portion of the internet data at a huge expense.
-        -->
         <div>
             <h2>What is inside an LLM?</h2>
             <ul>
@@ -359,11 +393,6 @@
     </div>
 
     <div class="slide">
-        <!--
-            Explain the attention mechanism as the key innovation in LLMs.
-            Compare the performance of traditional text prediction (e.g., phone keyboards) with LLMs like GPT-3.5.
-            Provide examples to illustrate the difference in text completion quality between traditional methods and LLMs.
-        -->
         <div>
             <h2>The Attention Mechanism</h2>
             <ul>
@@ -376,11 +405,6 @@
     </div>
 
     <div class="slide">
-        <!--
-            Provide an example of a text completion prompt and the generated output.
-            Mention the specific model used for the completion (e.g., davinci-002).
-            Discuss how LLMs can generate coherent and relevant text based on the given prompt.
-        -->
         <div>
             <h2>Text Completion</h2>
             <ul>
@@ -395,11 +419,6 @@
     </div>
 
     <div class="slide">
-        <!--
-            Explain the goal of creating AI systems that can respond to queries like a dedicated and helpful human.
-            Mention that simply continuing a sentence in the most likely way is not enough to create a helpful assistant.
-            Discuss how AI systems are trained to roleplay as helpful assistants to provide more useful and relevant responses. 
-        -->
         <div>
             <h2>Helpful Assistant</h2>
             <ul>
@@ -421,11 +440,6 @@
     </div>
 
     <div class="slide">
-        <!-- 
-            Discuss the trade-off between safety and usefulness in AI systems.
-            Provide tips for effective LLM use, such as crafting specific prompts, breaking tasks into steps, iterative refinement, and providing examples.
-            Emphasize the importance of responsible AI development and deployment.
-        -->
         <div>
             <h2>AI Safety in Practice</h2>
             <ul>

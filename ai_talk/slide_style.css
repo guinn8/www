@@ -8,6 +8,7 @@
   --slide-content-min-width: 800px;
   --slide-content-min-height: 533px;
   --slide-min-padding: 20px;
+  --slide-margin-left: 30px
 }
 
 body {
@@ -22,7 +23,6 @@ body {
   height: auto;
   object-fit: contain;
 }
-
 
 .slide {
   height: 100vh;
@@ -42,7 +42,7 @@ body {
   height: 95%;
   max-width: max(calc(100vh * 1.5), var(--slide-content-min-width));
   max-height: max(calc(100vw * (2/3)), var(--slide-content-min-height));
-  padding: 20px;
+  padding: var(--slide-min-padding);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -58,32 +58,13 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.bird-container {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  width: 100%;
-  max-width: 80%;
-  height: 110px;
-}
-
-.bird-image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
 
 .slide h1 {
-  font-size: clamp(2rem, 5vw, 5rem); /* Responsive font size */
-  color: #ffffff; /* White text color for contrast */
-  text-shadow: 2px 2px  rgb(0, 0, 0); /* Text shadow for legibility */
-  text-align: center; /* Center the text */
-  margin-top: var(--slide-min-padding); /* Use the defined padding variable for margin */
+  font-size: clamp(2rem, 5vw, 5rem);
+  color: #ffffff;
+  text-shadow: 2px 2px  rgb(0, 0, 0);
+  text-align: center;
+  margin-top: var(--slide-min-padding);
 }
 
 .slide h2 {
@@ -91,14 +72,14 @@ body {
   font-weight: bold;
   text-align: left;
   margin-bottom: 30px;
-  margin-left: 50px;
+  margin-left: var(--slide-margin-left);
 }
 
 .slide ul {
   list-style: inside;
   text-align: left;
   padding: 0;
-  margin-left: 50px;
+  margin-left: var(--slide-margin-left);
 }
 
 .slide li {
@@ -121,7 +102,7 @@ body {
 .next-btn {
   background-color: transparent;
   border: none;
-  font-size: 24px;
+  font-size: 35px;
   color: #333;
   cursor: pointer;
   padding: 10px;

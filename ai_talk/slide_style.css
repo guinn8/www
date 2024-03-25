@@ -85,7 +85,7 @@ body {
 .slide li {
   font-size: clamp(1rem, 1.5vw, 2rem);
   margin-bottom: 10px;
-  text-indent: -1.5em;
+  text-indent: -1.4em;
   padding-left: 1.5em;
 }
 

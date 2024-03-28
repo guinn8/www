@@ -1,27 +1,29 @@
+.images-container {
+  display: flex;
+  flex-direction: column-reverse; /* Stack children from bottom to top */
+  justify-content: flex-end; /* Align children to the bottom */
+  align-items: center; /* Center children horizontally */
+  width: 100%;
+  max-width: 95%;
+  gap: 20px; /* Space between rows */
+  overflow: hidden;
+}
+
 .image-row {
-  position: absolute;
-  bottom: var(--slide-min-padding);
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
   width: 100%;
-  max-width: 95%;
-  height: 200px;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .image-label-container {
   position: relative;
+  max-width: 30%;
   display: inline-block;
 }
 
-.image-grid-item {
-  width: 100%;
-  height: 300px;
-}
 
 .image-label {
   position: absolute;

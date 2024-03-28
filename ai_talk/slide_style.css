@@ -50,6 +50,11 @@ body {
   aspect-ratio: 3 / 2;
   background-color: #fff;
   position: relative;
+  flex-grow: 1;
+}
+
+.spacer {
+  flex-grow: 1;
 }
 
 .floating-title {

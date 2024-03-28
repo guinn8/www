@@ -1,4 +1,4 @@
-.bird-container {
+.image-row {
   position: absolute;
   bottom: var(--slide-min-padding);
   left: 50%;
@@ -8,12 +8,7 @@
   align-items: center;
   gap: 20px;
   width: 100%;
-  max-width: 80%;
-  height: 110px;
-}
-
-.bird-image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  max-width: 95%;
+  height: 200px;
+  overflow: scroll;
 }

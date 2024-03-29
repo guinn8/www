@@ -80,18 +80,14 @@ body {
   margin-left: var(--slide-margin-left);
 }
 
-.slide ul {
-  list-style: inside;
-  text-align: left;
+.slide ul, .slide ol {
+  list-style-position: outside;
   padding: 0;
   margin-left: var(--slide-margin-left);
 }
 
-.slide li {
-  font-size: clamp(1rem, 1.5vw, 2rem);
-  margin-bottom: 10px;
-  text-indent: -1.4em;
-  padding-left: 1.5em;
+.slide ol {
+  list-style-type: decimal;
 }
 
 .navigation {

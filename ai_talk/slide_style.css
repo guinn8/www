@@ -65,7 +65,7 @@ body {
 }
 
 .slide h1 {
-  font-size: clamp(2rem, 5vw, 5rem);
+  font-size: clamp(2rem, 8vw, 8rem);
   color: #ffffff;
   text-shadow: 2px 2px  rgb(0, 0, 0);
   text-align: center;
@@ -73,17 +73,21 @@ body {
 }
 
 .slide h2 {
-  font-size: clamp(1.5rem, 2.5vw, 3rem);
+  font-size: clamp(1.5rem, 4vw, 6rem);
   font-weight: bold;
   text-align: left;
   margin-bottom: 30px;
   margin-left: var(--slide-margin-left);
 }
 
-.slide ul, .slide ol {
-  list-style-position: outside;
-  padding: 0;
+.slide p, .slide li {
+  font-size: clamp(1rem, 2vw, 1.5rem);
   margin-left: var(--slide-margin-left);
+}
+
+.slide ul, .slide ol {
+  padding-left: 20px;
+  margin-bottom: 20px;
 }
 
 .slide ol {

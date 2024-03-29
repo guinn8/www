@@ -58,6 +58,7 @@ body {
 }
 
 .floating-title {
+  min-width: calc(var(--slide-content-min-width) - 80px);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -65,7 +66,7 @@ body {
 }
 
 .slide h1 {
-  font-size: clamp(2rem, 8vw, 8rem);
+  font-size: clamp(2rem, 8vw, 6.5rem);
   color: #ffffff;
   text-shadow: 2px 2px  rgb(0, 0, 0);
   text-align: center;

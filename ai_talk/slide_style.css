@@ -95,11 +95,11 @@ body {
 .slide p, .slide li {
   font-size: clamp(1rem, 2vw, 1.5rem);
   margin-left: var(--slide-margin-left);
+  margin-bottom: 10px;
 }
 
 .slide ul, .slide ol {
   padding-left: 20px;
-  margin-bottom: 20px;
 }
 
 .slide ol {

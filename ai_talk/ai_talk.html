@@ -317,29 +317,39 @@
 
     <div class="slide">
         <div>
-            <h2>Step 2: Feed the Labeled Images into the Neural Network</h2>
+            <h2>Understanding Neural Network Training</h2>
             <ul>
-                <li>The labeled images are then fed into the neural network for training.</li>
-                <li>The network processes the images and learns to extract relevant features that distinguish cats from dogs.</li>
-                <li>Key Point: The neural network automatically learns hierarchical features from the raw pixel data. Lower layers capture simple features like edges and textures, while higher layers learn more complex and abstract features specific to cats and dogs.</li>
+                <li>1. <strong>Guessing Game:</strong> The network makes initial guesses on labeled images, learning from the difference between its guesses and the actual labels (cats or dogs).</li>
+                <li>2. <strong>Learning from Feedback:</strong> Utilizes feedback (error in guesses) to adjust its understanding. This step is akin to a toddler being corrected by a teacher, refining the network's ability to recognize patterns.</li>
+                <li>3. <strong>Practice and Improvement:</strong> Repeated practice helps the network improve. With each image processed, it becomes better at distinguishing cats from dogs, similar to a toddler learning over time.</li>
+
             </ul>
+            <div class="spacer"></div>
+
+            <div class="image-row">
+                <div class="image-label-container"><img src="cats_dogs/grid.png" alt="Cat 3"></div>
+                <div class="image-label-container">→</div>
+                <div class="image-label-container">
+                    <img src="cats_dogs/dog4.png" alt="Dog 4">
+                    <div class="image-label">Dog</div>
+                </div>
+                <div class="image-label-container">→</div>
+                <div class="image-label-container"><img src="brain.png"></div>
+                <div class="image-label-container">→</div>
+                <div class="image-label-container" style="border: 2px solid #f00; background-color: #fdd; padding: 10px; font-size: 16px; position: relative;">
+                    <div style="color: #f00; font-size: 30px; position: absolute; top: -12px; left: -12px; font-weight: bold;">✖</div>
+                    Prediction:<br>
+                    <strong>Cat: 70%</strong><br>
+                    <strong>Dog: 30%</strong>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="slide">
-        <div>
-            <h2>Step 3: Adjusting Weights to Minimize Prediction Errors</h2>
-            <ul>
-                <li>During training, the network adjusts its internal weights to minimize the difference between predicted and actual labels.</li>
-                <li>It learns to associate certain features with cats and others with dogs based on the labeled examples.</li>
-                <li>Key Point: The learning process involves iteratively updating the weights through a technique called backpropagation. By minimizing the prediction errors, the network gradually improves its ability to classify cats and dogs accurately.</li>
-            </ul>
-        </div>
-    </div>
 
     <div class="slide">
         <div>
-            <h2>Step 4: Testing the Trained Network</h2>
+            <h2>Step 3: Testing the Trained Network</h2>
             <ul>
                 <li>After training, the network is tested on new, unseen cat and dog images to evaluate its performance.</li>
                 <li>The network uses its learned features to classify the new images as either cats or dogs.</li>
@@ -372,13 +382,9 @@
         <div>
             <h2>From Image Classification to Generative AI</h2>
             <ul>
-                <li>The principles of supervised learning, as demonstrated in the image classification example,
-                    extend
-                    to other domains and applications of AI.</li>
-                <li>Generative AI is an exciting area that focuses on creating new content, such as images, text, or
-                    music, based on learned patterns from training data.</li>
-                <li>The success of generative AI relies on large-scale datasets, advanced model architectures, and
-                    powerful computational resources.</li>
+                <li>The principles of supervised learning, as demonstrated in the image classification example, extend to other domains and applications of AI.</li>
+                <li>Generative AI is an exciting area that focuses on creating new content, such as images, text, or music, based on learned patterns from training data.</li>
+                <li>The success of generative AI relies on large-scale datasets, advanced model architectures, and powerful computational resources.</li>
                 <li>Generative AI has the potential to revolutionize various industries, from creative applications like art and design to practical use cases like data augmentation and simulation, by enabling machines to generate novel content that mimics human creativity.</li>
             </ul>
         </div>

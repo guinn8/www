@@ -18,6 +18,9 @@
   overflow: hidden;
 }
 
+.image-row img {
+  max-height: calc(100vh/3);
+}
 .image-label-container {
   display: inline-block;
   display: flex;

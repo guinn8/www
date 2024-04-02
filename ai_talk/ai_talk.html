@@ -123,7 +123,7 @@
     <div class="slide">
         <div>
             <img src="sections/downtown.webp" alt="timelapse" style="max-width:100%;height:auto;">
-            <h1 class="floating-title">Using AI tools</h1>
+            <h1 class="floating-title">Introduction to 'AI'</h1>
         </div>
     </div>
 
@@ -157,95 +157,100 @@
     <div class="slide">
         <div style="flex-direction: row;">
             <div class="text-content">
-        
-            <h2>Transforming Views on AI</h2>
-            <p>In 1950, British Mathematician Alan Turing proposed the <em>Imitation Game</em> to evaluate if a machine can exhibit intelligent behavior indistinguishable from that of a human.</p>
-            <ul>
-                <li><strong>Turing's Test:</strong>
-                    <ul>
-                        <li>It's difficult to define what it means for something to be <em>intelligent</em>.</li>
-                        <li>The test challenges machines to engage in dialogue so convincingly that observers cannot distinguish it from human responses.</li>
-                    </ul>
-                </li>
-                
-                <li><strong>Advancements in AI:</strong>
-                    <ul>
-                        <li>LLMs have the ability to mimic human dialogue at a level that meets the criteria of the Turing Test.</li>
-                        <li>This does mean LLMs are proven to be intelligent, instead <em>there is no longer a clearly defined test for machine intelligence.</em></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div class="image-label-container" style="align-items: center; width: 100vw;">
 
-            <img src="imitation_game.jpg">
-    </div>
-</div>
-    </div>
-    
-    
-
-    <div class="slide">
-        <div>
-            <h2>Machine Learning: Bridging Data and AI</h2>
-            <ul>
-                <li><strong>Adaptability:</strong> Just like humans learn from experience, machine learning models refine their accuracy as they process more data.</li>
-                <li><strong>Generalization:</strong> Machine learning models can identify patterns in data and apply them to new, unseen situations, similar to how we use past experiences to navigate new challenges.</li>
-                <li><strong>Efficiency:</strong> Automating the learning process allows machine learning to tackle complex problems that would be impractical to solve with traditional programming methods.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>Three Types of Machine Learning</h2>
-            <ul>
-                <li><strong>Supervised Learning:</strong></li>
+                <h2>Transforming Views on AI</h2>
+                <p>In 1950, British Mathematician Alan Turing proposed the <em>Imitation Game</em> to evaluate if a machine can exhibit intelligent behavior indistinguishable from that of a human.</p>
                 <ul>
-                    <li>Learning from labeled examples, like a teacher guiding a student.</li>
-                    <li>The algorithm learns to map input data to the correct output labels.</li>
-                </ul>
-                <li><strong>Unsupervised Learning:</strong></li>
-                <ul>
-                    <li>Discovering hidden patterns and structures in unlabeled data.</li>
-                    <li>Similar to grouping similar objects together without prior knowledge of the categories.</li>
-                </ul>
-                <li><strong>Reinforcement Learning:</strong></li>
-                <ul>
-                    <li>Learning through interaction with an environment, like a child learning from trial and error.
+                    <li><strong>Turing's Test:</strong>
+                        <ul>
+                            <li>It's difficult to define what it means for something to be <em>intelligent</em>.</li>
+                            <li>The test challenges machines to engage in dialogue so convincingly that observers cannot distinguish it from human responses.</li>
+                        </ul>
                     </li>
-                    <li>The algorithm receives rewards or penalties for its actions and learns to make better decisions over time.</li>
+
+                    <li><strong>Advancements in AI:</strong>
+                        <ul>
+                            <li>LLMs have the ability to mimic human dialogue at a level that meets the criteria of the Turing Test.</li>
+                            <li>This does mean LLMs are proven to be intelligent, instead <em>there is no longer a clearly defined test for machine intelligence.</em></li>
+                        </ul>
+                    </li>
                 </ul>
-            </ul>
+            </div>
+            <div class="image-label-container" style="align-items: center; width: 100vw;">
+                <img src="imitation_game.jpg">
+            </div>
         </div>
     </div>
 
     <div class="slide">
+        <div style="flex-direction: row;">
+            <div class="text-content">
+                <h2>Machine Learning & Neural Networks</h2>
+                <p>Specialized techniques enable computers to solve complex problems that traditional programming can't.</p>
+                <ul>
+                    <li><strong>Machine Learning: Beyond Traditional Programming</strong>
+                        <ul>
+                            <li>In traditional programming, tasks are solved by writing explicit instructions, similar to following a recipe. This method falls short with complexity and unpredictability.</li>
+                            <li>Machine Learning is akin to teaching a computer to cook by tasting dishes: it identifies patterns and improves over time, moving from rigid instructions to flexible, adaptive learning.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Neural Networks: Imitating the Brain</strong>
+                        <ul>
+                            <li>Neural networks simulate the brain's structure with interconnected 'neurons'.</li>
+                            <li>They can be trained using a technique called 'backpropagation', which iteratively adjusts the neurons' connections to produce the desired outcome.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="image-label-container" style="align-items: center; width: 100%;">
+                <img src="neuron.png" alt="Neural Network Illustration" style="max-width: 100%;">
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="slide">
         <div>
-            <h2>Neural Networks: The Building Blocks of Modern AI</h2>
+            <h2>Machine Learning Paradigms</h2>
             <ul>
-                <li>What are Neural Networks?
+                <li><strong>Supervised Learning:</strong> Learning from labeled data, akin to a guided teaching process.
                     <ul>
-                        <li>Neural networks are a type of machine learning algorithm inspired by the human brain.</li>
-                        <li>Consist of interconnected nodes (neurons) organized in layers</li>
+                        <li>Example: A child learns colors by names through explicit instruction, e.g., being told "This is red" with a red object.</li>
                     </ul>
                 </li>
-                <li>How do Neural Networks Learn?
+                <li><strong>Unsupervised Learning:</strong> Identifying patterns in data without labels, discovering structure autonomously.
                     <ul>
-                        <li>Neurons receive inputs, process them, and pass outputs to the next layer</li>
-                        <li>Connections between neurons have weights that determine the strength of the signal</li>
-                        <li>Learning occurs by adjusting the weights to minimize prediction errors</li>
+                        <li>Example: A child categorizes toys by shapes or colors independently, recognizing patterns without direct teaching.</li>
                     </ul>
                 </li>
-                <li>Advantages of Neural Networks
+                <li><strong>Reinforcement Learning:</strong> Learning via interaction, adapting through trial and feedback.
                     <ul>
-                        <li>Able to learn complex patterns and relationships in data</li>
-                        <li>Can handle large amounts of data and make accurate predictions</li>
+                        <li>Example: A toddler improves walking skills through trial and error, motivated by encouragement and adapting based on feedback.</li>
                     </ul>
                 </li>
             </ul>
+            <div class="spacer"></div>
+            <div class="images-container">
+                <div class="image-row">
+                    <div class="image-label-container">
+                        <img src="learning_types/supervised.png" alt="Cat 1">
+                        <div class="image-label">Supervised learning</div>
+                    </div>
+                    <div class="image-label-container">
+                        <img src="learning_types/unsupervised.png" alt="Dog 1">
+                        <div class="image-label">Unsupervised learning</div>
+                    </div>
+                    <div class="image-label-container">
+                        <img src="learning_types/reenforcement.png">
+                        <div class="image-label">Reinforcement Learning</div>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
     </div>
+    
 
     <div class="slide">
         <div>
@@ -374,6 +379,36 @@
                 <li>The network uses its learned features to classify the new images as either cats or dogs.</li>
                 <li>Key Point: Testing on unseen data helps assess the network's ability to generalize beyond the training examples. A well-trained model should be able to accurately classify new images it hasn't encountered before.</li>
             </ul>
+            <div class="spacer"></div>
+
+            <div class="image-row" style="font-size: 32px;">
+                <div class="image-label-container">
+                    <img src="cats_dogs/test_cat.png" alt="Dog 4">
+                </div>
+                <div class="image-label-container">→</div>
+                <div class="image-label-container"><img src="brain.png"></div>
+                <div class="image-label-container">→</div>
+                <div class="image-label-container" style="border: 2px solid #0f0; background-color: #fdd; padding: 10px; font-size: 16px; position: relative;">
+                    <div style="color: #0a0; font-size: 50px; position: absolute; top: -20px; left: -12px; font-weight: bold;">✓</div>
+                    Prediction:<br>
+                    <strong>Cat: 95%</strong><br>
+                    <strong>Dog: 5%</strong>
+                </div>
+            </div>
+            <div class="image-row" style="font-size: 32px;">
+                <div class="image-label-container">
+                    <img src="cats_dogs/silly_frog.png" alt="Dog 4">
+                </div>
+                <div class="image-label-container">→</div>
+                <div class="image-label-container"><img src="brain.png"></div>
+                <div class="image-label-container">→</div>
+                <div class="image-label-container" style="border: 2px solid #ff0; background-color: #fdd; padding: 10px; font-size: 16px; position: relative;">
+                    <div style="color: #aa0; font-size: 50px; position: absolute; top: -20px; left: -12px; font-weight: bold;">?</div>
+                    Prediction:<br>
+                    <strong>Cat: 10%</strong><br>
+                    <strong>Dog: 90%</strong>
+                </div>
+            </div>
         </div>
     </div>
 

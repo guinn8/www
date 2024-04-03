@@ -158,10 +158,10 @@
         <div style="flex-direction: row;">
             <div class="text-content">
 
-                <h2>Transforming Views on AI</h2>
-                <p>In 1950, British Mathematician Alan Turing proposed the <em>Imitation Game</em> to evaluate if a machine can exhibit intelligent behavior indistinguishable from that of a human.</p>
+                <h2>"traditionally require human intelligence"</h2>
+                <p>In 1950, British Mathematician Alan Turing proposed the <em>Imitation Game</em> to evaluate if a computer possesses intelligence.</p>
                 <ul>
-                    <li><strong>Turing's Test:</strong>
+                    <li><strong>The Turing Test:</strong>
                         <ul>
                             <li>It's difficult to define what it means for something to be <em>intelligent</em>.</li>
                             <li>The test challenges machines to engage in dialogue so convincingly that observers cannot distinguish it from human responses.</li>
@@ -171,7 +171,7 @@
                     <li><strong>Advancements in AI:</strong>
                         <ul>
                             <li>LLMs have the ability to mimic human dialogue at a level that meets the criteria of the Turing Test.</li>
-                            <li>This does mean LLMs are proven to be intelligent, instead <em>there is no longer a clearly defined test for machine intelligence.</em></li>
+                            <li><em>There is no longer a clearly defined test for machine intelligence.</em></li>
                         </ul>
                     </li>
                 </ul>
@@ -186,12 +186,12 @@
         <div style="flex-direction: row;">
             <div class="text-content">
                 <h2>Machine Learning & Neural Networks</h2>
-                <p>Specialized techniques enable computers to solve complex problems that traditional programming can't.</p>
+                <p>Machine learning is the process were a computer system can be <em>trained</em> to accomplish a task. A neural network is an algorithm that can learn patterns from data.</p>
                 <ul>
                     <li><strong>Machine Learning: Beyond Traditional Programming</strong>
                         <ul>
-                            <li>In traditional programming, tasks are solved by writing explicit instructions, similar to following a recipe. This method falls short with complexity and unpredictability.</li>
-                            <li>Machine Learning is akin to teaching a computer to cook by tasting dishes: it identifies patterns and improves over time, moving from rigid instructions to flexible, adaptive learning.</li>
+                            <li>In traditional programming, tasks are solved similarly to following a recipe. This method falls short with complexity and unpredictability.</li>
+                            <li>Machine Learning is akin to teaching a computer to cook by tasting dishes: it identifies patterns with flexible, adaptive learning.</li>
                         </ul>
                     </li>
                     <li><strong>Neural Networks: Imitating the Brain</strong>
@@ -254,10 +254,9 @@
 
     <div class="slide">
         <div>
-            <h2>A Concrete Example: Recognizing Cats and Dogs</h2>
+            <h2>Recognizing Cats and Dogs</h2>
             <ul>
-                <li>Let's explore a practical application of neural networks: teaching a model to recognize images of cats and dogs.</li>
-                <li>This example will demonstrate the key steps involved in training a neural network for image classification.</li>
+                <li>Let's explore a concrete example of machine learning: teaching a model to recognize images of cats and dogs.</li>
                 <li>By understanding this process, you'll gain insights into how AI systems learn from data and make predictions.</li>
             </ul>
             <div class="spacer"></div>
@@ -286,7 +285,7 @@
             <ul>
                 <li>The first step is to gather a dataset of cat and dog images and label each image accordingly.</li>
                 <li>Labeling involves assigning the correct category ("cat" or "dog") to each image in the dataset.</li>
-                <li>Key Point: The quality and diversity of the dataset are crucial for the model's performance. The dataset should include various breeds, angles, and backgrounds to ensure the model learns robust features.</li>
+                <li><strong>Key Point:</strong> The quality and diversity of the dataset are crucial for the model's performance. The dataset should include various breeds, angles, and backgrounds to ensure the model learns robust features.</li>
             </ul>
             <div class="spacer"></div>
             <div class="images-container">
@@ -341,32 +340,34 @@
 
     <div class="slide">
         <div>
-            <h2>Understanding Neural Network Training</h2>
+            <h2>Step 2: Neural Network Training</h2>
+            <p>A guessing game between a teacher and a toddler is a simple analogy for understanding neural network training.</p>
             <ol>
-                <li><strong>Guessing Game:</strong> The network makes initial guesses on labeled images, learning from the difference between its guesses and the actual labels (cats or dogs).</li>
-                <li><strong>Learning from Feedback:</strong> Utilizes feedback (error in guesses) to adjust its understanding. This step is akin to a toddler being corrected by a teacher, refining the network's ability to recognize patterns.</li>
-                <li><strong>Practice and Improvement:</strong> Repeated practice helps the network improve. With each image processed, it becomes better at distinguishing cats from dogs, similar to a toddler learning over time.</li>
+                <li><em>Initial Guesses:</em> The neural network, like a toddler, makes initial guesses when shown labeled images of cats and dogs. It may not always be correct at first.</li>
+                <li><em>Learning from Mistakes:</em> Just as a teacher corrects a toddler's mistakes, the network learns from the differences between its guesses and the actual labels, adjusting its understanding accordingly.</li>
+                <li><em>Repetition and Improvement:</em> With repeated exposure to more examples and continuous feedback, the neural network gradually improves its ability to classify images accurately, similar to how a toddler's skills develop through practice and guidance.</li>
             </ol>
-            <div class="spacer"></div>
+            <p><strong>Key Point:</strong> This process of guessing, receiving feedback, and learning from mistakes is the foundation of how neural networks learn to recognize and classify patterns in data.</p>
+    <div class="spacer"></div>
 
-            <div class="image-row" style="font-size: 32px;">
-                <div class="image-label-container"><img src="cats_dogs/grid.png" alt="Cat 3"></div>
-                <div class="image-label-container">→</div>
-                <div class="image-label-container">
-                    <img src="cats_dogs/dog4.png" alt="Dog 4">
-                    <div class="image-label">Dog</div>
-                </div>
-                <div class="image-label-container">→</div>
-                <div class="image-label-container"><img src="brain.png"></div>
-                <div class="image-label-container">→</div>
-                <div class="image-label-container" style="border: 2px solid #f00; background-color: #fdd; padding: 10px; font-size: 16px; position: relative;">
-                    <div style="color: #f00; font-size: 30px; position: absolute; top: -12px; left: -12px; font-weight: bold;">✖</div>
-                    Prediction:<br>
-                    <strong>Cat: 70%</strong><br>
-                    <strong>Dog: 30%</strong>
-                </div>
-            </div>
+    <div class="image-row" style="font-size: 32px;">
+        <div class="image-label-container"><img src="cats_dogs/grid.png" alt="Cat 3"></div>
+        <div class="image-label-container">→</div>
+        <div class="image-label-container">
+            <img src="cats_dogs/dog4.png" alt="Dog 4">
+            <div class="image-label">Dog</div>
         </div>
+        <div class="image-label-container">→</div>
+        <div class="image-label-container"><img src="brain.png"></div>
+        <div class="image-label-container">→</div>
+        <div class="image-label-container" style="border: 2px solid #f00; background-color: #fdd; padding: 10px; font-size: 16px; position: relative;">
+            <div style="color: #f00; font-size: 30px; position: absolute; top: -12px; left: -12px; font-weight: bold;">✖</div>
+            Prediction:<br>
+            <strong>Cat: 70%</strong><br>
+            <strong>Dog: 30%</strong>
+        </div>
+    </div>
+    </div>
     </div>
 
 
@@ -377,7 +378,7 @@
             <ul>
                 <li>After training, the network is tested on new, unseen cat and dog images to evaluate its performance.</li>
                 <li>The network uses its learned features to classify the new images as either cats or dogs.</li>
-                <li>Key Point: Testing on unseen data helps assess the network's ability to generalize beyond the training examples. A well-trained model should be able to accurately classify new images it hasn't encountered before.</li>
+                <li><strong>Key Point:</strong> Testing on unseen data helps assess the network's ability to generalize beyond the training examples. A well-trained model should be able to accurately classify new images it hasn't encountered before.</li>
             </ul>
             <div class="spacer"></div>
             <div class="images-container">
@@ -397,8 +398,8 @@
                     </div>
                 </div>
             </div>
-            <div class="spacer"style="min-height: 15px;"></div>
-            <div class="images-container" >
+            <div class="spacer" style="min-height: 15px;"></div>
+            <div class="images-container">
                 <div class="image-row" style="font-size: 32px; ">
                     <div class="image-label-container">
                         <img src="cats_dogs/silly_frog.png" alt="Dog 4">

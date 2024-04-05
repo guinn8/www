@@ -442,53 +442,76 @@
     </div>
 
     <div class="slide">
-        <div>
-            <h2>Introduction to Large Language Models (LLMs)</h2>
-            <ul>
-                <li>LLMs are powerful AI models designed for natural language processing tasks</li>
-                <li>They are built upon the concepts of neural networks and machine learning discussed earlier</li>
-                <li>LLMs have revolutionized the field of natural language processing and opened up new possibilities</li>
-            </ul>
+        <div style="flex-direction: row;">
+            <div class="text-content">
+                <h2>Introducing Large Language Models</h2>
+                <p>OpenAI's release of ChatGPT in November 2022 brought LLM technology into the public consciousness.</p>
+                <ul>
+                    <li>LLMs can be trained in a variety of sizes measured by parameter count</li>
+                    <li>The largest LLMs have demonstrated an unprecedented ability to 'reason' with language</li>
+                </ul>
+                <p><em>Just like how the cat and dog recognizer learned from labeled images, LLMs learn from vast amounts of text data to capture the intricacies of human language.</em></p>
+            </div>
+
+            <div class="image-label-container" style="align-items: center; min-width: 50%;">
+                <img src="oai_mold.png">
+            </div>
         </div>
     </div>
 
     <div class="slide">
-        <div>
-            <h2>The Building Blocks of LLMs</h2>
-            <ul>
-                <li>LLMs are based on the transformer architecture, which enables specific computer hardware to massively speed computation.</li>
-                <li>Callback: The transformer architecture is a more advanced example of the neural networks discussed previously. architecture discussion</li>
-                <li>Self-attention is a key component that allows LLMs to capture long-range dependencies in text</li>
-                <li>The scalability of LLMs allows them to handle vast amounts of text data and learn from diverse sources</li>
-            </ul>
+        <div> <img src="gpt_graph.png" alt="GPT Model Growth Graph" style="max-width:100%;height:auto;">
+            <p><em>Increasing LLM size seems to improve performance on 'reasoning' tasks.</em></p>
         </div>
     </div>
 
     <div class="slide">
-        <div>
-            <img src="gpt_graph.png" alt="GPT Model Growth Graph" style="max-width:100%;height:auto;">
+        <div style="flex-direction: row;">
+            <div class="text-content">
+                <h2>How LLMs Generate Text</h2>
+                <p>LLMs generate text by playing a guessing game, similar to the cat and dog classification example we saw earlier.</p>
+                <ul>
+                    <li>Instead of guessing the correct label for an image, LLMs predict the most probable next word based on the previous words in the sequence.</li>
+                    <li>This process is repeated, with each new predicted word added to the input sequence 🔄</li>
+                </ul>
+                <p><em>LLMs are a highly advanced version of autocomplete.</em></p>
+            </div>
+            <div class="image-label-container" style="align-items: center; min-width: 50%;"> <img src="predicting.png"> </div>
         </div>
+    </div>
+    <div class="slide">
+        <div style="flex-direction: row;">
+            <div class="text-content">
+                <h2>Compressing the Internet</h2>
+            <p>LLMs learn from vast amounts of diverse online data, essentially "compressing" the knowledge available on the internet into their parameters.</p>
+            <ul>
+
+                <li>During training, LLMs capture patterns, relationships, and real-world knowledge from this data.</li>
+                <ul>
+                    <li>This is similar to how the cat and dog classifier learned from labeled images.</li>
+                </ul>
+                <li>Training top-of-the-line LLMs, like GPT-4, is speculated to cost upwards of $100 million.</li>
+            </ul>
+            <p><em>A good language model is also a model of the world.</em></p>
+        </div>
+        <div class="image-label-container" style="align-items: center; min-width: 30%;"> <img src="compress.webp"> </div>
+    </div>
     </div>
 
     <div class="slide">
-        <div>
-            <h2>How LLMs Generate Text</h2>
-            <ul>
-                <li>LLMs generate text by predicting the next word in a sequence based on the previous words</li>
-                <li>The process involves iteratively selecting the most probable next word until a stopping criterion is met</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>Compressing the Internet</h2>
-            <ul>
-                <li>The parameters file of LLMs is like a compressed version of the vast information available on the internet</li>
-                <li>Just as machine learning models learn from labeled datasets, LLMs learn from diverse online sources to capture a wide range of knowledge</li>
-                <li>A well-trained LLM becomes a model of the world, encapsulating not only language patterns but also real-world knowledge and relationships</li>
-                <li>This process is analogous to how the cat and dog image classification model learns from a labeled dataset to recognize patterns and make predictions</li>
-            </ul>
+        <div style="flex-direction: row;">
+            <div class="text-content">
+                <h2>Transformers: The Backbone of LLMs 🤖🚗</h2>
+                <p>The transformer architecture, introduced in 2017, has been crucial to the development of LLMs.</p>
+                <ul>
+                    <li>Transformers utilize an attention mechanism that allows LLMs to focus on the most relevant parts of the input data.</li>
+                    <li>This architecture consists takes input data and generate appropriate outputs, such as translations, summaries, or responses.</li>
+                    <li>Transformers are highly versatile adapt to handle a wide array of input, including text, audio, images, and video.</li>
+                </ul>
+            </div>
+            <div class="image-label-container" style="align-items: center; min-width: 30%;"> <img src="transformer.webp" alt="Transformer Architecture">
+                <div class="image-label">Transformer Architecture</div>
+            </div>
         </div>
     </div>
 

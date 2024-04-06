@@ -94,7 +94,7 @@ body {
 }
 
 .slide p, .slide li {
-  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
   margin-left: var(--slide-margin-left);
   margin-bottom: 10px;
 }

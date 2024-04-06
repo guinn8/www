@@ -34,7 +34,8 @@
                     <li>I have voraciously consuming the latest developments in generative AI.</li>
                 </ul>
             </div>
-            <div class="image-container">
+            <div class="image-label-container" style="align-items: center; max-width: 30vw;">
+
                 <img src="me.jpg" alt="Your Photo">
             </div>
         </div>
@@ -147,7 +148,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="image-label-container" style="align-items: center;">
+            <div class="image-label-container" style="align-items: center; max-width: 30%;">
                 <img src="figure_robot.webp">
                 <div class="image-label">Figure Robot</div>
             </div>
@@ -513,7 +514,7 @@
                     <li>Transformers are highly versatile adapt to handle a wide array of input, including text, audio, images, and video.</li>
                 </ul>
             </div>
-            <div class="image-label-container" style="align-items: center; min-width: 30%;"> <img src="transformer.webp" alt="Transformer Architecture">
+            <div class="image-label-container" style="align-items: center; min-width: 30%; max-width: 40%;"> <img src="transformer.webp" alt="Transformer Architecture">
                 <div class="image-label">Transformer Architecture</div>
             </div>
         </div>
@@ -568,8 +569,8 @@
                     <p><strong>(GPT-4):</strong> Large language models are like very smart robots that can read and write. They learn by studying a huge amount of books, articles, and websites to understand and use language just like people do. They can help answer questions, write stories, and even explain things in different ways depending on who they're talking to!</p>
                 </div>
             </div>
-            </div>
         </div>
+    </div>
     </div>
 
 
@@ -619,14 +620,15 @@
 
     <div class="slide">
         <div>
-            <h2>Introduction to LLM Prompting</h2>
+            <h2>LLM Prompting</h2>
             <ul>
                 <li>LLM prompting is the art of crafting input prompts to elicit desired responses from LLMs</li>
                 <li>Effective prompting is crucial for unlocking the full potential of LLMs and achieving desired outcomes</li>
-                <li>Prompting techniques can significantly influence the quality and relevance of LLM-generated text</li>
+                <li><a href="https://docs.anthropic.com/claude/docs/prompt-engineering">https://docs.anthropic.com/claude/docs/prompt-engineering</a></li>
             </ul>
         </div>
     </div>
+
 
     <div class="slide">
         <div style="width: 900px; margin: auto;"> <textarea id="promptText" readonly style="width: 100%; min-height: 50px; overflow-y: scroll; resize: none; margin-top: 20px; background-color: #f0f0f0; border: 1px solid #ccc; padding: 10px;"> This is a multi-step prompt for creating a game that can be pasted into the developer console, attaching to the provided canvas element, with user interaction after each step: Step 1: Brainstorming Please brainstorm 8 creative game ideas that can be implemented using HTML5 canvas and JavaScript. The game should be engaging, fun, and suitable for a wide audience. Consider various genres, mechanics, and themes when generating your ideas. [Wait for user input] User, please review the brainstormed game ideas. Let me know when you are ready to proceed to the next step. Step 2: Game Selection Please select one game idea from the brainstormed list that you would like to proceed with. Provide the number corresponding to your chosen game. [Wait for user input] User, please provide the number of the game idea you have selected. I will then create a detailed plan for implementing that game. Step 3: Detailed Planning Based on the selected game idea, please create a detailed plan for implementing the game. Consider the following aspects: Game objective and mechanics Player controls and interactions Game entities Please provide a clear and concise plan that outlines the key components and functionalities of the game. [Wait for user input] User, please review the detailed game plan. Let me know if you have any feedback or changes you'd like me to make. Once you are satisfied with the plan, let me know and I will proceed with implementing the game. Step 4: Game Implementation Using HTML5 canvas and JavaScript, please implement the game based on the detailed plan from Step 3. Consider the following guidelines: Use the provided canvas element with the ID "game" and dimensions of 900x600 pixels. Be sure to suppress the scrolling behavior of the arrow keys and the space bar if used. Implement the game logic, player controls, and game entities as planned. Use appropriate data structures and algorithms to manage game state and interactions. game progression as described in the plan. Create visually appealing graphics possibly using emoji as sprites to enhance the game experience. Ensure the game is responsive and performs well. Please provide the complete JavaScript code that can be pasted into the developer console to run the game. [Wait for user input] User, here is the complete JavaScript code for the game. Please paste it into the developer console to run the game. Let me know if you encounter any issues or have any further feedback. </textarea> <canvas id="game" width="900" height="400" style="background-color:#f0f0f0; display:block; margin:auto; border: 1px solid #ccc;"></canvas> </div>
@@ -670,13 +672,11 @@
 
     <div class="slide">
         <div>
-            <h2>Call to Action</h2>
+            <h2>Summing up</h2>
             <ul>
-                <li>Continue learning about generative AI and its potential</li>
-                <li>Use LLMs and diffusion models to enhance your work and creativity</li>
-                <li>Contribute to the responsible development and deployment of AI</li>
-                <li>Share your knowledge and engage in meaningful discussions</li>
-                <li>Be a part of shaping the future of AI!</li>
+                <li>Give flagship language model like Claude 3 Opus or GPT-4 a try.</li>
+                <li>LLMs can enable individuals to leverage their creativity on projects that would have otherwise been impossible </li>
+                <li>AGI is the stated goal of OpenAI, LLMs are seen as a stepping stone on that path.</li>
             </ul>
         </div>
     </div>

@@ -616,12 +616,6 @@
         </div>
     </div>
 
-    <div class="slide">
-        <div>
-            <img src="sections/mountain_timelapse_3.webp" alt="timelapse" style="max-width:100%;height:auto;">
-            <h1 class="floating-title">LLM prompting</h1>
-        </div>
-    </div>
 
     <div class="slide">
         <div>
@@ -635,116 +629,14 @@
     </div>
 
     <div class="slide">
-        <div style="width: 900px; margin: auto;"> <textarea id="promptText" readonly style="width: 100%; min-height: 50px; overflow-y: scroll; resize: none; margin-top: 20px; background-color: #f0f0f0; border: 1px solid #ccc; padding: 10px;"> This is a multi-step prompt for creating a game that can be pasted into the developer console, attaching to the provided canvas element, with user interaction after each step: Step 1: Brainstorming Please brainstorm 16 creative game ideas that can be implemented using HTML5 canvas and JavaScript. The game should be engaging, fun, and suitable for a wide audience. Consider various genres, mechanics, and themes when generating your ideas. [Wait for user input] User, please review the brainstormed game ideas. Let me know when you are ready to proceed to the next step. Step 2: Game Selection Please select one game idea from the brainstormed list that you would like to proceed with. Provide the number corresponding to your chosen game. [Wait for user input] User, please provide the number of the game idea you have selected. I will then create a detailed plan for implementing that game. Step 3: Detailed Planning Based on the selected game idea, please create a detailed plan for implementing the game. Consider the following aspects: Game objective and mechanics Player controls and interactions Game entities Please provide a clear and concise plan that outlines the key components and functionalities of the game. [Wait for user input] User, please review the detailed game plan. Let me know if you have any feedback or changes you'd like me to make. Once you are satisfied with the plan, let me know and I will proceed with implementing the game. Step 4: Game Implementation Using HTML5 canvas and JavaScript, please implement the game based on the detailed plan from Step 3. Consider the following guidelines: Use the provided canvas element with the ID "game" and dimensions of 900x600 pixels. Be sure to suppress the scrolling behavior of the arrow keys and the space bar if used. Implement the game logic, player controls, and game entities as planned. Use appropriate data structures and algorithms to manage game state and interactions. game progression as described in the plan. Create visually appealing graphics possibly using emoji as sprites to enhance the game experience. Ensure the game is responsive and performs well. Please provide the complete JavaScript code that can be pasted into the developer console to run the game. [Wait for user input] User, here is the complete JavaScript code for the game. Please paste it into the developer console to run the game. Let me know if you encounter any issues or have any further feedback. </textarea> <button onclick="copyPrompt()" style="display: block; margin: 10px auto; padding: 10px 20px; font-size: 16px;">Highlight Prompt</button> <canvas id="game" width="900" height="600" style="background-color:#f0f0f0; display:block; margin:auto; border: 1px solid #ccc;"></canvas> </div>
+        <div style="width: 900px; margin: auto;"> <textarea id="promptText" readonly style="width: 100%; min-height: 50px; overflow-y: scroll; resize: none; margin-top: 20px; background-color: #f0f0f0; border: 1px solid #ccc; padding: 10px;"> This is a multi-step prompt for creating a game that can be pasted into the developer console, attaching to the provided canvas element, with user interaction after each step: Step 1: Brainstorming Please brainstorm 8 creative game ideas that can be implemented using HTML5 canvas and JavaScript. The game should be engaging, fun, and suitable for a wide audience. Consider various genres, mechanics, and themes when generating your ideas. [Wait for user input] User, please review the brainstormed game ideas. Let me know when you are ready to proceed to the next step. Step 2: Game Selection Please select one game idea from the brainstormed list that you would like to proceed with. Provide the number corresponding to your chosen game. [Wait for user input] User, please provide the number of the game idea you have selected. I will then create a detailed plan for implementing that game. Step 3: Detailed Planning Based on the selected game idea, please create a detailed plan for implementing the game. Consider the following aspects: Game objective and mechanics Player controls and interactions Game entities Please provide a clear and concise plan that outlines the key components and functionalities of the game. [Wait for user input] User, please review the detailed game plan. Let me know if you have any feedback or changes you'd like me to make. Once you are satisfied with the plan, let me know and I will proceed with implementing the game. Step 4: Game Implementation Using HTML5 canvas and JavaScript, please implement the game based on the detailed plan from Step 3. Consider the following guidelines: Use the provided canvas element with the ID "game" and dimensions of 900x600 pixels. Be sure to suppress the scrolling behavior of the arrow keys and the space bar if used. Implement the game logic, player controls, and game entities as planned. Use appropriate data structures and algorithms to manage game state and interactions. game progression as described in the plan. Create visually appealing graphics possibly using emoji as sprites to enhance the game experience. Ensure the game is responsive and performs well. Please provide the complete JavaScript code that can be pasted into the developer console to run the game. [Wait for user input] User, here is the complete JavaScript code for the game. Please paste it into the developer console to run the game. Let me know if you encounter any issues or have any further feedback. </textarea> <canvas id="game" width="900" height="400" style="background-color:#f0f0f0; display:block; margin:auto; border: 1px solid #ccc;"></canvas> </div>
     </div>
-    <script> function copyPrompt() { const promptText = document.getElementById('promptText'); promptText.select(); promptText.setSelectionRange(0, 99999); navigator.clipboard.writeText(promptText.value); alert('Prompt copied to clipboard!'); } </script>
+
+
 
     <div class="slide">
         <div>
-            <h2>Crafting Specific Prompts</h2>
-            <ul>
-                <li>Crafting specific and well-defined prompts is essential for guiding LLM behavior</li>
-                <li>Example of a specific prompt: "Write a short story about a magical adventure in a enchanted forest"</li>
-                <li>Tips for creating effective prompts: <ul>
-                        <li>Be clear and concise</li>
-                        <li>Provide relevant context and constraints</li>
-                        <li>Use appropriate language and terminology</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>Breaking Tasks into Steps</h2>
-            <ul>
-                <li>Breaking complex tasks into smaller, manageable steps can improve LLM performance and accuracy
-                </li>
-                <li>Example of a multi-step prompt: <ol>
-                        <li>Generate a list of five potential book titles for a science fiction novel</li>
-                        <li>Select the most intriguing title from the list</li>
-                        <li>Write a brief synopsis of the novel based on the selected title</li>
-                    </ol>
-                </li>
-                <li>Breaking tasks into steps allows LLMs to focus on specific subtasks and generate more coherent outputs</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>Iterative Refinement</h2>
-            <ul>
-                <li>Iterative refinement involves iterating on prompts based on LLM responses to improve results
-                </li>
-                <li>The process typically involves: <ol>
-                        <li>Providing an initial prompt</li>
-                        <li>Analyzing the LLM-generated response</li>
-                        <li>Refining the prompt based on the observed strengths and weaknesses</li>
-                        <li>Repeating the process until the desired output is achieved</li>
-                    </ol>
-                </li>
-                <li>Iterative refinement allows for fine-tuning prompts and optimizing LLM performance on specific
-                    tasks
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>Using Examples to Guide LLM Behavior</h2>
-            <ul>
-                <li>Providing relevant examples in prompts can help LLMs understand the desired output format or style</li>
-                <li>Example-based prompting: <ul>
-                        <li>Prompt: "Generate a product review in the style of the following example: [example review]"</li>
-                        <li>LLM generates a review that mimics the style and structure of the provided example</li>
-                    </ul>
-                </li>
-                <li>Examples serve as a template or reference for LLMs to follow, improving the consistency and quality of generated text</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>Advanced Prompting Techniques</h2>
-            <ul>
-                <li>Few-shot learning: Providing a small number of examples in the prompt to guide LLM behavior</li>
-                <li>Prompt chaining: Combining multiple prompts sequentially to perform complex tasks</li>
-                <li>Example of few-shot learning: <ul>
-                        <li>Prompt: "Translate the following sentences from English to French:</li>
-                        <li>1. Hello, how are you? → Bonjour, comment allez-vous?</li>
-                        <li>2. Thank you very much. → Merci beaucoup.</li>
-                        <li>3. I love learning new languages.</li>
-                    </ul>
-                </li>
-                <li>Advanced prompting techniques can enhance LLM performance on specific tasks and domains</li>
-            </ul>
-        </div>
-    </div>
-    <div class="slide">
-        <div>
-            <h2>Prompting Best Practices and Guidelines</h2>
-            <ul>
-                <li>Key takeaways and best practices for effective LLM prompting: <ul>
-                        <li>Be clear, specific, and concise in your prompts</li>
-                        <li>Provide relevant context and constraints</li>
-                        <li>Break complex tasks into smaller, manageable steps</li>
-                        <li>Use examples to guide LLM behavior</li>
-                        <li>Iterate and refine prompts based on LLM responses</li>
-                    </ul>
-                </li>
-                <li>Experiment with different prompting techniques and share your experiences with the community</li>
-                <li>Continuously learn and adapt your prompting strategies as LLMs evolve and improve</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <img src="sections/mountain_timelapse_4.webp" alt="timelapse" style="max-width:100%;height:auto;">
+            <img src="sections/mountain_timelapse_3.webp" alt="timelapse" style="max-width:100%;height:auto;">
             <h1 class="floating-title">Conclusion</h1>
         </div>
     </div>

@@ -522,55 +522,97 @@
 
     <div class="slide">
         <div>
-            <h2>Text Completion and Contextual Understanding</h2>
-            <ul>
-                <li>LLMs excel at text completion tasks, generating contextually relevant continuations of given prompts</li>
-                <li>Example prompt: "I have a dog and I want to name him but I don't know what to name him. I want a name that is not too common and not too weird."</li>
-                <li>Example completion: "List of dog name ideas: Rex, Spot, Buddy, Max, Charlie, Bailey, Molly, Daisy, Lucy, Maggie, Rocky, Shadow, Toby, Bailey, Sadie, Molly, Maggie, Max, Charlie, Buddy, Jack"</li>
-                <li>LLMs demonstrate a deep understanding of context and can generate coherent and relevant completions</li>
-            </ul>
+            <h2>Completion Models</h2>
+            <p>We have described LLMs autocomplete for internet documents, this is different from the helpful assistant presented by a tool like ChatGPT</p>
+            <div style="background-color: #f0f0f0; margin-top: 10px; border-radius: 5px;">
+                <p><strong>Prompt:</strong> Can you suggest some dog names?</p>
+            </div>
+            <div style="background-color: #e0f0d0; padding:10px; border-radius: 5px; margin-top: 10px;">
+                <p><strong>(davinci-002):</strong></p>
+                <p>Please?</p>
+                <p>Name your favorite black and tan male and female dog names,</p>
+                <p>Name your favorite black and tan Great Dane male and female dog names. Please give a variety. Thank you!</p>
+            </div>
+            <div style="background-color: #f0f0f0; margin-top: 10px; border-radius: 5px;">
+                <p><strong>Prompt:</strong> list of dog names: Randy,</p>
+            </div>
+            <div style="background-color: #e0f0d0; padding:10px; border-radius: 5px; margin-top: 10px;">
+                <p><strong>(davinci-002):</strong></p>
+                <p> Taffy / Tiffy, Tonto, Risa / Sheena, Sid, Sandy / Sandy, Spike, Scruffy, Teddy, Bodi, Lady, Maxx, Sandy, Roxy, Bella, Fifi, Lucky, Nobi, Marvin, Buddy, Ted, Oscar, Cookie, Cleo, Champ, Cheko, Sam, Pickles, Kevin, Toby, Shadow, Colin, Noro, Brian, Scotty, Kimichi, Pepper</p>
+            </div>
         </div>
     </div>
 
     <div class="slide">
         <div>
-            <h2>Beyond Completion: The Helpful Assistant</h2>
-            <ul>
-                <li>LLMs can be trained to take on the persona of a helpful assistant, providing valuable support and guidance</li>
-                <li>Reinforcement learning techniques, similar to those discussed in the AI basics section, are used to fine-tune LLM responses and optimize for helpfulness</li>
-                <li>Personal anecdote: I recently used an AI-powered writing assistant to help me draft a professional email. The assistant provided suggestions on tone, grammar, and structure, saving me time and ensuring a polished final product.</li>
-                <li>LLMs as helpful assistants have potential applications in customer support, tutoring, and more</li>
-            </ul>
+            <div class="content">
+                <h2>LLM personas</h2>
+                <p>LLMs utilize a compression of the knowledge available on the internet. By fine-tuning this compressed knowledge, we can create models that excel at specific tasks.</p>
+                <ul>
+
+                    <li>Models like ChatGPT are fine-tuned for conversational interactions, with the model playing the role of a helpful assistant.</li>
+                    <ul>
+                        <li>Prompting is an effective way to invoke an persona in an assistant LLM.</li>
+                    </ul>
+                </ul>
+                <div style="background-color: #f0f0f0; margin-top: 10px; border-radius: 5px;">
+                    <p><strong>Prompt:</strong> please describe large language models to me in 3 sentences</p>
+                </div>
+                <div style="background-color: #e0f0d0; padding:10px; border-radius: 5px; margin-top: 10px;">
+                    <p><strong>(GPT-4):</strong> Large language models (LLMs) like ChatGPT are advanced AI systems trained on vast amounts of text data to generate human-like responses to textual inputs. They learn patterns and relationships within the data, enabling them to perform tasks such as answering questions, translating languages, or generating creative content. These models use techniques from deep learning, specifically transformer architectures, to understand and produce text contextually, adapting their responses based on the input they receive.</p>
+                </div>
+                <div style="background-color: #f0f0f0; margin-top: 10px; border-radius: 5px;">
+                    <p><strong>Prompt:</strong> As a kindergarten teacher, please describe large language models to me in 3 sentences</p>
+                </div>
+                <div style="background-color: #e0f0d0; padding:10px; border-radius: 5px; margin-top: 10px;">
+                    <p><strong>(GPT-4):</strong> Large language models are like very smart robots that can read and write. They learn by studying a huge amount of books, articles, and websites to understand and use language just like people do. They can help answer questions, write stories, and even explain things in different ways depending on who they're talking to!</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="slide">
+        <div>
+            <h2>Reinforcement Learning from Human Feedback</h2>
+            <img src="reinforcement_learning.png" alt="Reinforcement Learning from Human Feedback" style="width: 70%; height: auto; display: block; margin: 0 auto;">
+            <div class="spacer"></div>
+
+            <p>Users of ChatGPT participate in reinforcement learning when the model asks you to select the best of two responses.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div style="flex-direction: row;">
+            <div class="text-content">
+                <h2>Limitations of LLMs</h2>
+                <ul>
+                    <li>Hallucinations:</li>
+                    <ul>
+                        <li>LLMs are trained on the internet <em>which contains inaccurate information.</em></li>
+                        <li>Ex. Generating convincing-sounding but fictional news articles or scientific discoveries</li>
+                    </ul>
+                    <li>Biased outputs:</li>
+                    <ul>
+                        <li>Ex. Gender stereotyping in generated stories like defaulting to female pronouns for nurses or teachers</li>
+                    </ul>
+
+                    <li>Difficulty handling complex situations:</li>
+                    <ul>
+                        <li>Ex. Customer service chat-bots struggling with unique situations requiring human judgment</li>
+                    </ul>
+                </ul>
+            </div>
+            <div class="image-label-container" style="align-items: center; min-width: 30%;"> <img src="chatbot.webp" alt="Transformer Architecture">
+            </div>
         </div>
     </div>
 
     <div class="slide">
         <div>
-            <h2>Balancing AI Safety and Usefulness</h2>
-            <ul>
-                <li>There is a trade-off between safety and usefulness in LLMs</li>
-                <li>Efforts to make LLMs safe and avoid harmful outputs can sometimes result in unnecessary refusals</li>
-                <li>Finding the right balance is crucial to maximize the benefits of LLMs while mitigating potential risks</li>
-            </ul>
-        </div>
-    </div>
-
-
-    <div class="slide">
-        <div>
-            <img src="mary_lamb.png" alt="her fleece as white as copyright infringement" style="max-width:100%;height:auto;">
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>The Future of LLMs</h2>
-            <ul>
-                <li>As new high performance AI accelerator hardware is released, we can expect LLMs to become more capable of handling complex language tasks.</li>
-                <li>'Big tech' is scrambling to include LLMs into consumer products (ie. Microsoft Office)</li>
-                <li>With better LLMs creating 'autonomous agents' will become more viable, enabling LLMs to prompt themselves to solve complex problems</li>
-                <li>The advancements in LLM technology could have significant impacts across various industries and domains</li>
-            </ul>
+            <h2>Unnecessary Refusals</h2>
+            <img src="mary_lamb.png" alt="her fleece as white as copyright infringement" style="max-height:80%;height:auto;">
         </div>
     </div>
 
@@ -704,6 +746,33 @@
         <div>
             <img src="sections/mountain_timelapse_4.webp" alt="timelapse" style="max-width:100%;height:auto;">
             <h1 class="floating-title">Conclusion</h1>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div>
+            <h2>The Future of LLMs</h2>
+            <ul>
+                <li>As new high performance AI accelerator hardware is released, we can expect LLMs to become more capable of handling complex language tasks.</li>
+                <ul>
+                    <li>With better LLMs creating 'autonomous agents' will become more viable, enabling LLMs to prompt themselves to solve complex problems.</li>
+                    <li>As this capacity improves more and more software will be written with autonomously by AI systems.</li>
+                </ul>
+                <li>LLM systems could drive costs down in key service industries like: healthcare, education, and the legal system.</li>
+                <li>LLMs have the potential to automate certain tasks in customer support and other knowledge work domains, which may lead to job displacement in these areas.</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="slide">
+        <div>
+            <h2>Cost Reduction?</h2>
+
+            <iframe src="https://ourworldindata.org/grapher/price-changes-consumer-goods-services-united-states" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+            <div class="spacer"></div>
+
+            <p>Perhaps LLM can stem rapidly inflating costs in education and healthcare.</p>
         </div>
     </div>
 

@@ -617,74 +617,134 @@
         </div>
     </div>
 
-
-    <div class="slide">
-        <div>
-            <h2>LLM Prompting</h2>
-            <ul>
-                <li>LLM prompting is the art of crafting input prompts to elicit desired responses from LLMs</li>
-                <li>Effective prompting is crucial for unlocking the full potential of LLMs and achieving desired outcomes</li>
-                <li><a href="https://docs.anthropic.com/claude/docs/prompt-engineering">https://docs.anthropic.com/claude/docs/prompt-engineering</a></li>
-            </ul>
-        </div>
-    </div>
-
-
-    <div class="slide">
-        <div style="width: 900px; margin: auto;"> <textarea id="promptText" readonly style="width: 100%; min-height: 50px; overflow-y: scroll; resize: none; margin-top: 20px; background-color: #f0f0f0; border: 1px solid #ccc; padding: 10px;"> This is a multi-step prompt for creating a game that can be pasted into the developer console, attaching to the provided canvas element, with user interaction after each step: Step 1: Brainstorming Please brainstorm 8 creative game ideas that can be implemented using HTML5 canvas and JavaScript. The game should be engaging, fun, and suitable for a wide audience. Consider various genres, mechanics, and themes when generating your ideas. [Wait for user input] User, please review the brainstormed game ideas. Let me know when you are ready to proceed to the next step. Step 2: Game Selection Please select one game idea from the brainstormed list that you would like to proceed with. Provide the number corresponding to your chosen game. [Wait for user input] User, please provide the number of the game idea you have selected. I will then create a detailed plan for implementing that game. Step 3: Detailed Planning Based on the selected game idea, please create a detailed plan for implementing the game. Consider the following aspects: Game objective and mechanics Player controls and interactions Game entities Please provide a clear and concise plan that outlines the key components and functionalities of the game. [Wait for user input] User, please review the detailed game plan. Let me know if you have any feedback or changes you'd like me to make. Once you are satisfied with the plan, let me know and I will proceed with implementing the game. Step 4: Game Implementation Using HTML5 canvas and JavaScript, please implement the game based on the detailed plan from Step 3. Consider the following guidelines: Use the provided canvas element with the ID "game" and dimensions of 900x600 pixels. Be sure to suppress the scrolling behavior of the arrow keys and the space bar if used. Implement the game logic, player controls, and game entities as planned. Use appropriate data structures and algorithms to manage game state and interactions. game progression as described in the plan. Create visually appealing graphics possibly using emoji as sprites to enhance the game experience. Ensure the game is responsive and performs well. Please provide the complete JavaScript code that can be pasted into the developer console to run the game. [Wait for user input] User, here is the complete JavaScript code for the game. Please paste it into the developer console to run the game. Let me know if you encounter any issues or have any further feedback. </textarea> <canvas id="game" width="900" height="400" style="background-color:#f0f0f0; display:block; margin:auto; border: 1px solid #ccc;"></canvas> </div>
-    </div>
-
-
-
-    <div class="slide">
-        <div>
-            <img src="sections/mountain_timelapse_3.webp" alt="timelapse" style="max-width:100%;height:auto;">
-            <h1 class="floating-title">Conclusion</h1>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>The Future of LLMs</h2>
-            <ul>
-                <li>As new high performance AI accelerator hardware is released, we can expect LLMs to become more capable of handling complex language tasks.</li>
+    <div>
+        <div class="slide">
+            <div>
+                <h2>Effective Prompting Techniques</h2>
+                <p>We'll explore three powerful techniques for enhancing your interactions with large language models:</p>
                 <ul>
-                    <li>With better LLMs creating 'autonomous agents' will become more viable, enabling LLMs to prompt themselves to solve complex problems.</li>
-                    <li>As this capacity improves more and more software will be written with autonomously by AI systems.</li>
+                    <li>Letting LLMs think step-by-step</li>
+                    <li>Using examples to guide LLM outputs</li>
+                    <li>Assigning roles to LLMs for improved performance</li>
                 </ul>
-                <li>LLM systems could drive costs down in key service industries like: healthcare, education, and the legal system.</li>
-                <li>LLMs have the potential to automate certain tasks in customer support and other knowledge work domains, which may lead to job displacement in these areas.</li>
-            </ul>
+                <p>By mastering these prompting strategies, you'll be able to unlock the full potential of LLMs and achieve better results in your applications.</p>
+            </div>
         </div>
-    </div>
 
-
-    <div class="slide">
-        <div>
-            <h2>Cost Reduction?</h2>
-
-            <iframe src="https://ourworldindata.org/grapher/price-changes-consumer-goods-services-united-states" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
-            <div class="spacer"></div>
-
-            <p>Perhaps LLM can stem rapidly inflating costs in education and healthcare.</p>
+        <div class="slide">
+            <div style="flex-direction: row;">
+                <div class="text-content">
+                    <h2>Let LLMs Think Step-by-Step</h2>
+                    <p>Encourage LLMs to think through problems step-by-step for more accurate and nuanced responses.</p>
+                    <div style="background-color: #f0f0f0; margin-top: 10px; border-radius: 5px;">
+                        <p><strong>Prompt:</strong> What is the capital of France? Think step by step.</p>
+                    </div>
+                    <div style="background-color: #e0f0d0; padding:10px; border-radius: 5px; margin-top: 10px;">
+                        <p><strong>Response:</strong></p>
+                        <p>&lt;thinking&gt;</p>
+                        <p>Step 1: France is a country in Europe.</p>
+                        <p>Step 2: The capital of a country is usually its largest and most important city.</p>
+                        <p>Step 3: Paris is the largest and most important city in France.</p>
+                        <p>&lt;/thinking&gt;</p>
+                        <p>&lt;answer&gt;Therefore, the capital of France is Paris.&lt;/answer&gt;</p>
+                    </div>
+                </div>
+                <div class="image-label-container" style="align-items: center; min-width: 30%; max-width: 40%;"> <img src="llamas/step_by_step.webp" alt="Step-by-Step Thinking">
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>Summing up</h2>
-            <ul>
-                <li>Give flagship language model like Claude 3 Opus or GPT-4 a try.</li>
-                <li>LLMs can enable individuals to leverage their creativity on projects that would have otherwise been impossible </li>
-                <li>AGI is the stated goal of OpenAI, LLMs are seen as a stepping stone on that path.</li>
-            </ul>
+        <div class="slide">
+            <div style="flex-direction: row;">
+                <div class="text-content">
+                    <h2>Use Examples to Guide LLM Outputs</h2>
+                    <p>Provide well-crafted examples in prompts to improve accuracy, consistency, and quality of LLM responses.</p>
+                    <div style="background-color: #f0f0f0; margin-top: 10px; border-radius: 5px;">
+                        <p><strong>Prompt:</strong></p>
+                        <p>Extract the names and roles from this text:</p>
+                        <p>&lt;example&gt;<br>Input: Sarah Johnson, a talented writer, crafts compelling articles for the company blog.<br> Output: Sarah Johnson [WRITER]<br>&lt;/example&gt;</p>
+                        <p>John Doe, a skilled programmer, works at Acme Inc. Jane Smith, an experienced designer, collaborates with him on various projects.</p>
+                    </div>
+                    <div style="background-color: #e0f0d0; padding:10px; border-radius: 5px; margin-top: 10px;">
+                        <p><strong>Response:</strong></p>
+                        <p>John Doe [PROGRAMMER]</p>
+                        <p>Jane Smith [DESIGNER]</p>
+                    </div>
+                </div>
+                <div class="image-label-container" style="align-items: center; min-width: 30%; max-width: 40%;"> <img src="llamas/examples.webp" alt="Using Examples">
+                </div>
+            </div>
         </div>
-    </div>
+        <div class="slide">
+            <div style="flex-direction: row;">
+                <div class="text-content">
+                    <h2>Give LLMs a Role</h2>
+                    <p>Assign specific roles to LLMs to prime them for desired responses, improve accuracy, and tailor tone and demeanor.</p>
+                    <div style="background-color: #f0f0f0; margin-top: 10px; border-radius: 5px;">
+                        <p><strong>Prompt:</strong> You are a biology teacher. Explain the concept of photosynthesis to your students.</p>
+                    </div>
+                    <div style="background-color: #e0f0d0; padding:10px; border-radius: 5px; margin-top: 10px;">
+                        <p><strong>Response:</strong></p>
+                        <p>Hello, class! Today, we'll be learning about photosynthesis, the fascinating process that allows plants to create their own food using sunlight. Imagine you're a plant, soaking up the sun's rays. Your leaves are like tiny solar panels, capturing the light energy. Inside your leaves, you have tiny green helpers called chloroplasts. They use the sunlight, along with water from the soil and carbon dioxide from the air, to make glucose, a type of sugar that you use for energy. As a bonus, you release oxygen into the air, which helps all the animals (including us!) breathe. So, the next time you see a plant, remember the incredible process of photosynthesis that keeps our world green and alive!</p>
+                    </div>
+                </div>
+                <div class="image-label-container" style="align-items: center; min-width: 30%; max-width: 40%;"> <img src="llamas/roleplay.webp" alt="Roleplaying">
+                </div>
+            </div>
+        </div>
 
-    <div class="navigation"> <button class="prev-btn">&#8593;</button> <button class="next-btn">&#8595;</button>
-    </div>
-    <script src="slide_navigator.js"></script>
-    <script src="ai_talk.js"></script>
+        <div class="slide">
+            <div style="width: 900px; margin: auto;"> <textarea id="promptText" readonly style="width: 100%; min-height: 50px; overflow-y: scroll; resize: none; margin-top: 20px; background-color: #f0f0f0; border: 1px solid #ccc; padding: 10px;"> This is a multi-step prompt for creating a game that can be pasted into the developer console, attaching to the provided canvas element, with user interaction after each step: Step 1: Brainstorming Please brainstorm 8 creative game ideas that can be implemented using HTML5 canvas and JavaScript. The game should be engaging, fun, and suitable for a wide audience. Consider various genres, mechanics, and themes when generating your ideas. [Wait for user input] User, please review the brainstormed game ideas. Let me know when you are ready to proceed to the next step. Step 2: Game Selection Please select one game idea from the brainstormed list that you would like to proceed with. Provide the number corresponding to your chosen game. [Wait for user input] User, please provide the number of the game idea you have selected. I will then create a detailed plan for implementing that game. Step 3: Detailed Planning Based on the selected game idea, please create a detailed plan for implementing the game. Consider the following aspects: Game objective and mechanics Player controls and interactions Game entities Please provide a clear and concise plan that outlines the key components and functionalities of the game. [Wait for user input] User, please review the detailed game plan. Let me know if you have any feedback or changes you'd like me to make. Once you are satisfied with the plan, let me know and I will proceed with implementing the game. Step 4: Game Implementation Using HTML5 canvas and JavaScript, please implement the game based on the detailed plan from Step 3. Consider the following guidelines: Use the provided canvas element with the ID "game" and dimensions of 900x600 pixels. Be sure to suppress the scrolling behavior of the arrow keys and the space bar if used. Implement the game logic, player controls, and game entities as planned. Use appropriate data structures and algorithms to manage game state and interactions. game progression as described in the plan. Create visually appealing graphics possibly using emoji as sprites to enhance the game experience. Ensure the game is responsive and performs well. Please provide the complete JavaScript code that can be pasted into the developer console to run the game. [Wait for user input] User, here is the complete JavaScript code for the game. Please paste it into the developer console to run the game. Let me know if you encounter any issues or have any further feedback. </textarea> <canvas id="game" width="900" height="400" style="background-color:#f0f0f0; display:block; margin:auto; border: 1px solid #ccc;"></canvas> </div>
+        </div>
+
+        <div class="slide">
+            <div>
+                <img src="sections/mountain_timelapse_3.webp" alt="timelapse" style="max-width:100%;height:auto;">
+                <h1 class="floating-title">Conclusion</h1>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div>
+                <h2>The Future of LLMs</h2>
+                <ul>
+                    <li>As new high performance AI accelerator hardware is released, we can expect LLMs to become more capable of handling complex language tasks.</li>
+                    <ul>
+                        <li>With better LLMs creating 'autonomous agents' will become more viable, enabling LLMs to prompt themselves to solve complex problems.</li>
+                        <li>As this capacity improves more and more software will be written with autonomously by AI systems.</li>
+                    </ul>
+                    <li>LLM systems could drive costs down in key service industries like: healthcare, education, and the legal system.</li>
+                    <li>LLMs have the potential to automate certain tasks in customer support and other knowledge work domains, which may lead to job displacement in these areas.</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="slide">
+            <div>
+                <h2>Cost Reduction?</h2>
+
+                <iframe src="https://ourworldindata.org/grapher/price-changes-consumer-goods-services-united-states" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+                <div class="spacer"></div>
+
+                <p>Perhaps LLM can stem rapidly inflating costs in education and healthcare.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div>
+                <h2>Summing up</h2>
+                <ul>
+                    <li>Give flagship language model like Claude 3 Opus or GPT-4 a try.</li>
+                    <li>LLMs can enable individuals to leverage their creativity on projects that would have otherwise been impossible </li>
+                    <li>AGI is the stated goal of OpenAI, LLMs are seen as a stepping stone on that path.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="navigation"> <button class="prev-btn">&#8593;</button> <button class="next-btn">&#8595;</button>
+        </div>
+        <script src="slide_navigator.js"></script>
+        <script src="ai_talk.js"></script>
 </body>
 
 </html>

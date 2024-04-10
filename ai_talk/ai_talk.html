@@ -34,7 +34,8 @@
                     <li>I have voraciously consuming the latest developments in generative AI.</li>
                 </ul>
             </div>
-            <div class="image-container">
+            <div class="image-label-container" style="align-items: center; max-width: 30vw;">
+
                 <img src="me.jpg" alt="Your Photo">
             </div>
         </div>
@@ -85,7 +86,7 @@
                     <li><strong>Informed Evaluation:</strong> Understanding how these tools work enables evaluation of 'AI hype'.</li>
                 </ul>
             </div>
-            
+
             <div class="image-label-container" style="align-items: center;">
                 <img src="gb200.jpeg">
                 <div class="image-label">Nvidia GB200</div>
@@ -123,125 +124,138 @@
     <div class="slide">
         <div>
             <img src="sections/downtown.webp" alt="timelapse" style="max-width:100%;height:auto;">
-            <h1 class="floating-title">Using AI tools</h1>
+            <h1 class="floating-title">Introduction to 'AI'</h1>
         </div>
     </div>
 
     <div class="slide">
-        <div>
-            <h2>Defining Artificial Intelligence (AI)</h2>
-            <ul>
-                <li>AI encompasses the development of computer systems capable of performing tasks that traditionally
-                    require human intelligence.</li>
-                <li> <strong>Task-Specific AI:</strong>
-                    <ul>
-                        <li>Designed for specialized tasks, demonstrating intelligence in a narrow domain.</li>
-                        <li>Image recognition, speech recognition, and game-playing AI are examples of task-specific AI.</li>
-                    </ul>
-                </li>
-                <li> <strong>General AI (AGI):</strong>
-                    <ul>
-                        <li>Systems that excel across a wide range of tasks, potentially surpassing human capabilities.</li>
-                        <li>AGI could learn and adapt to new situations without explicit programming.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>Transforming Views on AI: Turing's Legacy</h2>
-            <p>Alan Turing's 1950 proposal of the Imitation Game, now known as the Turing Test, initially set the stage for machine intelligence. The advent of advanced Large Language Models (LLMs) has significantly altered this paradigm.</p>
-            <ul>
-                <li><strong>LLMs' Triumph:</strong>
-                    <ul>
-                        <li>Recent LLMs challenge the Turing Test's criteria by effectively mimicking human dialogue, showcasing an unprecedented level of linguistic and cognitive mimicry.</li>
-                    </ul>
-                </li>
-                <li><strong>Shift Towards AGI:</strong>
-                    <ul>
-                        <li>The progress in LLM technology propels the conversation around AGI, emphasizing the development of specialized AI skills over a singular, undefined AGI goal.</li>
-                    </ul>
-                </li>
-                <li><strong>New Perspectives on Intelligence:</strong>
-                    <ul>
-                        <li>This technological leap forces a reevaluation of AI's potential, focusing on distinct abilities and practical implications rather than general intelligence.</li>
-                    </ul>
-                </li>
-            </ul>
-            <p>Alan Turing's vision has evolved; the conversation now centers on how AI's specific capabilities contribute to the broader tapestry of machine intelligence.</p>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>Machine Learning: Bridging Data and AI</h2>
-            <ul>
-                <li><strong>Adaptability:</strong> Just like humans learn from experience, machine learning models refine their accuracy as they process more data.</li>
-                <li><strong>Generalization:</strong> Machine learning models can identify patterns in data and apply them to new, unseen situations, similar to how we use past experiences to navigate new challenges.</li>
-                <li><strong>Efficiency:</strong> Automating the learning process allows machine learning to tackle complex problems that would be impractical to solve with traditional programming methods.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>Three Types of Machine Learning</h2>
-            <ul>
-                <li><strong>Supervised Learning:</strong></li>
+        <div style="flex-direction: row;">
+            <div class="text-content">
+                <h2>Defining Artificial Intelligence (AI)</h2>
                 <ul>
-                    <li>Learning from labeled examples, like a teacher guiding a student.</li>
-                    <li>The algorithm learns to map input data to the correct output labels.</li>
-                </ul>
-                <li><strong>Unsupervised Learning:</strong></li>
-                <ul>
-                    <li>Discovering hidden patterns and structures in unlabeled data.</li>
-                    <li>Similar to grouping similar objects together without prior knowledge of the categories.</li>
-                </ul>
-                <li><strong>Reinforcement Learning:</strong></li>
-                <ul>
-                    <li>Learning through interaction with an environment, like a child learning from trial and error.
+                    <p>AI encompasses the development of computer systems capable of performing tasks that traditionally require human intelligence.</p>
+                    <li> <strong>Task-Specific AI:</strong>
+                        <ul>
+                            <li>Designed for specialized tasks, demonstrating intelligence in a narrow domain.</li>
+                            <li>Image recognition, speech recognition, and game-playing AI are examples of task-specific AI.</li>
+                        </ul>
                     </li>
-                    <li>The algorithm receives rewards or penalties for its actions and learns to make better decisions over time.</li>
+                    <li> <strong>General AI (AGI):</strong>
+                        <ul>
+                            <li>Systems that excel across a wide range of tasks, potentially surpassing human capabilities.</li>
+                            <li>AGI could learn and adapt to new situations without explicit programming.</li>
+                        </ul>
+                    </li>
                 </ul>
-            </ul>
+            </div>
+            <div class="image-label-container" style="align-items: center; max-width: 30%;">
+                <img src="figure_robot.webp">
+                <div class="image-label">Figure Robot</div>
+            </div>
         </div>
     </div>
 
     <div class="slide">
-        <div>
-            <h2>Neural Networks: The Building Blocks of Modern AI</h2>
-            <ul>
-                <li>What are Neural Networks?
+        <div style="flex-direction: row;">
+            <div class="text-content">
+
+                <h2>"traditionally require human intelligence"</h2>
+                <p>In 1950, British Mathematician Alan Turing proposed the <em>Imitation Game</em> to evaluate if a computer possesses intelligence.</p>
+                <ul>
+                    <li><strong>The Turing Test:</strong>
+                        <ul>
+                            <li>Challenges machines to engage in dialogue so convincingly that observers cannot distinguish it from human responses.</li>
+                        </ul>
+                    </li>
+
+                    <li>Recent LLMs (Claude Opus, GPT-4) arguably have the ability to mimic human dialogue at a level that meets the criteria of the Turing Test.</li>
                     <ul>
-                        <li>Neural networks are a type of machine learning algorithm inspired by the human brain.</li>
-                        <li>Consist of interconnected nodes (neurons) organized in layers</li>
+                        <li><em>There is no longer a clearly defined test for machine intelligence.</em></li>
                     </ul>
-                </li>
-                <li>How do Neural Networks Learn?
-                    <ul>
-                        <li>Neurons receive inputs, process them, and pass outputs to the next layer</li>
-                        <li>Connections between neurons have weights that determine the strength of the signal</li>
-                        <li>Learning occurs by adjusting the weights to minimize prediction errors</li>
-                    </ul>
-                </li>
-                <li>Advantages of Neural Networks
-                    <ul>
-                        <li>Able to learn complex patterns and relationships in data</li>
-                        <li>Can handle large amounts of data and make accurate predictions</li>
-                    </ul>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="image-label-container" style="align-items: center; width: 100vw;">
+                <img src="imitation_game.jpg">
+            </div>
         </div>
     </div>
 
     <div class="slide">
+        <div style="flex-direction: row;">
+            <div class="text-content">
+                <h2>Machine Learning & Neural Networks</h2>
+                <p>Machine learning is the process were a computer system can be <em>trained</em> to accomplish a task. A neural network is an algorithm that can learn patterns from data.</p>
+                <ul>
+                    <li><strong>Machine Learning: Beyond Traditional Programming</strong>
+                        <ul>
+                            <li>In traditional programming, tasks are solved similarly to following a recipe. This method falls short with complexity and unpredictability.</li>
+                            <li>Machine Learning is akin to teaching a computer to cook by tasting dishes: it identifies patterns with flexible, adaptive learning.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Neural Networks: Imitating the Brain</strong>
+                        <ul>
+                            <li>Neural networks simulate the brain's structure with interconnected 'neurons'.</li>
+                            <li>They can be trained using a technique called 'backpropagation', which iteratively adjusts the neurons' connections to produce the desired outcome.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="image-label-container" style="align-items: center; width: 100%;">
+                <img src="neuron.png" alt="Neural Network Illustration" style="max-width: 100%;">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="slide">
         <div>
-            <h2>A Concrete Example: Recognizing Cats and Dogs</h2>
+            <h2>Machine Learning Paradigms</h2>
             <ul>
-                <li>Let's explore a practical application of neural networks: teaching a model to recognize images of cats and dogs.</li>
-                <li>This example will demonstrate the key steps involved in training a neural network for image classification.</li>
+                <li><strong>Supervised Learning:</strong> Learning from labeled data, akin to a guided teaching process.
+                    <ul>
+                        <li>Example: A child learns colors by names through explicit instruction, e.g., being told "This is red" with a red object.</li>
+                    </ul>
+                </li>
+                <li><strong>Unsupervised Learning:</strong> Identifying patterns in data without labels, discovering structure autonomously.
+                    <ul>
+                        <li>Example: A child categorizes toys by shapes or colors independently, recognizing patterns without direct teaching.</li>
+                    </ul>
+                </li>
+                <li><strong>Reinforcement Learning:</strong> Learning via interaction, adapting through trial and feedback.
+                    <ul>
+                        <li>Example: A toddler improves walking skills through trial and error, motivated by encouragement and adapting based on feedback.</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="spacer"></div>
+            <div class="images-container">
+                <div class="image-row">
+                    <div class="image-label-container">
+                        <img src="learning_types/supervised.png" alt="Cat 1">
+                        <div class="image-label">Supervised learning</div>
+                    </div>
+                    <div class="image-label-container">
+                        <img src="learning_types/unsupervised.png" alt="Dog 1">
+                        <div class="image-label">Unsupervised learning</div>
+                    </div>
+                    <div class="image-label-container">
+                        <img src="learning_types/reenforcement.png">
+                        <div class="image-label">Reinforcement Learning</div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="slide">
+        <div>
+            <h2>Recognizing Cats and Dogs</h2>
+            <ul>
+                <li>Let's explore a concrete example of machine learning: teaching a model to recognize images of cats and dogs.</li>
                 <li>By understanding this process, you'll gain insights into how AI systems learn from data and make predictions.</li>
             </ul>
             <div class="spacer"></div>
@@ -270,7 +284,7 @@
             <ul>
                 <li>The first step is to gather a dataset of cat and dog images and label each image accordingly.</li>
                 <li>Labeling involves assigning the correct category ("cat" or "dog") to each image in the dataset.</li>
-                <li>Key Point: The quality and diversity of the dataset are crucial for the model's performance. The dataset should include various breeds, angles, and backgrounds to ensure the model learns robust features.</li>
+                <li><strong>Key Point:</strong> The quality and diversity of the dataset are crucial for the model's performance. The dataset should include various breeds, angles, and backgrounds to ensure the model learns robust features.</li>
             </ul>
             <div class="spacer"></div>
             <div class="images-container">
@@ -325,12 +339,14 @@
 
     <div class="slide">
         <div>
-            <h2>Understanding Neural Network Training</h2>
+            <h2>Step 2: Neural Network Training</h2>
+            <p>A guessing game between a teacher and a toddler is a simple analogy for understanding neural network training.</p>
             <ol>
-                <li><strong>Guessing Game:</strong> The network makes initial guesses on labeled images, learning from the difference between its guesses and the actual labels (cats or dogs).</li>
-                <li><strong>Learning from Feedback:</strong> Utilizes feedback (error in guesses) to adjust its understanding. This step is akin to a toddler being corrected by a teacher, refining the network's ability to recognize patterns.</li>
-                <li><strong>Practice and Improvement:</strong> Repeated practice helps the network improve. With each image processed, it becomes better at distinguishing cats from dogs, similar to a toddler learning over time.</li>
+                <li><em>Initial Guesses:</em> The neural network, like a toddler, makes initial guesses when shown labeled images of cats and dogs. It may not always be correct at first.</li>
+                <li><em>Learning from Mistakes:</em> Just as a teacher corrects a toddler's mistakes, the network learns from the differences between its guesses and the actual labels, adjusting its understanding accordingly.</li>
+                <li><em>Repetition and Improvement:</em> With repeated exposure to more examples and continuous feedback, the neural network gradually improves its ability to classify images accurately, similar to how a toddler's skills develop through practice and guidance.</li>
             </ol>
+            <p><strong>Key Point:</strong> This process of guessing, receiving feedback, and learning from mistakes is the foundation of how neural networks learn to recognize and classify patterns in data.</p>
             <div class="spacer"></div>
 
             <div class="image-row" style="font-size: 32px;">
@@ -361,39 +377,60 @@
             <ul>
                 <li>After training, the network is tested on new, unseen cat and dog images to evaluate its performance.</li>
                 <li>The network uses its learned features to classify the new images as either cats or dogs.</li>
-                <li>Key Point: Testing on unseen data helps assess the network's ability to generalize beyond the training examples. A well-trained model should be able to accurately classify new images it hasn't encountered before.</li>
+                <li><strong>Key Point:</strong> Testing on unseen data helps assess the network's ability to generalize beyond the training examples. A well-trained model should be able to accurately classify new images it hasn't encountered before.</li>
             </ul>
+            <div class="spacer"></div>
+            <div class="images-container">
+
+                <div class="image-row" style="font-size: 32px">
+                    <div class="image-label-container" style="max-width: 20%;">
+                        <img src="cats_dogs/test_cat.png" alt="Dog 4">
+                    </div>
+                    <div class="image-label-container">→</div>
+                    <div class="image-label-container" style="max-width: 20%;"><img src="brain.png"></div>
+                    <div class="image-label-container">→</div>
+                    <div class="image-label-container" style="border: 2px solid #0f0; background-color: #fdd; padding: 10px; font-size: 16px; position: relative;">
+                        <div style="color: #0a0; font-size: 50px; position: absolute; top: -20px; left: -12px; font-weight: bold;">✓</div>
+                        Prediction:<br>
+                        <strong>Cat: 95%</strong><br>
+                        <strong>Dog: 5%</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="spacer" style="min-height: 15px;"></div>
+            <div class="images-container">
+                <div class="image-row" style="font-size: 32px; ">
+                    <div class="image-label-container" style="max-width: 20%;">
+                        <img src="cats_dogs/silly_frog.png" alt="Dog 4">
+                    </div>
+                    <div class="image-label-container">→</div>
+                    <div class="image-label-container" style="max-width: 20%;"><img src="brain.png"></div>
+                    <div class="image-label-container">→</div>
+                    <div class="image-label-container" style="border: 2px solid #ff0; background-color: #fdd; padding: 10px; font-size: 16px; position: relative;">
+                        <div style="color: #aa0; font-size: 50px; position: absolute; top: -20px; left: -12px; font-weight: bold;">?</div>
+                        Prediction:<br>
+                        <strong>Cat: 10%</strong><br>
+                        <strong>Dog: 90%</strong>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="slide">
         <div>
-            <h2>Conclusion: Recognizing Cats and Dogs</h2>
+            <h2>AI Basics: Key Takeaways 🔑</h2>
             <ul>
-                <li>Through this example, we've seen how a neural network can be trained to recognize cats and dogs
-                    in
-                    images.</li>
-                <li>The network learns from labeled examples, extracts relevant features, and adjusts its weights to
-                    make accurate predictions.</li>
-                <li>Key Takeaways: <ul>
-                        <li>AI systems learn from data by identifying patterns and relationships.</li>
-                        <li>The quality and diversity of the training data significantly impact the model's performance.</li>
-                        <li>Neural networks can automatically learn hierarchical features from raw data.</li>
-                        <li>Generalization is a crucial aspect of AI, enabling models to make predictions on unseen data.</li>
+                <li>AI systems, like the cat and dog recognizer, learn from data by identifying patterns and relationships. 🐱🐶</li>
+                <li><strong>The quality of the training data significantly impact the model's performance.</strong> 📊 <ul>
+                        <li>LLMs face additional challenges due to the complexity of human language, and AI systems may have limitations, with the potential for biased outcomes.</li>
                     </ul>
                 </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>From Image Classification to Generative AI</h2>
-            <ul>
-                <li>The principles of supervised learning, as demonstrated in the image classification example, extend to other domains and applications of AI.</li>
-                <li>Generative AI is an exciting area that focuses on creating new content, such as images, text, or music, based on learned patterns from training data.</li>
-                <li>The success of generative AI relies on large-scale datasets, advanced model architectures, and powerful computational resources.</li>
-                <li>Generative AI has the potential to revolutionize various industries, from creative applications like art and design to practical use cases like data augmentation and simulation, by enabling machines to generate novel content that mimics human creativity.</li>
+                <li><strong>Generalization is crucial, enabling models to make predictions on unseen data.</strong> 🔮 <ul>
+                        <li>A well-trained model demonstrating its ability to learn general patterns by accurately classifying new examples, rather than memorizing specific instances. 🎓</li>
+                    </ul>
+                </li>
+                <li>These concepts lay the foundation for understanding <strong>Large Language Models (LLMs)</strong>, which apply similar principles to natural language processing tasks. 💬</li>
             </ul>
         </div>
     </div>
@@ -406,274 +443,309 @@
     </div>
 
     <div class="slide">
-        <div>
-            <h2>Introduction to Large Language Models (LLMs)</h2>
-            <ul>
-                <li>LLMs are powerful AI models designed for natural language processing tasks</li>
-                <li>They are built upon the concepts of neural networks and machine learning discussed earlier</li>
-                <li>LLMs have revolutionized the field of natural language processing and opened up new possibilities</li>
-            </ul>
+        <div style="flex-direction: row;">
+            <div class="text-content">
+                <h2>Introducing Large Language Models</h2>
+                <p>LLMs are computer programs that output coherent and relevant text in response to an input prompt.</p>
+                <ul>
+                    <li>OpenAI's release of ChatGPT in November 2022 brought LLM technology into the public consciousness.</li>
+                    <li>LLMs can be trained in a variety of sizes measured by parameter count</li>
+                    <li>The largest LLMs have demonstrated an unprecedented ability to 'reason' with language</li>
+                </ul>
+                <p><em>Just like how the cat and dog recognizer learned from labeled images, LLMs learn from vast amounts of text data to capture the intricacies of human language.</em></p>
+            </div>
+
+            <div class="image-label-container" style="align-items: center; min-width: 50%;">
+                <img src="oai_mold.png">
+            </div>
         </div>
     </div>
 
     <div class="slide">
-        <div>
-            <h2>The Building Blocks of LLMs</h2>
-            <ul>
-                <li>LLMs are based on the transformer architecture, which enables specific computer hardware to massively speed computation.</li>
-                <li>Callback: The transformer architecture is a more advanced example of the neural networks discussed previously. architecture discussion</li>
-                <li>Self-attention is a key component that allows LLMs to capture long-range dependencies in text</li>
-                <li>The scalability of LLMs allows them to handle vast amounts of text data and learn from diverse sources</li>
-            </ul>
+        <div> <img src="gpt_graph.png" alt="GPT Model Growth Graph" style="max-width:100%;height:auto;">
+            <p><em>Increasing LLM size seems to improve performance on 'reasoning' tasks.</em></p>
         </div>
     </div>
 
     <div class="slide">
-        <div>
-            <img src="gpt_graph.png" alt="GPT Model Growth Graph" style="max-width:100%;height:auto;">
+        <div style="flex-direction: row;">
+            <div class="text-content">
+                <h2>How LLMs Generate Text</h2>
+                <p>LLMs generate text by playing a guessing game, similar to the cat and dog classification example we saw earlier.</p>
+                <ul>
+                    <li>Instead of guessing the correct label for an image, LLMs predict the most probable next word based on the previous words in the sequence.</li>
+                    <li>This process is repeated, with each new predicted word added to the input sequence 🔄</li>
+                </ul>
+                <p><em>LLMs are a highly advanced version of autocomplete.</em></p>
+            </div>
+            <div class="image-label-container" style="align-items: center; min-width: 50%;"> <img src="predicting.png"> </div>
         </div>
     </div>
-    
     <div class="slide">
-        <div>
-            <h2>How LLMs Generate Text</h2>
-            <ul>
-                <li>LLMs generate text by predicting the next word in a sequence based on the previous words</li>
-                <li>The process involves iteratively selecting the most probable next word until a stopping criterion is met</li>
-            </ul>
-        </div>
-    </div>
+        <div style="flex-direction: row;">
+            <div class="text-content">
+                <h2>Compressing the Internet</h2>
+                <p>LLMs learn from vast amounts of diverse online data, essentially "compressing" the knowledge available on the internet into their parameters.</p>
+                <ul>
 
-    <div class="slide">
-        <div>
-            <h2>Compressing the Internet</h2>
-            <ul>
-                <li>The parameters file of LLMs is like a compressed version of the vast information available on the internet</li>
-                <li>Just as machine learning models learn from labeled datasets, LLMs learn from diverse online sources to capture a wide range of knowledge</li>
-                <li>A well-trained LLM becomes a model of the world, encapsulating not only language patterns but also real-world knowledge and relationships</li>
-                <li>This process is analogous to how the cat and dog image classification model learns from a labeled dataset to recognize patterns and make predictions</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>The Power of Attention Mechanism</h2>
-            <ul>
-                <li>Attention, a crucial component of neural networks, enables LLMs to focus on relevant parts of the input</li>
-                <li>In the context of LLMs, attention allows the model to consider the context and generate more coherent and contextually relevant text</li>
-                <li>Example (no attention): "I went to the Calgary Stampede and met a nice [day]" (phone keyboard)</li>
-                <li>Example (w/ attention): "I went to the Calgary Stampede and met a nice [cowboy]." (GPT-3.5)</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>Text Completion and Contextual Understanding</h2>
-            <ul>
-                <li>LLMs excel at text completion tasks, generating contextually relevant continuations of given prompts</li>
-                <li>Example prompt: "I have a dog and I want to name him but I don't know what to name him. I want a name that is not too common and not too weird."</li>
-                <li>Example completion: "List of dog name ideas: Rex, Spot, Buddy, Max, Charlie, Bailey, Molly, Daisy, Lucy, Maggie, Rocky, Shadow, Toby, Bailey, Sadie, Molly, Maggie, Max, Charlie, Buddy, Jack"</li>
-                <li>LLMs demonstrate a deep understanding of context and can generate coherent and relevant completions</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>Beyond Completion: The Helpful Assistant</h2>
-            <ul>
-                <li>LLMs can be trained to take on the persona of a helpful assistant, providing valuable support and guidance</li>
-                <li>Reinforcement learning techniques, similar to those discussed in the AI basics section, are used to fine-tune LLM responses and optimize for helpfulness</li>
-                <li>Personal anecdote: I recently used an AI-powered writing assistant to help me draft a professional email. The assistant provided suggestions on tone, grammar, and structure, saving me time and ensuring a polished final product.</li>
-                <li>LLMs as helpful assistants have potential applications in customer support, tutoring, and more</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>Balancing AI Safety and Usefulness</h2>
-            <ul>
-                <li>There is a trade-off between safety and usefulness in LLMs</li>
-                <li>Efforts to make LLMs safe and avoid harmful outputs can sometimes result in unnecessary refusals</li>
-                <li>Finding the right balance is crucial to maximize the benefits of LLMs while mitigating potential risks</li>
-            </ul>
-        </div>
-    </div>
-
-
-    <div class="slide">
-        <div>
-            <img src="mary_lamb.png" alt="her fleece as white as copyright infringement" style="max-width:100%;height:auto;">
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>The Future of LLMs</h2>
-            <ul>
-                <li>As new high performance AI accelerator hardware is released, we can expect LLMs to become more capable of handling complex language tasks.</li>
-                <li>'Big tech' is scrambling to include LLMs into consumer products (ie. Microsoft Office)</li>
-                <li>With better LLMs creating 'autonomous agents' will become more viable, enabling LLMs to prompt themselves to solve complex problems</li>
-                <li>The advancements in LLM technology could have significant impacts across various industries and domains</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <img src="sections/mountain_timelapse_3.webp" alt="timelapse" style="max-width:100%;height:auto;">
-            <h1 class="floating-title">LLM prompting</h1>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>Introduction to LLM Prompting</h2>
-            <ul>
-                <li>LLM prompting is the art of crafting input prompts to elicit desired responses from LLMs</li>
-                <li>Effective prompting is crucial for unlocking the full potential of LLMs and achieving desired outcomes</li>
-                <li>Prompting techniques can significantly influence the quality and relevance of LLM-generated text</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>Example</h2>
-            <canvas id="game" width="900" height="600" style="background-color:#f0f0f0; display:block; margin:auto;"></canvas>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>Crafting Specific Prompts</h2>
-            <ul>
-                <li>Crafting specific and well-defined prompts is essential for guiding LLM behavior</li>
-                <li>Example of a specific prompt: "Write a short story about a magical adventure in a enchanted forest"</li>
-                <li>Tips for creating effective prompts: <ul>
-                        <li>Be clear and concise</li>
-                        <li>Provide relevant context and constraints</li>
-                        <li>Use appropriate language and terminology</li>
+                    <li>During training, LLMs capture patterns, relationships, and real-world knowledge from this data.</li>
+                    <ul>
+                        <li>This is similar to how the cat and dog classifier learned from labeled images.</li>
                     </ul>
-                </li>
-            </ul>
+                    <li>Training top-of-the-line LLMs, like GPT-4, is speculated to cost upwards of $100 million.</li>
+                </ul>
+                <p><em>A good language model is also a model of the world.</em></p>
+            </div>
+            <div class="image-label-container" style="align-items: center; min-width: 30%;"> <img src="compress.webp"> </div>
         </div>
     </div>
 
     <div class="slide">
-        <div>
-            <h2>Breaking Tasks into Steps</h2>
-            <ul>
-                <li>Breaking complex tasks into smaller, manageable steps can improve LLM performance and accuracy
-                </li>
-                <li>Example of a multi-step prompt: <ol>
-                        <li>Generate a list of five potential book titles for a science fiction novel</li>
-                        <li>Select the most intriguing title from the list</li>
-                        <li>Write a brief synopsis of the novel based on the selected title</li>
-                    </ol>
-                </li>
-                <li>Breaking tasks into steps allows LLMs to focus on specific subtasks and generate more coherent outputs</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>Iterative Refinement</h2>
-            <ul>
-                <li>Iterative refinement involves iterating on prompts based on LLM responses to improve results
-                </li>
-                <li>The process typically involves: <ol>
-                        <li>Providing an initial prompt</li>
-                        <li>Analyzing the LLM-generated response</li>
-                        <li>Refining the prompt based on the observed strengths and weaknesses</li>
-                        <li>Repeating the process until the desired output is achieved</li>
-                    </ol>
-                </li>
-                <li>Iterative refinement allows for fine-tuning prompts and optimizing LLM performance on specific
-                    tasks
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div>
-            <h2>Using Examples to Guide LLM Behavior</h2>
-            <ul>
-                <li>Providing relevant examples in prompts can help LLMs understand the desired output format or style</li>
-                <li>Example-based prompting: <ul>
-                        <li>Prompt: "Generate a product review in the style of the following example: [example review]"</li>
-                        <li>LLM generates a review that mimics the style and structure of the provided example</li>
+        <div style="flex-direction: row;">
+            <div class="text-content">
+                <h2>Transformers and Attention: The Backbone of LLMs 🤖🚗</h2>
+                <p>The transformer architecture, introduced in 2017, has been crucial to the development of LLMs.</p>
+                <ul>
+                    <li>Transformers utilize an attention mechanism that allows LLMs to focus on the most relevant parts of the input data.</li>
+                    <ul>
+                        <li>(no attention): "I went to the Calgary Stampede and met a nice [day]" (phone keyboard)</li>
+                        <li>(w/ attention): "I went to the Calgary Stampede and met a nice [cowboy]." (GPT-3.5)</li>
                     </ul>
-                </li>
-                <li>Examples serve as a template or reference for LLMs to follow, improving the consistency and quality of generated text</li>
-            </ul>
+                    <li>This architecture consists takes input data and generate appropriate outputs, such as translations, summaries, or responses.</li>
+                    <li>Transformers are highly versatile adapt to handle a wide array of input, including text, audio, images, and video.</li>
+                </ul>
+            </div>
+            <div class="image-label-container" style="align-items: center; min-width: 30%; max-width: 40%;"> <img src="transformer.webp" alt="Transformer Architecture">
+                <div class="image-label">Transformer Architecture</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="slide">
+        <div>
+            <h2>Completion Models</h2>
+            <p>We have described LLMs autocomplete for internet documents, this is different from the helpful assistant presented by a tool like ChatGPT</p>
+            <div style="background-color: #f0f0f0; margin-top: 10px; border-radius: 5px;">
+                <p><strong>Prompt:</strong> Can you suggest some dog names?</p>
+            </div>
+            <div style="background-color: #e0f0d0; padding:10px; border-radius: 5px; margin-top: 10px;">
+                <p><strong>(davinci-002):</strong></p>
+                <p>Please?</p>
+                <p>Name your favorite black and tan male and female dog names,</p>
+                <p>Name your favorite black and tan Great Dane male and female dog names. Please give a variety. Thank you!</p>
+            </div>
+            <div style="background-color: #f0f0f0; margin-top: 10px; border-radius: 5px;">
+                <p><strong>Prompt:</strong> list of dog names: Randy,</p>
+            </div>
+            <div style="background-color: #e0f0d0; padding:10px; border-radius: 5px; margin-top: 10px;">
+                <p><strong>(davinci-002):</strong></p>
+                <p> Taffy / Tiffy, Tonto, Risa / Sheena, Sid, Sandy / Sandy, Spike, Scruffy, Teddy, Bodi, Lady, Maxx, Sandy, Roxy, Bella, Fifi, Lucky, Nobi, Marvin, Buddy, Ted, Oscar, Cookie, Cleo, Champ, Cheko, Sam, Pickles, Kevin, Toby, Shadow, Colin, Noro, Brian, Scotty, Kimichi, Pepper</p>
+            </div>
         </div>
     </div>
 
     <div class="slide">
         <div>
-            <h2>Advanced Prompting Techniques</h2>
-            <ul>
-                <li>Few-shot learning: Providing a small number of examples in the prompt to guide LLM behavior</li>
-                <li>Prompt chaining: Combining multiple prompts sequentially to perform complex tasks</li>
-                <li>Example of few-shot learning: <ul>
-                        <li>Prompt: "Translate the following sentences from English to French:</li>
-                        <li>1. Hello, how are you? → Bonjour, comment allez-vous?</li>
-                        <li>2. Thank you very much. → Merci beaucoup.</li>
-                        <li>3. I love learning new languages.</li>
+            <div class="content">
+                <h2>LLM personas</h2>
+                <p>LLMs utilize a compression of the knowledge available on the internet. By fine-tuning this compressed knowledge, we can create models that excel at specific tasks.</p>
+                <ul>
+
+                    <li>Models like ChatGPT are fine-tuned for conversational interactions, with the model playing the role of a helpful assistant.</li>
+                    <ul>
+                        <li>Prompting is an effective way to invoke an persona in an assistant LLM.</li>
                     </ul>
-                </li>
-                <li>Advanced prompting techniques can enhance LLM performance on specific tasks and domains</li>
-            </ul>
+                </ul>
+                <div style="background-color: #f0f0f0; margin-top: 10px; border-radius: 5px;">
+                    <p><strong>Prompt:</strong> please describe large language models to me in 3 sentences</p>
+                </div>
+                <div style="background-color: #e0f0d0; padding:10px; border-radius: 5px; margin-top: 10px;">
+                    <p><strong>(GPT-4):</strong> Large language models (LLMs) like ChatGPT are advanced AI systems trained on vast amounts of text data to generate human-like responses to textual inputs. (...) These models use techniques from deep learning, specifically transformer architectures, to understand and produce text contextually, adapting their responses based on the input they receive.</p>
+                </div>
+                <div style="background-color: #f0f0f0; margin-top: 10px; border-radius: 5px;">
+                    <p><strong>Prompt:</strong> As a kindergarten teacher, please describe large language models to me in 3 sentences</p>
+                </div>
+                <div style="background-color: #e0f0d0; padding:10px; border-radius: 5px; margin-top: 10px;">
+                    <p><strong>(GPT-4):</strong> Large language models are like very smart robots that can read and write. They learn by studying a huge amount of books, articles, and websites to understand and use language just like people do. They can help answer questions, write stories, and even explain things in different ways depending on who they're talking to!</p>
+                </div>
+            </div>
         </div>
     </div>
+    </div>
+
+
     <div class="slide">
         <div>
-            <h2>Prompting Best Practices and Guidelines</h2>
-            <ul>
-                <li>Key takeaways and best practices for effective LLM prompting: <ul>
-                        <li>Be clear, specific, and concise in your prompts</li>
-                        <li>Provide relevant context and constraints</li>
-                        <li>Break complex tasks into smaller, manageable steps</li>
-                        <li>Use examples to guide LLM behavior</li>
-                        <li>Iterate and refine prompts based on LLM responses</li>
+            <h2>Reinforcement Learning from Human Feedback</h2>
+            <img src="reinforcement_learning.png" alt="Reinforcement Learning from Human Feedback" style="width: 70%; height: auto; display: block; margin: 0 auto;">
+            <div class="spacer"></div>
+
+            <p>Users of ChatGPT participate in reinforcement learning when the model asks you to select the best of two responses.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div style="flex-direction: row;">
+            <div class="text-content">
+                <h2>Limitations of LLMs</h2>
+                <ul>
+                    <li>Hallucinations:</li>
+                    <ul>
+                        <li>LLMs are trained on the internet <em>which contains inaccurate information.</em></li>
+                        <li>Ex. Generating convincing-sounding but fictional news articles or scientific discoveries</li>
                     </ul>
-                </li>
-                <li>Experiment with different prompting techniques and share your experiences with the community</li>
-                <li>Continuously learn and adapt your prompting strategies as LLMs evolve and improve</li>
-            </ul>
+                    <li>Biased outputs:</li>
+                    <ul>
+                        <li>Ex. Gender stereotyping in generated stories like defaulting to female pronouns for nurses or teachers</li>
+                    </ul>
+
+                    <li>Difficulty handling complex situations:</li>
+                    <ul>
+                        <li>Ex. Customer service chat-bots struggling with unique situations requiring human judgment</li>
+                    </ul>
+                </ul>
+            </div>
+            <div class="image-label-container" style="align-items: center; min-width: 30%;"> <img src="chatbot.webp" alt="Transformer Architecture">
+            </div>
         </div>
     </div>
 
     <div class="slide">
         <div>
-            <img src="sections/mountain_timelapse_4.webp" alt="timelapse" style="max-width:100%;height:auto;">
-            <h1 class="floating-title">Conclusion</h1>
+            <h2>Unnecessary Refusals</h2>
+            <img src="mary_lamb.png" alt="her fleece as white as copyright infringement" style="max-height:80%;height:auto;">
         </div>
     </div>
 
-    <div class="slide">
-        <div>
-            <h2>Call to Action</h2>
-            <ul>
-                <li>Continue learning about generative AI and its potential</li>
-                <li>Use LLMs and diffusion models to enhance your work and creativity</li>
-                <li>Contribute to the responsible development and deployment of AI</li>
-                <li>Share your knowledge and engage in meaningful discussions</li>
-                <li>Be a part of shaping the future of AI!</li>
-            </ul>
+    <div>
+        <div class="slide">
+            <div>
+                <h2>Effective Prompting Techniques</h2>
+                <p>We'll explore three powerful techniques for enhancing your interactions with large language models:</p>
+                <ul>
+                    <li>Letting LLMs think step-by-step</li>
+                    <li>Using examples to guide LLM outputs</li>
+                    <li>Assigning roles to LLMs for improved performance</li>
+                </ul>
+                <p>By mastering these prompting strategies, you'll be able to unlock the full potential of LLMs and achieve better results in your applications.</p>
+            </div>
         </div>
-    </div>
 
-    <div class="navigation"> <button class="prev-btn">&#8593;</button> <button class="next-btn">&#8595;</button>
-    </div>
-    <script src="slide_navigator.js"></script>
-    <script src="ai_talk.js"></script>
+        <div class="slide">
+            <div style="flex-direction: row;">
+                <div class="text-content">
+                    <h2>Let LLMs Think Step-by-Step</h2>
+                    <p>Encourage LLMs to think through problems step-by-step for more accurate and nuanced responses.</p>
+                    <div style="background-color: #f0f0f0; margin-top: 10px; border-radius: 5px;">
+                        <p><strong>Prompt:</strong> What is the capital of France? Think step by step.</p>
+                    </div>
+                    <div style="background-color: #e0f0d0; padding:10px; border-radius: 5px; margin-top: 10px;">
+                        <p><strong>Response:</strong></p>
+                        <p>&lt;thinking&gt;</p>
+                        <p>Step 1: France is a country in Europe.</p>
+                        <p>Step 2: The capital of a country is usually its largest and most important city.</p>
+                        <p>Step 3: Paris is the largest and most important city in France.</p>
+                        <p>&lt;/thinking&gt;</p>
+                        <p>&lt;answer&gt;Therefore, the capital of France is Paris.&lt;/answer&gt;</p>
+                    </div>
+                </div>
+                <div class="image-label-container" style="align-items: center; min-width: 30%; max-width: 40%;"> <img src="llamas/step_by_step.webp" alt="Step-by-Step Thinking">
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <div style="flex-direction: row;">
+                <div class="text-content">
+                    <h2>Use Examples to Guide LLM Outputs</h2>
+                    <p>Provide well-crafted examples in prompts to improve accuracy, consistency, and quality of LLM responses.</p>
+                    <div style="background-color: #f0f0f0; margin-top: 10px; border-radius: 5px;">
+                        <p><strong>Prompt:</strong></p>
+                        <p>Extract the names and roles from this text:</p>
+                        <p>&lt;example&gt;<br>Input: Sarah Johnson, a talented writer, crafts compelling articles for the company blog.<br> Output: Sarah Johnson [WRITER]<br>&lt;/example&gt;</p>
+                        <p>John Doe, a skilled programmer, works at Acme Inc. Jane Smith, an experienced designer, collaborates with him on various projects.</p>
+                    </div>
+                    <div style="background-color: #e0f0d0; padding:10px; border-radius: 5px; margin-top: 10px;">
+                        <p><strong>Response:</strong></p>
+                        <p>John Doe [PROGRAMMER]</p>
+                        <p>Jane Smith [DESIGNER]</p>
+                    </div>
+                </div>
+                <div class="image-label-container" style="align-items: center; min-width: 30%; max-width: 40%;"> <img src="llamas/examples.webp" alt="Using Examples">
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <div style="flex-direction: row;">
+                <div class="text-content">
+                    <h2>Give LLMs a Role</h2>
+                    <p>Assign specific roles to LLMs to prime them for desired responses, improve accuracy, and tailor tone and demeanor.</p>
+                    <div style="background-color: #f0f0f0; margin-top: 10px; border-radius: 5px;">
+                        <p><strong>Prompt:</strong> You are a biology teacher. Explain the concept of photosynthesis to your students.</p>
+                    </div>
+                    <div style="background-color: #e0f0d0; padding:10px; border-radius: 5px; margin-top: 10px;">
+                        <p><strong>Response:</strong></p>
+                        <p>Hello, class! Today, we'll be learning about photosynthesis, the fascinating process that allows plants to create their own food using sunlight. Imagine you're a plant, soaking up the sun's rays. Your leaves are like tiny solar panels, capturing the light energy. Inside your leaves, you have tiny green helpers called chloroplasts. They use the sunlight, along with water from the soil and carbon dioxide from the air, to make glucose, a type of sugar that you use for energy. As a bonus, you release oxygen into the air, which helps all the animals (including us!) breathe. So, the next time you see a plant, remember the incredible process of photosynthesis that keeps our world green and alive!</p>
+                    </div>
+                </div>
+                <div class="image-label-container" style="align-items: center; min-width: 30%; max-width: 40%;"> <img src="llamas/roleplay.webp" alt="Roleplaying">
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div style="width: 900px; margin: auto;"> <textarea id="promptText" readonly style="width: 100%; min-height: 50px; overflow-y: scroll; resize: none; margin-top: 20px; background-color: #f0f0f0; border: 1px solid #ccc; padding: 10px;"> This is a multi-step prompt for creating a game that can be pasted into the developer console, attaching to the provided canvas element, with user interaction after each step: Step 1: Brainstorming Please brainstorm 8 creative game ideas that can be implemented using HTML5 canvas and JavaScript. The game should be engaging, fun, and suitable for a wide audience. Consider various genres, mechanics, and themes when generating your ideas. [Wait for user input] User, please review the brainstormed game ideas. Let me know when you are ready to proceed to the next step. Step 2: Game Selection Please select one game idea from the brainstormed list that you would like to proceed with. Provide the number corresponding to your chosen game. [Wait for user input] User, please provide the number of the game idea you have selected. I will then create a detailed plan for implementing that game. Step 3: Detailed Planning Based on the selected game idea, please create a detailed plan for implementing the game. Consider the following aspects: Game objective and mechanics Player controls and interactions Game entities Please provide a clear and concise plan that outlines the key components and functionalities of the game. [Wait for user input] User, please review the detailed game plan. Let me know if you have any feedback or changes you'd like me to make. Once you are satisfied with the plan, let me know and I will proceed with implementing the game. Step 4: Game Implementation Using HTML5 canvas and JavaScript, please implement the game based on the detailed plan from Step 3. Consider the following guidelines: Use the provided canvas element with the ID "game" and dimensions of 900x600 pixels. Be sure to suppress the scrolling behavior of the arrow keys and the space bar if used. Implement the game logic, player controls, and game entities as planned. Use appropriate data structures and algorithms to manage game state and interactions. game progression as described in the plan. Create visually appealing graphics possibly using emoji as sprites to enhance the game experience. Ensure the game is responsive and performs well. Please provide the complete JavaScript code that can be pasted into the developer console to run the game. [Wait for user input] User, here is the complete JavaScript code for the game. Please paste it into the developer console to run the game. Let me know if you encounter any issues or have any further feedback. </textarea> <canvas id="game" width="900" height="400" style="background-color:#f0f0f0; display:block; margin:auto; border: 1px solid #ccc;"></canvas> </div>
+        </div>
+
+        <div class="slide">
+            <div>
+                <img src="sections/mountain_timelapse_3.webp" alt="timelapse" style="max-width:100%;height:auto;">
+                <h1 class="floating-title">Conclusion</h1>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div>
+                <h2>The Future of LLMs</h2>
+                <ul>
+                    <li>As new high performance AI accelerator hardware is released, we can expect LLMs to become more capable of handling complex language tasks.</li>
+                    <ul>
+                        <li>With better LLMs creating 'autonomous agents' will become more viable, enabling LLMs to prompt themselves to solve complex problems.</li>
+                        <li>As this capacity improves more and more software will be written with autonomously by AI systems.</li>
+                    </ul>
+                    <li>LLM systems could drive costs down in key service industries like: healthcare, education, and the legal system.</li>
+                    <li>LLMs have the potential to automate certain tasks in customer support and other knowledge work domains, which may lead to job displacement in these areas.</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="slide">
+            <div>
+                <h2>Cost Reduction?</h2>
+
+                <iframe src="https://ourworldindata.org/grapher/price-changes-consumer-goods-services-united-states" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+                <div class="spacer"></div>
+
+                <p>Perhaps LLM can stem rapidly inflating costs in education and healthcare.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div>
+                <h2>Summing up</h2>
+                <ul>
+                    <li>Give flagship language model like Claude 3 Opus or GPT-4 a try.</li>
+                    <li>LLMs can enable individuals to leverage their creativity on projects that would have otherwise been impossible </li>
+                    <li>AGI is the stated goal of OpenAI, LLMs are seen as a stepping stone on that path.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="navigation"> <button class="prev-btn">&#8593;</button> <button class="next-btn">&#8595;</button>
+        </div>
+        <script src="slide_navigator.js"></script>
+        <script src="ai_talk.js"></script>
 </body>
 
 </html>

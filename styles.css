@@ -89,6 +89,30 @@ header {
     text-decoration: underline;
 }
 
+/* Resume button adjustments */
+.resume-button {
+    width: 120px; /* Double the size */
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* Space the icon and label */
+    padding: 0 10px;
+}
+
+.resume-button span {
+    font-size: 16px;
+    color: #ecf0f1; /* Label color */
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Ensure hover effects match */
+.resume-button:hover {
+    background-color: #2980b9;
+    color: #ecf0f1;
+}
+
+
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
     .header-content {

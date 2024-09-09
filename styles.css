@@ -141,3 +141,17 @@ footer {
     background-color: #2c3e50;
     color: #ecf0f1;
 }
+
+/* About section styles */
+.about-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.about-container img {
+    max-width: 30%;
+    height: auto;
+    border-radius: 8px;
+    flex-shrink: 0; /* Ensures the image does not shrink */
+}

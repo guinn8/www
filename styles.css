@@ -71,12 +71,20 @@ header {
 }
 
 
-/* Email box styling */
 .email-box {
     background-color: #ecf0f1;
     padding: 1rem;
     border-radius: 5px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.email-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .email-box a {
@@ -124,6 +132,56 @@ header {
         margin-top: 1rem;
     }
 }
+
+
+.copy-btn {
+    width: 60px;
+    height: 30px;
+    padding: 0.3rem 0.6rem;
+    justify-content: center;
+    align-items: center;
+    background-color: #3498db;
+    color: #ecf0f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between text and icon */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 16px; /* Ensure consistent button size */
+}
+
+.copy-btn:hover {
+    background-color: #2980b9;
+}
+
+.copy-btn .checkmark {
+    display: none;
+    font-size: 16px;
+}
+
+.copy-btn.copied {
+    background-color: #2ecc71; /* Green background when copied */
+    transition: background-color 0.3s ease;
+}
+
+.copy-btn.copied .btn-text {
+    display: none; /* Hide the 'Copy' text */
+}
+
+.copy-btn.copied .checkmark {
+    display: inline; /* Show the checkmark */
+    color: #ecf0f1; /* Ensure the checkmark is white to match the button */
+}
+
+/* Ensures the button keeps the same size */
+.copy-btn i,
+.copy-btn span {
+    min-width: 16px;
+    text-align: center;
+}
+
 
 
 /* Main content styles */

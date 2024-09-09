@@ -29,10 +29,20 @@
                         <span>Resume</span>
                     </a>
                 </div>
-                
+
                 <div class="email-box">
-                    <p>Email: <a href="mailto:gavinguinn1@gmail.com">gavinguinn1@gmail.com</a></p>
+                    <div class="email-container">
+                        <a href="mailto:gavinguinn1@gmail.com">gavinguinn1@gmail.com</a>
+                        <button class="copy-btn" onclick="copyToClipboard('gavinguinn1@gmail.com')">
+                            <span class="btn-text">Copy</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </button>
+                    </div>
                 </div>
+
+
+
+
             </div>
         </div>
     </header>
@@ -114,5 +124,28 @@
         <p>&copy; 2024 Gavin Guinn. All rights reserved.</p>
     </footer>
 </body>
+
+<script>
+    function copyToClipboard(text) {
+        const tempInput = document.createElement('input');
+        tempInput.style.position = 'absolute';
+        tempInput.style.left = '-9999px';
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+
+        const copyBtn = document.querySelector('.copy-btn');
+        copyBtn.classList.add('copied');
+
+        setTimeout(() => {
+            copyBtn.classList.remove('copied');
+        }, 2000); // Revert the button after 2 seconds
+    }
+
+
+</script>
+
 
 </html>

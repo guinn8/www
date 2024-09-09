@@ -37,12 +37,12 @@ header {
     margin-bottom: 0.5rem;
 }
 
-/* Button matrix and email box styles */
 .button-matrix {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
     margin-bottom: 1rem;
+    justify-content: space-around; /* Align items evenly */
 }
 
 .icon-button {

@@ -327,16 +327,29 @@ h4 {
     align-items: flex-start;
 }
 
-.text-content {
-    flex: 1;
-}
-
+/* Portrait Image Styles */
 .portrait-img {
-    max-width: 30%;
+    max-width: 35%;
     height: auto;
     border-radius: 8px;
     flex-shrink: 0; /* Ensures the image does not shrink */
 }
+
+/* Responsive Layout for Smaller Screens */
+@media (max-width: 768px) {
+    .about-education-container {
+        flex-direction: column; /* Stack the text and image vertically */
+        align-items: center; /* Center the content */
+        text-align: center; /* Center-align the text */
+    }
+
+    .portrait-img {
+        max-width: 60%; /* Make the image smaller on mobile screens */
+        margin-top: 20px; /* Add space between the text and image */
+    }
+}
+
+
 
 /* Education Section */
 #education {

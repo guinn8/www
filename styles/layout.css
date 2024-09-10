@@ -28,6 +28,31 @@ header {
     margin-top: -20px;
 }
 
+/* Responsive layout for mobile */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center the text and buttons */
+        text-align: center; /* Center-align the text */
+    }
+
+    .header-left h1 {
+        font-size: 2rem;
+        margin-bottom: 10px; /* Add space between the title and subtitle */
+    }
+
+    .header-left p {
+        font-size: 1.2rem;
+        margin-bottom: 20px; /* Add space between the text and button matrix */
+    }
+
+    .button-matrix {
+        justify-content: center; /* Center the buttons horizontally */
+        margin-bottom: 0; /* Remove extra margin */
+    }
+}
+
+
 /* Main Content */
 main {
     background-color: #fff;

@@ -251,3 +251,51 @@
         grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* For very small screens */
     }
 }
+
+
+/* Experience Section */
+#experience {
+    margin-bottom: 2rem;
+}
+
+.experience-item {
+    margin-bottom: 1.5rem;
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #bdc3c7; /* Lighter, subtle border */
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.experience-header .employer {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #34495e; /* Softer color for the employer name */
+}
+
+.experience-date {
+    font-size: 1rem;
+    color: #95a5a6; /* Softer, more subtle color for the date */
+}
+
+h4 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.experience-item ul {
+    padding-left: 1.5rem;
+    margin-top: 0;
+}
+
+.experience-item ul li {
+    margin-bottom: 0.5rem;
+    color: #34495e;
+    list-style-type: disc;
+}

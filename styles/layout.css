@@ -23,8 +23,9 @@ header {
 
 .header-left p {
     font-style: italic;
+    font-size: 30px;
     text-indent: 20px;
-    margin-top: -12px;
+    margin-top: -20px;
 }
 
 /* Main Content */

@@ -26,15 +26,14 @@ header {
 .header-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start; /* Align the top of the text and button row */
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 .header-left h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 60px;
 }
 
 .button-matrix {

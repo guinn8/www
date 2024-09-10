@@ -1,0 +1,167 @@
+/* Components and Utilities */
+
+/* Button Matrix */
+.button-matrix {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    justify-content: space-around;
+}
+
+.icon-button {
+    width: 60px;
+    height: 60px;
+    background-color: #3498db;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    font-size: 24px;
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+.icon-button:hover {
+    background-color: #2980b9;
+}
+
+.icon-button img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Email Box */
+.email-box {
+    background-color: #ecf0f1;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.email-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.email-box a {
+    color: #2c3e50;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.email-box a:hover {
+    text-decoration: underline;
+}
+
+/* Resume Button */
+.resume-button {
+    width: 120px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 10px;
+}
+
+.resume-button span {
+    font-size: 16px;
+    color: #ecf0f1;
+    font-weight: bold;
+    text-align: center;
+}
+
+.resume-button:hover {
+    background-color: #2980b9;
+}
+
+/* Copy Button */
+.copy-btn {
+    width: 60px;
+    height: 30px;
+    padding: 0.3rem 0.6rem;
+    justify-content: center;
+    align-items: center;
+    background-color: #3498db;
+    color: #ecf0f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 16px;
+}
+
+.copy-btn:hover {
+    background-color: #2980b9;
+}
+
+.copy-btn .checkmark {
+    display: none;
+    font-size: 16px;
+}
+
+.copy-btn.copied {
+    background-color: #2ecc71;
+    transition: background-color 0.3s ease;
+}
+
+.copy-btn.copied .btn-text {
+    display: none;
+}
+
+.copy-btn.copied .checkmark {
+    display: inline;
+    color: #ecf0f1;
+}
+
+/* Project Items */
+#projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+}
+
+.project-item {
+    box-sizing: border-box;
+    background-color: #ecf0f1;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    flex: 1 1 calc(33.33% - 20px);
+}
+
+.about-container img {
+    max-width: 30%;
+    height: auto;
+    border-radius: 8px;
+    flex-shrink: 0; /* Ensures the image does not shrink */
+}
+
+/* About section styles */
+.about-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.project-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.project-item:hover {
+    transform: scale(1.05);
+}

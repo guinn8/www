@@ -36,6 +36,13 @@ header {
     font-size: 60px;
 }
 
+.header-left p {
+    font-style: italic; /* Apply italics */
+    text-indent: 20px;  /* Adjust the value as needed for indentation */
+    margin-top: -12px;  /* Adjust the value to move it upward */
+}
+
+
 .button-matrix {
     display: flex;
     gap: 10px;

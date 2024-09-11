@@ -42,6 +42,10 @@
     align-items: center;
 }
 
+.project-item:hover {
+    transform: scale(1.05);
+}
+
 .project-item h4,
 .project-item .project-date {
     padding: 0 1rem;

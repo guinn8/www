@@ -53,6 +53,7 @@
     .button-matrix {
         justify-content: center;
         margin-bottom: 0;
+        padding: 10px; /* Add padding to the button matrix for mobile view */
     }
 }
 
@@ -65,13 +66,5 @@
     .header-left {
         align-items: center; /* Align text with buttons in mobile view */
         text-align: center;
-    }
-
-    .header-right {
-        margin-top: 1rem;
-    }
-
-    .header-left h1 {
-        font-size: 2rem;
     }
 }

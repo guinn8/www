@@ -13,7 +13,7 @@
 
 @media (max-width: 768px) {
     .about-education-container {
-        flex-direction: column;
+        flex-direction: column-reverse; /* Places the portrait above the text */
         align-items: center;
         text-align: center;
     }

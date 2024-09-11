@@ -1,0 +1,40 @@
+.copy-btn {
+    width: 60px;
+    height: 30px;
+    padding: 0.3rem 0.6rem;
+    justify-content: center;
+    align-items: center;
+    background-color: #3498db;
+    color: #ecf0f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 16px;
+}
+
+.copy-btn:hover {
+    background-color: #2980b9;
+}
+
+.copy-btn .checkmark {
+    display: none;
+    font-size: 16px;
+}
+
+.copy-btn.copied {
+    background-color: #2ecc71;
+    transition: background-color 0.3s ease;
+}
+
+.copy-btn.copied .btn-text {
+    display: none;
+}
+
+.copy-btn.copied .checkmark {
+    display: inline;
+    color: #ecf0f1;
+}

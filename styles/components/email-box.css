@@ -1,0 +1,25 @@
+.email-box {
+    background-color: #ecf0f1;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.email-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.email-box a {
+    color: #2c3e50;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.email-box a:hover {
+    text-decoration: underline;
+}

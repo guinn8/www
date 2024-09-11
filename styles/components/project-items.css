@@ -1,0 +1,28 @@
+#projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+}
+
+.project-item {
+    box-sizing: border-box;
+    background-color: #ecf0f1;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    flex: 1 1 calc(33.33% - 20px);
+}
+
+.project-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.project-item:hover {
+    transform: scale(1.05);
+}

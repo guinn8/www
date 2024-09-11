@@ -18,8 +18,8 @@
     flex: 1 1 calc(33.33% - 20px);
     position: relative;
     height: auto;
-    text-decoration: none; /* Ensure the text is not styled as a link */
-    color: inherit; /* Ensure text color remains consistent */
+    text-decoration: none;
+    color: inherit;
 }
 
 .project-item img {
@@ -28,6 +28,18 @@
     object-fit: contain;
     border-radius: 8px;
     margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    flex: 1 0 auto; /* Allow the image to grow/shrink flexibly */
+}
+
+.project-content {
+    margin-top: auto; /* Push content to the bottom */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .project-item h4,

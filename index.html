@@ -28,8 +28,10 @@
     <header>
         <div class="header-content">
             <div class="header-left">
-                <h1>guinn8.ca</h1>
-                <p>A Professional Website by Gavin Guinn</p>
+                <h1><a href="https://guinn8.ca">guinn8.ca</a></h1>
+                <ul>
+                    <li><p>A Professional Website by Gavin Guinn</p></li>
+                </ul>
             </div>
             <div class="header-right">
                 <div class="button-matrix">
@@ -39,7 +41,7 @@
                     <a href="https://www.linkedin.com/in/gavin-guinn-1384a4144/" class="icon-button">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://github.com/guinn8/resume/blob/721f0b724d290c6e1d82ac6b7eaaf82ffffa0d80/Gavin_Guinn_resume.pdf" class="icon-button resume-button">
+                    <a id="resume-link" class="icon-button resume-button">
                         <i class="fas fa-file-alt"></i>
                         <span>Resume</span>
                     </a>
@@ -54,7 +56,6 @@
                         </button>
                     </div>
                 </div>
-
             </div>
         </div>
     </header>
@@ -92,12 +93,10 @@
                 <img src="image/Gavin_Portrait.jpg" alt="Gavin Guinn Portrait" class="portrait-img">
             </div>
         </section>
-        
-        
 
         <section id="experience">
             <h2>Professional Experience</h2>
-        
+
             <div class="experience-item">
                 <div class="experience-header">
                     <span class="employer">Simply Embedded</span>
@@ -108,7 +107,7 @@
                     <li>Engineered robust RTOS C/C++ firmware solutions on 32-bit ARM microcontrollers, leading teams to deliver key customer objectives.</li>
                 </ul>
             </div>
-        
+
             <div class="experience-item">
                 <div class="experience-header">
                     <span class="employer">University of Calgary</span>
@@ -116,8 +115,9 @@
                 </div>
                 <h4>NSERC Undergraduate Student Research Award</h4>
                 <ul>
-                    <li>Conducted research in computational number theory under Dr. Michael J. Jacobson on Aliquot sequences properties.</li>
+                    <li>Utilized the university's high performance cluster to extend research on Aliquot sequence properties under Dr. Michael J. Jacobson.</li>
                 </ul>
+                <p><i><br>For more detailed information, please refer to my <a href="#" class="resume-link">resume</a>.</i></p>
             </div>
         </section>
 
@@ -169,7 +169,7 @@
                 <span>JavaScript</span>
             </div>
             <div class="skill-item">
-                <i class="fas fa-hammer skill-icon"></i> <!-- A hammer icon representing build systems -->
+                <i class="fas fa-hammer skill-icon"></i>
                 <span>CMake</span>
             </div>
             <div class="skill-item">
@@ -185,7 +185,7 @@
                 <span>Wireshark</span>
             </div>
             <div class="skill-item">
-                <i class="fas fa-tools skill-icon"></i> <!-- A tools icon as a stand-in for Make -->
+                <i class="fas fa-tools skill-icon"></i>
                 <span>Make</span>
             </div>
             
@@ -194,7 +194,7 @@
                 <span>Jira</span>
             </div>
             <div class="skill-item">
-                <i class="fas fa-bug skill-icon"></i> <!-- Reuse bug icon for GDB as there is no dedicated GDB icon -->
+                <i class="fas fa-bug skill-icon"></i>
                 <span>GDB</span>
             </div>
             <div class="skill-item">
@@ -210,49 +210,59 @@
             
         </section>
         
-        
-        
         <section id="projects">
             <h2>Projects & Presentations</h2>
-            <div class="project-item">
-                <a href="ai_talk/llm_dev.pdf">
-                    <img src="image/python.png" alt="LLMs for Development">
-                    <p>LLMs for Development (May 2023)</p>
-                </a>
-            </div>
-            <div class="project-item">
-                <a href="ai_talk/ai_talk.html">
-                    <img src="ai_talk/oai_mold.png" alt="AI Talk">
-                    <p>AI Talk (March 2024)</p>
-                </a>
-            </div>
-            <div class="project-item">
-                <a href="https://calgary-hacks-2021.devpost.com/">
-                    <img src="image/calhax.png" alt="CalgaryHacks 2021">
-                    <p>CalgaryHacks 2021 Organizer</p>
-                </a>
-            </div>
-            <div class="project-item">
-                <a href="https://guinn8.github.io/aliquot/html/index.html">
-                    <img src="image/aliquot.png" alt="Aliquot Sequences Research">
-                    <p>Aliquot Sequences Research</p>
-                </a>
-            </div>
-            <div class="project-item">
-                <a href="https://github.com/guinn8/epaper_llm/tree/master">
-                    <img src="image/llm_epaper.png" alt="Language Model E-Paper Project">
-                    <p>Language Model E-Paper Project</p>
-                </a>
-            </div>
-            <div class="project-item">
-                <a href="https://github.com/guinn8/llm_cube">
-                    <img src="image/llm_cube.png" alt="Lightweight LLM Project">
-                    <p>Core2 LLM project</p>
-                </a>
-            </div>
+        
+            <a href="https://github.com/guinn8/llm_cube" class="project-item" target="_blank" rel="noopener noreferrer">
+                <img src="image/llm_cube.png" alt="Lightweight LLM Project">
+                <div class="project-content">
+                    <h4>IoT LLM Weekend Project</h4>
+                    <span class="project-date">(Aug 2024)</span>
+                </div>
+            </a>
+        
+            <a href="https://github.com/guinn8/epaper_llm/tree/master" class="project-item" target="_blank" rel="noopener noreferrer">
+                <img src="image/llm_epaper.png" alt="Language Model E-Paper Project">
+                <div class="project-content">
+                    <h4>E-Paper LLM Weekend Project</h4>
+                    <span class="project-date">(July 2024)</span>
+                </div>
+            </a>
+        
+            <a href="ai_talk/ai_talk.html" class="project-item" target="_blank" rel="noopener noreferrer">
+                <img src="ai_talk/oai_mold.png" alt="AI Talk">
+                <div class="project-content">
+                    <h4>Presentation: Practical AI</h4>
+                    <span class="project-date">(April 2024)</span>
+                </div>
+            </a>
+        
+            <a href="ai_talk/llm_dev.pdf" class="project-item" target="_blank" rel="noopener noreferrer">
+                <img src="image/python.png" alt="LLMs for Development">
+                <div class="project-content">
+                    <h4>Presentation: LLMs for Software Development</h4>
+                    <span class="project-date">(May 2023)</span>
+                </div>
+            </a>
+        
+            <a href="https://calgary-hacks-2021.devpost.com/" class="project-item" target="_blank" rel="noopener noreferrer">
+                <img src="image/calhax.png" alt="CalgaryHacks 2021">
+                <div class="project-content">
+                    <h4>Lead Organizer of CalgaryHacks 2021</h4>
+                    <span class="project-date">(February 2021)</span>
+                </div>
+            </a>
+        
+            <a href="https://guinn8.github.io/aliquot/html/index.html" class="project-item" target="_blank" rel="noopener noreferrer">
+                <img src="image/aliquot.png" alt="Aliquot Sequences Research">
+                <div class="project-content">
+                    <h4>Aliquot Sequence Research</h4>
+                    <span class="project-date">(Sept 2021 - April 2022)</span>
+                </div>
+            </a>
+        
         </section>
-    </main>
-
+        
     <footer>
         <div class="footer-container">
             <a href="#" class="back-to-top">Back to Top</a>
@@ -264,6 +274,14 @@
 
 
 <script>
+    const resumeLink = "https://github.com/guinn8/resume/blob/721f0b724d290c6e1d82ac6b7eaaf82ffffa0d80/Gavin_Guinn_resume.pdf";
+
+    document.querySelectorAll('.resume-link').forEach(link => {
+        link.href = resumeLink;
+    });
+
+    document.getElementById('resume-link').href = resumeLink;
+
     function copyToClipboard(text) {
         const tempInput = document.createElement('input');
         tempInput.style.position = 'absolute';

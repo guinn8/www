@@ -5,8 +5,10 @@
     justify-content: flex-start;
     margin-bottom: 2rem;
 }
-
 .project-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     box-sizing: border-box;
     background-color: #ecf0f1;
     padding: 1rem;
@@ -14,15 +16,52 @@
     text-align: center;
     transition: transform 0.3s ease;
     flex: 1 1 calc(33.33% - 20px);
+    position: relative;
+    height: auto;
+    text-decoration: none;
+    color: inherit;
 }
 
 .project-item img {
     max-width: 100%;
-    height: auto;
+    max-height: 75%;
+    object-fit: contain;
     border-radius: 8px;
     margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    flex: 1 0 auto; /* Allow the image to grow/shrink flexibly */
 }
 
-.project-item:hover {
-    transform: scale(1.05);
+.project-content {
+    margin-top: auto; /* Push content to the bottom */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-item h4,
+.project-item .project-date {
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.project-item h4 {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: normal;
+    color: inherit;
+}
+
+.project-item .project-date {
+    font-style: italic;
+    font-size: 0.9em;
+    color: inherit;
+    margin: 0; /* Remove any default margin */
+}
+
+.project-item .project-content {
+    margin-top: auto; /* Push content to the bottom */
 }

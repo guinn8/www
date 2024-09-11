@@ -11,7 +11,8 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #dadada;
+    font-size: 18px; /* Adjust this value to bump up the font size */
 }
 
 ul {
@@ -29,15 +30,10 @@ a {
     transition: color 0.3s ease;
 }
 
-a:hover {
-    color: #2980b9;
-    text-decoration: underline;
-}
-
 main {
-    background-color: #fff;
+    background-color: #ffffff;
+    border-radius: 15px;
     padding: 2rem;
-    border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -71,6 +67,8 @@ footer {
     padding: 1rem;
     background-color: #2c3e50;
     color: #ecf0f1;
+    border-radius: 15px;
+
 }
 
 header {
@@ -78,4 +76,6 @@ header {
     color: #ecf0f1;
     padding: 2rem 0;
     margin-bottom: 2rem;
+    border-radius: 15px;
+
 }

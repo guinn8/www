@@ -30,11 +30,7 @@
     margin-right: 15px;
 }
 
-.skill-item:hover {
-    transform: scale(1.05);
-}
 
-/* Responsive adjustments */
 @media (max-width: 1024px) {
     .skills-matrix {
         grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));

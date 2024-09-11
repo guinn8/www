@@ -39,7 +39,7 @@
                     <a href="https://www.linkedin.com/in/gavin-guinn-1384a4144/" class="icon-button">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://github.com/guinn8/resume/blob/721f0b724d290c6e1d82ac6b7eaaf82ffffa0d80/Gavin_Guinn_resume.pdf" class="icon-button resume-button">
+                    <a id="resume-link" class="icon-button resume-button">
                         <i class="fas fa-file-alt"></i>
                         <span>Resume</span>
                     </a>
@@ -54,7 +54,6 @@
                         </button>
                     </div>
                 </div>
-
             </div>
         </div>
     </header>
@@ -97,7 +96,7 @@
 
         <section id="experience">
             <h2>Professional Experience</h2>
-        
+
             <div class="experience-item">
                 <div class="experience-header">
                     <span class="employer">Simply Embedded</span>
@@ -108,7 +107,7 @@
                     <li>Engineered robust RTOS C/C++ firmware solutions on 32-bit ARM microcontrollers, leading teams to deliver key customer objectives.</li>
                 </ul>
             </div>
-        
+
             <div class="experience-item">
                 <div class="experience-header">
                     <span class="employer">University of Calgary</span>
@@ -118,6 +117,7 @@
                 <ul>
                     <li>Conducted research in computational number theory under Dr. Michael J. Jacobson on Aliquot sequences properties.</li>
                 </ul>
+                <p><i><br>For more detailed information, please refer to my <a href="#" class="resume-link">resume</a>.</i></p>
             </div>
         </section>
 
@@ -264,6 +264,14 @@
 
 
 <script>
+    const resumeLink = "https://github.com/guinn8/resume/blob/721f0b724d290c6e1d82ac6b7eaaf82ffffa0d80/Gavin_Guinn_resume.pdf";
+
+    document.querySelectorAll('.resume-link').forEach(link => {
+        link.href = resumeLink;
+    });
+
+    document.getElementById('resume-link').href = resumeLink;
+
     function copyToClipboard(text) {
         const tempInput = document.createElement('input');
         tempInput.style.position = 'absolute';

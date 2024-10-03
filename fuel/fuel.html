@@ -13,97 +13,94 @@
   <div class="container">
     <h1>Camping Fuel Estimator</h1>
 
-    <div class="input-container">
-      <label>
-        Trip Duration (days):
-        <input type="number" id="tripDuration" value="3" min="1" max="365" step="1">
-      </label>
-    </div>
-
-    <div class="input-container">
-      <label>
-        Number of People:
-        <input type="number" id="people" value="1" min="1" max="20" step="1">
-      </label>
-    </div>
-
-    <div class="input-container">
-      <label>
-        Meals or Boils per Person per Day:
-        <input type="number" id="mealsPerPerson" value="2" min="0.1" max="10" step="0.1">
-      </label>
-      <small>e.g., number of times you plan to cook or boil water each day.</small>
-    </div>
-
-    <div class="input-container">
-      <label>
-        Fuel Consumption Rate (grams per meal/boil):
-        <input type="number" id="fuelRate" value="10" min="5" max="25" step="0.1">
-      </label>
-      <small>Average fuel used per cooking session.</small>
-    </div>
-
-    <div class="input-container">
-      <label>
-        Select Canister Size:
-        <select id="canisterSize">
-          <option value="small">Small (Fuel Weight: 100g)</option>
-          <option value="medium" selected>Medium (Fuel Weight: 230g)</option>
-          <option value="large">Large (Fuel Weight: 450g)</option>
-          <option value="custom">Custom Size</option>
-        </select>
-      </label>
-    </div>
-
-    <div id="customCanisterInput" class="input-container" style="display: none;">
-      <label>
-        Fuel Weight in Full Canister (grams):
-        <input type="number" id="fullFuelWeight" value="230" min="50" max="1000" step="1">
-      </label>
-    </div>
-
-    <div class="input-container">
-      <label>
-        Do You Have a Partially Used Canister?
-        <input type="checkbox" id="usePartialCanister">
-      </label>
-    </div>
-
-    <div id="partialCanisterInputs" style="display: none;">
+    <!-- Shared Inputs -->
+    <div id="sharedInputs">
       <div class="input-container">
         <label>
-          Empty Canister Weight (grams):
-          <input type="number" id="emptyCanisterWeight" value="150" min="50" max="500" step="1">
+          Number of People:
+          <input type="number" id="people" value="1" min="1" max="20" step="1">
         </label>
-        <small>If known; otherwise, use default values.</small>
       </div>
 
       <div class="input-container">
         <label>
-          Current Weight of Partially Used Canister (grams):
-          <input type="number" id="currentCanisterWeight" value="300" min="50" max="1000" step="1">
+          Meals or Boils per Person per Day:
+          <input type="number" id="mealsPerPerson" value="2" min="0.1" max="10" step="0.1">
         </label>
+        <small>e.g., number of times you plan to cook or boil water each day.</small>
+      </div>
+
+      <div class="input-container">
+        <label>
+          Fuel Consumption Rate (grams per meal/boil):
+          <input type="number" id="fuelRate" value="10" min="5" max="25" step="0.1">
+        </label>
+        <small>Average fuel used per cooking session.</small>
       </div>
     </div>
 
-    <div id="result">
-      Estimated Days of Fuel: <strong><span id="daysOfFuel">0</span> days</strong>
-      <div id="resultMessage"></div>
+    <!-- Collapsible Cards -->
+    <div class="collapsible-card">
+      <div class="card-header" id="fuelNeededHeader">
+        Estimate Fuel Needed <span class="arrow">&#9660;</span>
+      </div>
+      <div class="card-content" id="fuelNeededContent">
+        <!-- Estimate Fuel Needed Inputs -->
+        <div id="fuelNeededInputs">
+          <div class="input-container">
+            <label>
+              Trip Duration (days):
+              <input type="number" id="tripDuration" value="3" min="1" max="365" step="1">
+            </label>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div id="fuelNeededResult">
+          Total Fuel Needed: <strong><span id="totalFuelNeeded">0</span> grams</strong>
+          <div id="fuelNeededMessage"></div>
+        </div>
+      </div>
     </div>
 
-    <!-- Add this where you want the chart to appear -->
+    <div class="collapsible-card">
+      <div class="card-header" id="tripDurationHeader">
+        Estimate Isobutane Canister Duration <span class="arrow">&#9660;</span>
+      </div>
+      <div class="card-content" id="tripDurationContent">
+        <!-- Estimate Trip Duration Inputs -->
+        <div id="tripDurationInputs">
+          <div class="input-container">
+            <label>
+              Available Fuel (grams):
+              <input type="number" id="availableFuel" value="230" min="10" max="5000" step="1">
+            </label>
+            <small>Total fuel you have for the trip.</small>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div id="tripDurationResult">
+          Estimated Trip Duration: <strong><span id="estimatedTripDuration">0</span> days</strong>
+          <div id="tripDurationMessage"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chart -->
     <canvas id="fuelChart" width="400" height="200"></canvas>
 
-    <!-- Include Chart.js library before your script -->
+    <!-- Include Chart.js library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Include your JavaScript file -->
-    <script src="fuel.js"></script>
-
+    <!-- Include Chart.js Annotation Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@latest"></script>
 
   </div>
 
-  <!-- Include external JavaScript file -->
-  <script src="fuel.js"></script>
+  <!-- Include external JavaScript files -->
+  <script src="calc.js"></script>
+  <script src="chart.js"></script>
+  <script src="app.js"></script>
 </body>
 
 </html>

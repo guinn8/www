@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backcountry Trip Fuel Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: fit-content;
+        }
+        .flex-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .input-card {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: fit-content;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="number"] {
+            padding: 5px;
+            width: 80px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .result {
+            font-weight: bold;
+            text-align: center;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <h1>Backcountry Trip Fuel Calculator</h1>
+    <div class="flex-container">
+        <div class="input-card">
+            <div class="input-group">
+                <label for="litresPerPerson" title="Enter the number of liters required per person per day">Liters/Person</label>
+                <input type="number" id="litresPerPerson" min="0" step="0.1" placeholder="Liters" oninput="calculateFuel()">
+            </div>
+        </div>
+        <span>x</span>
+        <div class="input-card">
+            <div class="input-group">
+                <label for="numPeople" title="Enter the number of people">People</label>
+                <input type="number" id="numPeople" min="0" placeholder="People" oninput="calculateFuel()">
+            </div>
+        </div>
+        <span>x</span>
+        <div class="input-card">
+            <div class="input-group">
+                <label for="numDays" title="Enter the number of days for the trip">Days</label>
+                <input type="number" id="numDays" min="0" placeholder="Days" oninput="calculateFuel()">
+            </div>
+        </div>
+        <span>=</span>
+        <div class="input-card">
+            <div class="input-group">
+                <label for="totalLitres" title="Enter the total liters of fuel required">Total Liters</label>
+                <input type="number" id="totalLitres" min="0" step="0.1" placeholder="Total Liters" oninput="clearMultiplicands()" disabled>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateFuel() {
+            const numPeople = parseFloat(document.getElementById('numPeople').value);
+            const litresPerPerson = parseFloat(document.getElementById('litresPerPerson').value);
+            const numDays = parseFloat(document.getElementById('numDays').value);
+            let totalLiters = 0;
+
+            if (!isNaN(numPeople) && !isNaN(litresPerPerson) && !isNaN(numDays)) {
+                // Calculate based on number of people, litres per person, and number of days
+                totalLiters = numPeople * litresPerPerson * numDays;
+                document.getElementById('totalLitres').value = totalLiters.toFixed(2);
+                document.getElementById('totalLitres').disabled = false;
+            } else {
+                document.getElementById('totalLitres').value = "";
+                document.getElementById('totalLitres').disabled = true;
+            }
+        }
+
+        function clearMultiplicands() {
+            document.getElementById('numPeople').value = "";
+            document.getElementById('litresPerPerson').value = "";
+            document.getElementById('numDays').value = "";
+        }
+    </script>
+</body>
+</html>

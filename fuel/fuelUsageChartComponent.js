@@ -9,7 +9,6 @@ class FuelUsageChartComponent {
         this.litresPerPerson = 0;
         this.efficiency = 0;
         this.totalGasOwned = 0;
-        this.totalFuelRequired = 0;
         this.tooltipData = [];
         this.initChart();
         this.attachEventListeners();
@@ -35,25 +34,16 @@ class FuelUsageChartComponent {
             data: {
                 labels: [], // Days
                 datasets: [
-                    // Total Fuel Required Dataset
+                    // Remaining Gas Dataset
                     {
-                        label: 'Total Fuel Required (g)',
+                        label: 'Remaining Gas (g)',
                         data: [],
                         borderColor: 'rgba(75, 192, 192, 1)',
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
                         fill: true,
                         tension: 0.1,
-                    },
-                    // Total Gas Owned Dataset
-                    {
-                        label: 'Total Gas Owned (g)',
-                        data: [],
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                        fill: false,
-                        borderDash: [5, 5],
-                        pointStyle: 'rectRot',
-                        tension: 0.1,
+                        pointRadius: 5,
+                        pointHoverRadius: 7,
                     },
                 ],
             },
@@ -62,15 +52,16 @@ class FuelUsageChartComponent {
                     x: {
                         title: {
                             display: true,
-                            text: 'Number of Days',
+                            text: 'Day',
                         },
                     },
                     y: {
                         title: {
                             display: true,
-                            text: 'Fuel (g)',
+                            text: 'Remaining Gas (g)',
                         },
                         beginAtZero: true,
+                        suggestedMax: 100, // Will be updated dynamically
                     },
                 },
                 plugins: {
@@ -79,26 +70,16 @@ class FuelUsageChartComponent {
                         callbacks: {
                             label: (context) => {
                                 const day = context.label;
-                                const totalFuel = context.parsed.y;
+                                const remainingGas = context.parsed.y;
                                 const dataIndex = context.dataIndex;
                                 const extraInfo = this.tooltipData[dataIndex];
-                                if (context.datasetIndex === 0) {
-                                    // Total Fuel Required dataset
-                                    return [
-                                        `Day: ${day}`,
-                                        `Total Fuel Required: ${totalFuel} g`,
-                                        `Total Liters: ${extraInfo.totalLiters} L`,
-                                        `Efficiency: ${extraInfo.efficiency} g/L`,
-                                        `People: ${extraInfo.numPeople}`,
-                                        `Liters/Person/Day: ${extraInfo.litresPerPerson} L`,
-                                    ];
-                                } else {
-                                    // Total Gas Owned dataset
-                                    return [
-                                        `Day: ${day}`,
-                                        `Total Gas Owned: ${totalFuel} g`,
-                                    ];
-                                }
+
+                                return [
+                                    `Day: ${day}`,
+                                    `Remaining Gas: ${remainingGas.toFixed(2)} g`,
+                                    `Total Consumed: ${extraInfo.cumulativeFuel.toFixed(2)} g`,
+                                    `Total Liters Used: ${extraInfo.totalLiters.toFixed(2)} L`,
+                                ];
                             },
                         },
                     },
@@ -107,18 +88,18 @@ class FuelUsageChartComponent {
                     },
                     annotation: {
                         annotations: {
-                            sufficiencyLine: {
+                            zeroLine: {
                                 type: 'line',
                                 mode: 'horizontal',
                                 scaleID: 'y',
-                                value: 0, // Will be updated dynamically
-                                borderColor: 'rgba(255, 99, 132, 0.5)',
+                                value: 0,
+                                borderColor: 'red',
                                 borderWidth: 2,
-                                borderDash: [5, 5],
                                 label: {
-                                    content: 'Total Gas Owned',
+                                    content: 'Gas Depleted',
                                     enabled: true,
-                                    position: 'end',
+                                    position: 'start',
+                                    color: 'red',
                                 },
                             },
                         },
@@ -152,73 +133,69 @@ class FuelUsageChartComponent {
         this.totalGasOwned = totalGasOwned;
 
         const daysArray = [];
-        const totalFuelArray = [];
-        const gasOwnedArray = [];
+        const remainingGasArray = [];
         this.tooltipData = [];
 
-        this.totalFuelRequired = 0;
+        let cumulativeFuel = 0;
+        let gasDepletedDay = null;
 
         for (let day = 1; day <= selectedDays; day++) {
             daysArray.push(day);
 
-            // Calculate total liters of water needed
-            const totalLiters = numPeople * litresPerPerson * day;
-
-            // Calculate total fuel in grams (using efficiency in g/L)
-            let totalFuel = totalLiters * efficiency;
+            // Calculate liters used on this day
+            const dailyLiters = numPeople * litresPerPerson;
+            let dailyFuel = dailyLiters * efficiency;
 
             // Include 20% buffer if selected
             if (this.includeBuffer) {
-                totalFuel *= 1.20; // Add 20% buffer
+                dailyFuel *= 1.20;
             }
 
-            totalFuel = parseFloat(totalFuel.toFixed(2));
-            totalFuelArray.push(totalFuel);
+            // Cumulative fuel consumption
+            cumulativeFuel += dailyFuel;
 
-            // For the gas owned, it's the same across all days
-            gasOwnedArray.push(totalGasOwned);
+            // Remaining gas
+            let remainingGas = this.totalGasOwned - cumulativeFuel;
+            remainingGas = parseFloat(remainingGas.toFixed(2));
 
-            // Update total fuel required for sufficiency calculation
-            if (day === selectedDays) {
-                this.totalFuelRequired = totalFuel;
+            // Prevent negative values
+            if (remainingGas < 0 && gasDepletedDay === null) {
+                gasDepletedDay = day;
+                remainingGas = 0;
             }
+
+            remainingGasArray.push(remainingGas);
 
             // Store data for tooltips
             this.tooltipData.push({
-                totalLiters: totalLiters.toFixed(2),
-                efficiency: efficiency,
-                numPeople: numPeople,
-                litresPerPerson: litresPerPerson,
+                cumulativeFuel,
+                totalLiters: dailyLiters * day,
             });
         }
+
+        // Update chart Y-axis max
+        const maxGas = Math.max(this.totalGasOwned, ...remainingGasArray);
+        this.chart.options.scales.y.suggestedMax = maxGas;
 
         // Determine sufficiency
         let sufficiencyMessage = '';
         let isSufficient = false;
-        if (this.totalGasOwned != null) {
-            if (this.totalGasOwned >= this.totalFuelRequired) {
-                isSufficient = true;
-                sufficiencyMessage = `✅ Your gas supply is sufficient for the trip.`;
-            } else {
-                const additionalGasNeeded = (this.totalFuelRequired - this.totalGasOwned).toFixed(2);
-                isSufficient = false;
-                sufficiencyMessage = `⚠️ You need an additional ${additionalGasNeeded} g of gas.`;
-            }
+        if (remainingGasArray[remainingGasArray.length - 1] > 0) {
+            isSufficient = true;
+            sufficiencyMessage = `✅ Your gas supply is sufficient for the trip.`;
+        } else {
+            isSufficient = false;
+            sufficiencyMessage = `⚠️ Your gas supply will be depleted on day ${gasDepletedDay}.`;
         }
 
         // Update the chart and display the message
-        this.updateChart({ days: daysArray, totalFuel: totalFuelArray, totalGasOwned: gasOwnedArray }, sufficiencyMessage, isSufficient);
+        this.updateChart({ days: daysArray, remainingGas: remainingGasArray }, sufficiencyMessage, isSufficient);
     }
 
     updateChart(dataPoints, sufficiencyMessage, isSufficient) {
         // Update chart data
         this.chart.data.labels = dataPoints.days;
-        this.chart.data.datasets[0].data = dataPoints.totalFuel;
-        this.chart.data.datasets[1].data = dataPoints.totalGasOwned;
-
-        // Update annotation line for total gas owned
-        this.chart.options.plugins.annotation.annotations.sufficiencyLine.value = this.totalGasOwned;
-        this.chart.options.plugins.annotation.annotations.sufficiencyLine.label.content = `Total Gas Owned (${this.totalGasOwned} g)`;
+        this.chart.data.datasets[0].data = dataPoints.remainingGas;
 
         // Update the chart
         this.chart.update();
@@ -233,3 +210,4 @@ class FuelUsageChartComponent {
         messageContainer.className = `sufficiency-message ${isSufficient ? 'sufficient' : 'insufficient'}`;
     }
 }
+

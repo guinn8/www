@@ -13,3 +13,18 @@
 .chart-controls input[type="checkbox"] {
     margin-right: 5px;
 }
+
+#sufficiency-message {
+    margin-top: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sufficiency-message.sufficient {
+    color: green;
+}
+
+.sufficiency-message.insufficient {
+    color: red;
+}

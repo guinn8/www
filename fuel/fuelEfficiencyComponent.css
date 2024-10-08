@@ -1,0 +1,26 @@
+/* DO NOT REMOVE COMMENT: fuelEfficiencyComponent.css */
+
+.fuel-efficiency-container {
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.fuel-efficiency-container label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.fuel-efficiency-container select,
+.fuel-efficiency-container input[type="number"] {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#manualEntryContainer {
+    margin-top: 10px;
+}
+
+#manualEntryContainer label {
+    margin-right: 5px;
+}

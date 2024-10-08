@@ -1,119 +1,94 @@
+<!-- DO NOT REMOVE COMMENT: fuel.html -->
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <title>Camping Fuel Estimator</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="fuel.css">
+    <meta charset="UTF-8">
+    <title>Backcountry Trip Fuel Calculator</title>
+    <link rel="stylesheet" href="fuelCalculatorComponent.css">
+    <link rel="stylesheet" href="daysSelectorComponent.css">
+    <link rel="stylesheet" href="fuelEfficiencyComponent.css">
+    <link rel="stylesheet" href="fuelUsageChartComponent.css"> <!-- Add this line -->
 </head>
-
 <body>
-  <div class="container">
-    <h1>Camping Fuel Estimator</h1>
-
-    <!-- Interactive Fuel Calculator Component -->
+    <!-- Fuel Calculator Component -->
     <div id="fuel-calculator-container"></div>
 
-    <!-- Shared Inputs -->
-    <div id="sharedInputs">
-      <div class="input-container">
-        <label>
-          Fuel Consumption Rate (grams per liter):
-          <input type="number" id="fuelRate" value="10" min="5" max="25" step="0.1">
-        </label>
-        <small>Average fuel used per liter of water boiled.</small>
-      </div>
-    </div>
+    <!-- Days Selector Component -->
+    <div id="days-selector-container"></div>
 
-    <!-- Visualization -->
-    <div class="visualization" id="fuelCalculationVisualization">
-      <p><strong>Calculation Visualization:</strong></p>
-      <p>Daily Fuel Consumption: <span id="visualLitersPerDay">0</span> liters x <span id="visualFuelRate">0</span> grams per liter = <strong><span id="visualDailyFuelConsumption">0</span> grams</strong> per day</p>
-    </div>
+    <!-- Fuel Efficiency Component -->
+    <div id="fuel-efficiency-container"></div>
 
-    <!-- Collapsible Cards -->
-    
+    <!-- Fuel Usage Chart Component -->
+    <div id="fuel-usage-chart-container" class="fuel-usage-chart-container"></div>
 
-        <!-- Results -->
-        <div id="fuelNeededResult">
-          Total Fuel Needed: <strong><span id="totalFuelNeeded">0</span> grams</strong>
-          <div id="fuelNeededMessage"></div>
-        </div>
-      </div>
-    </div>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Add this line -->
+    <script src="fuelCalculatorComponent.js"></script>
+    <script src="daysSelectorComponent.js"></script>
+    <script src="fuelEfficiencyComponent.js"></script>
+    <script src="fuelUsageChartComponent.js"></script> <!-- Add this line -->
 
-    <div class="collapsible-card">
-      <div class="card-header" id="tripDurationHeader">
-        Estimate Isobutane Canister Duration <span class="arrow">&#9660;</span>
-      </div>
-      <div class="card-content" id="tripDurationContent">
-        <!-- Estimate Trip Duration Inputs -->
-        <div id="tripDurationInputs">
-          <div class="input-container">
-            <label>
-              Available Fuel (grams):
-              <input type="number" id="availableFuel" value="230" min="10" max="5000" step="1">
-            </label>
-            <small>Total fuel you have for the trip.</small>
-          </div>
-        </div>
+    <!-- Initialize components and handle events -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize Components
+        const daysSelector = new DaysSelectorComponent('days-selector-container', { maxDays: 60 });
+        const fuelCalculator = new FuelCalculatorComponent('fuel-calculator-container');
+        const fuelEfficiency = new FuelEfficiencyComponent('fuel-efficiency-container');
+        const fuelUsageChart = new FuelUsageChartComponent('fuel-usage-chart-container');
 
-        <!-- Results -->
-        <div id="tripDurationResult">
-          Estimated Trip Duration: <strong><span id="estimatedTripDuration">0</span> days</strong>
-          <div id="tripDurationMessage"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+        // Variables to store user inputs
+        let selectedDays = 0;
+        let numPeople = 0;
+        let litresPerPerson = 0;
+        let efficiency = 0;
 
-  <script src="fuelCalculatorComponent.js"></script>
-  <script>
-    // Instantiate the Fuel Calculator Component
-    const fuelCalculator = new FuelCalculatorComponent('fuel-calculator-container');
+        // Event Listeners
+        daysSelector.container.addEventListener('daysChanged', (event) => {
+            selectedDays = event.detail.days || 0;
+            updateChart();
+        });
 
-    // Update display values and calculations
-    function updateValues() {
-      const fuelRate = parseFloat(document.getElementById('fuelRate').value) || 10;
-      const dailyLiters = fuelCalculator.getTotalLiters();
+        fuelCalculator.container.addEventListener('fuelCalculated', (event) => {
+            numPeople = event.detail.numPeople || 0;
+            litresPerPerson = event.detail.litresPerPerson || 0;
+            updateChart();
+        });
 
-      const dailyFuelConsumption = dailyLiters * fuelRate;
-      document.getElementById('visualLitersPerDay').textContent = dailyLiters.toFixed(1);
-      document.getElementById('visualFuelRate').textContent = fuelRate.toFixed(1);
-      document.getElementById('visualDailyFuelConsumption').textContent = dailyFuelConsumption.toFixed(1);
+        fuelEfficiency.container.addEventListener('efficiencyChanged', (event) => {
+            efficiency = event.detail.efficiency || 0;
+            updateChart();
+        });
 
-      const tripDuration = parseInt(document.getElementById('tripDuration').value) || 1;
-      const totalFuelNeeded = dailyFuelConsumption * tripDuration;
-      const totalFuelWithBuffer = totalFuelNeeded + totalFuelNeeded * 0.2;
-      document.getElementById('totalFuelNeeded').textContent = totalFuelWithBuffer.toFixed(1);
-      document.getElementById('fuelNeededMessage').innerHTML = `<span>Your estimated total fuel needed including a 20% buffer is ${totalFuelWithBuffer.toFixed(1)} grams.</span>`;
+        // Function to update the chart
+        function updateChart() {
+            // Ensure all necessary inputs are available
+            if (selectedDays > 0 && numPeople > 0 && litresPerPerson > 0 && efficiency > 0) {
+                const daysArray = [];
+                const totalFuelArray = [];
 
-      const availableFuel = parseFloat(document.getElementById('availableFuel').value) || 0;
-      const estimatedDays = availableFuel / (dailyFuelConsumption + dailyFuelConsumption * 0.2);
-      document.getElementById('estimatedTripDuration').textContent = estimatedDays.toFixed(1);
-      document.getElementById('tripDurationMessage').innerHTML = `<span>Your estimated trip duration based on available fuel is ${estimatedDays.toFixed(1)} days.</span>`;
-    }
+                for (let day = 1; day <= selectedDays; day++) {
+                    daysArray.push(day);
 
-    // Event listeners for shared inputs
-    document.getElementById('fuelRate').addEventListener('input', updateValues);
-    document.getElementById('availableFuel').addEventListener('input', updateValues);
+                    // Calculate total liters of water needed
+                    const totalLiters = numPeople * litresPerPerson * day;
 
-    // Collapsible card functionality
-    function toggleCardContent(header, content) {
-      header.addEventListener('click', function () {
-        const isVisible = content.style.display === 'block';
-        content.style.display = isVisible ? 'none' : 'block';
-        header.classList.toggle('active');
-        updateValues();
-      });
-    }
+                    // Calculate total fuel in grams (using efficiency in g/L)
+                    const totalFuel = totalLiters * efficiency;
 
-    toggleCardContent(document.getElementById('tripDurationHeader'), document.getElementById('tripDurationContent'));
+                    totalFuelArray.push(totalFuel.toFixed(2));
+                }
 
-    // Initial update
-    updateValues();
-  </script>
+                // Update the chart with new data
+                fuelUsageChart.updateChart({
+                    days: daysArray,
+                    totalFuel: totalFuelArray
+                });
+            }
+        }
+    });
+    </script>
 </body>
-
 </html>

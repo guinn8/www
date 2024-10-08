@@ -1,0 +1,17 @@
+/* DO NOT REMOVE COMMENT: daysSelectorComponent.css */
+
+.days-selector-container {
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.days-selector-container label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.days-selector-container select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}

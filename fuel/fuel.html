@@ -8,44 +8,32 @@
     <link rel="stylesheet" href="fuelCalculatorComponent.css">
     <link rel="stylesheet" href="daysSelectorComponent.css">
     <link rel="stylesheet" href="fuelEfficiencyComponent.css">
-    <link rel="stylesheet" href="fuelUsageChartComponent.css"> <!-- Add this line -->
+    <link rel="stylesheet" href="fuelUsageChartComponent.css">
 </head>
 <body>
-    <!-- Fuel Calculator Component -->
     <div id="fuel-calculator-container"></div>
-
-    <!-- Days Selector Component -->
     <div id="days-selector-container"></div>
-
-    <!-- Fuel Efficiency Component -->
     <div id="fuel-efficiency-container"></div>
-
-    <!-- Fuel Usage Chart Component -->
     <div id="fuel-usage-chart-container" class="fuel-usage-chart-container"></div>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Add this line -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="fuelCalculatorComponent.js"></script>
     <script src="daysSelectorComponent.js"></script>
     <script src="fuelEfficiencyComponent.js"></script>
-    <script src="fuelUsageChartComponent.js"></script> <!-- Add this line -->
+    <script src="fuelUsageChartComponent.js"></script>
 
-    <!-- Initialize components and handle events -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Initialize Components
         const daysSelector = new DaysSelectorComponent('days-selector-container', { maxDays: 60 });
         const fuelCalculator = new FuelCalculatorComponent('fuel-calculator-container');
         const fuelEfficiency = new FuelEfficiencyComponent('fuel-efficiency-container');
         const fuelUsageChart = new FuelUsageChartComponent('fuel-usage-chart-container');
 
-        // Variables to store user inputs
         let selectedDays = 0;
         let numPeople = 0;
         let litresPerPerson = 0;
         let efficiency = 0;
 
-        // Event Listeners
         daysSelector.container.addEventListener('daysChanged', (event) => {
             selectedDays = event.detail.days || 0;
             updateChart();
@@ -62,30 +50,9 @@
             updateChart();
         });
 
-        // Function to update the chart
         function updateChart() {
-            // Ensure all necessary inputs are available
             if (selectedDays > 0 && numPeople > 0 && litresPerPerson > 0 && efficiency > 0) {
-                const daysArray = [];
-                const totalFuelArray = [];
-
-                for (let day = 1; day <= selectedDays; day++) {
-                    daysArray.push(day);
-
-                    // Calculate total liters of water needed
-                    const totalLiters = numPeople * litresPerPerson * day;
-
-                    // Calculate total fuel in grams (using efficiency in g/L)
-                    const totalFuel = totalLiters * efficiency;
-
-                    totalFuelArray.push(totalFuel.toFixed(2));
-                }
-
-                // Update the chart with new data
-                fuelUsageChart.updateChart({
-                    days: daysArray,
-                    totalFuel: totalFuelArray
-                });
+                fuelUsageChart.updateChartData(selectedDays, numPeople, litresPerPerson, efficiency);
             }
         }
     });

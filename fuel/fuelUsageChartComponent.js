@@ -52,6 +52,26 @@ class FuelUsageChartComponent {
         });
     }
 
+    // Method to update the chart with new data
+    updateChartData(selectedDays, numPeople, litresPerPerson, efficiency) {
+        const daysArray = [];
+        const totalFuelArray = [];
+
+        for (let day = 1; day <= selectedDays; day++) {
+            daysArray.push(day);
+
+            // Calculate total liters of water needed
+            const totalLiters = numPeople * litresPerPerson * day;
+
+            // Calculate total fuel in grams (using efficiency in g/L)
+            const totalFuel = totalLiters * efficiency;
+
+            totalFuelArray.push(totalFuel.toFixed(2));
+        }
+
+        this.updateChart({ days: daysArray, totalFuel: totalFuelArray });
+    }
+
     updateChart(dataPoints) {
         this.chart.data.labels = dataPoints.days;
         this.chart.data.datasets[0].data = dataPoints.totalFuel;

@@ -36,6 +36,11 @@
             <div id="fuel-efficiency-container"></div>
         </div>
 
+        <div class="card">
+            <div id="gas-canister-input-container"></div>
+        </div>
+        
+
         <!-- Card for Fuel Usage Chart -->
         <div class="card">
             <div id="fuel-usage-chart-container" class="fuel-usage-chart-container"></div>
@@ -48,41 +53,50 @@
     <script src="daysSelectorComponent.js"></script>
     <script src="fuelEfficiencyComponent.js"></script>
     <script src="fuelUsageChartComponent.js"></script>
+    <script src="gasCanisterInputComponent.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const daysSelector = new DaysSelectorComponent('days-selector-container', { maxDays: 60 });
-            const fuelCalculator = new FuelCalculatorComponent('fuel-calculator-container');
-            const fuelEfficiency = new FuelEfficiencyComponent('fuel-efficiency-container');
-            const fuelUsageChart = new FuelUsageChartComponent('fuel-usage-chart-container');
+document.addEventListener('DOMContentLoaded', () => {
+    const daysSelector = new DaysSelectorComponent('days-selector-container', { maxDays: 60 });
+    const fuelCalculator = new FuelCalculatorComponent('fuel-calculator-container');
+    const fuelEfficiency = new FuelEfficiencyComponent('fuel-efficiency-container');
+    const gasCanisterInput = new GasCanisterInputComponent('gas-canister-input-container');
+    const fuelUsageChart = new FuelUsageChartComponent('fuel-usage-chart-container');
 
-            let selectedDays = 0;
-            let numPeople = 0;
-            let litresPerPerson = 0;
-            let efficiency = 0;
+    let selectedDays = 0;
+    let numPeople = 0;
+    let litresPerPerson = 0;
+    let efficiency = 0;
+    let totalGasOwned = 0;
 
-            daysSelector.container.addEventListener('daysChanged', (event) => {
-                selectedDays = event.detail.days || 0;
-                updateChart();
-            });
+    daysSelector.container.addEventListener('daysChanged', (event) => {
+        selectedDays = event.detail.days || 0;
+        updateChart();
+    });
 
-            fuelCalculator.container.addEventListener('fuelCalculated', (event) => {
-                numPeople = event.detail.numPeople || 0;
-                litresPerPerson = event.detail.litresPerPerson || 0;
-                updateChart();
-            });
+    fuelCalculator.container.addEventListener('fuelCalculated', (event) => {
+        numPeople = event.detail.numPeople || 0;
+        litresPerPerson = event.detail.litresPerPerson || 0;
+        updateChart();
+    });
 
-            fuelEfficiency.container.addEventListener('efficiencyChanged', (event) => {
-                efficiency = event.detail.efficiency || 0;
-                updateChart();
-            });
+    fuelEfficiency.container.addEventListener('efficiencyChanged', (event) => {
+        efficiency = event.detail.efficiency || 0;
+        updateChart();
+    });
 
-            function updateChart() {
-                if (selectedDays > 0 && numPeople > 0 && litresPerPerson > 0 && efficiency > 0) {
-                    fuelUsageChart.updateChartData(selectedDays, numPeople, litresPerPerson, efficiency);
-                }
-            }
-        });
+    gasCanisterInput.container.addEventListener('gasOwnedChanged', (event) => {
+        totalGasOwned = event.detail.totalGasOwned || 0;
+        updateChart();
+    });
+
+    function updateChart() {
+        if (selectedDays > 0 && numPeople > 0 && litresPerPerson > 0 && efficiency > 0) {
+            fuelUsageChart.updateChartData(selectedDays, numPeople, litresPerPerson, efficiency, totalGasOwned);
+        }
+    }
+});
+
     </script>
 </body>
 

@@ -1,0 +1,26 @@
+/* FILENAME: gasCanisterInputComponent.css */
+
+.gas-canister-input-container {
+    margin-top: 20px;
+}
+
+.canister-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.canister-item select,
+.canister-item input {
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.canister-item button {
+    padding: 5px 10px;
+}
+
+#total-gas-owned {
+    margin-top: 10px;
+    font-weight: bold;
+}

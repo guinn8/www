@@ -1,5 +1,4 @@
-// DO NOT REMOVE COMMENT: daysSelectorComponent.js
-
+// daysSelectorComponent.js
 class DaysSelectorComponent {
     constructor(containerId, options = {}) {
         this.container = document.getElementById(containerId);

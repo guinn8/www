@@ -1,5 +1,4 @@
-// DO NOT REMOVE COMMENT: fuelEfficiencyComponent.js
-
+// fuelEfficiencyComponent.js
 class FuelEfficiencyComponent {
     constructor(containerId) {
         this.container = document.getElementById(containerId);

@@ -12,8 +12,11 @@ for FILE in $FILES; do
   EXT="${FILENAME##*.}"
 
   case "$EXT" in
-    js|css)
+    js)
       EXPECTED_COMMENT="// $FILENAME"
+      ;;
+    css)
+      EXPECTED_COMMENT="/* $FILENAME */"
       ;;
     html)
       EXPECTED_COMMENT="<!-- $FILENAME -->"

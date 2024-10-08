@@ -1,4 +1,5 @@
-// daysSelectorComponent.js
+// FILENAME: daysSelectorComponent.js
+
 class DaysSelectorComponent {
     constructor(containerId, options = {}) {
         this.container = document.getElementById(containerId);

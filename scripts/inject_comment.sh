@@ -11,26 +11,28 @@ for FILE in $FILES; do
   FILENAME=$(basename "$FILE")
   EXT="${FILENAME##*.}"
 
+  EXPECTED_PREFIX="FILENAME:"
+
   case "$EXT" in
     js)
-      EXPECTED_COMMENT="// $FILENAME"
+      EXPECTED_COMMENT="// $EXPECTED_PREFIX $FILENAME"
       ;;
     css)
-      EXPECTED_COMMENT="/* $FILENAME */"
+      EXPECTED_COMMENT="/* $EXPECTED_PREFIX $FILENAME */"
       ;;
     html)
-      EXPECTED_COMMENT="<!-- $FILENAME -->"
+      EXPECTED_COMMENT="<!-- $EXPECTED_PREFIX $FILENAME -->"
       ;;
     *)
       continue
       ;;
   esac
 
-  # If the first line does not contain the filename as a comment, add it
-  if [[ "$FIRST_LINE" != "$EXPECTED_COMMENT" ]]; then
+  # If the first line does not contain the expected prefix, add the comment
+  if [[ "$FIRST_LINE" != *"$EXPECTED_PREFIX"* ]]; then
     echo "Adding filename comment to $FILE"
-    # Create a temporary file with the comment prepended
-    (echo "$EXPECTED_COMMENT"; cat "$FILE") > "$FILE.tmp" && mv "$FILE.tmp" "$FILE"
+    # Create a temporary file with the comment and a newline prepended
+    (echo -e "$EXPECTED_COMMENT\n"; cat "$FILE") > "$FILE.tmp" && mv "$FILE.tmp" "$FILE"
 
     # Stage the updated file
     git add "$FILE"

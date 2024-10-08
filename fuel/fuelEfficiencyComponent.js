@@ -1,4 +1,5 @@
-// fuelEfficiencyComponent.js
+// FILENAME: fuelEfficiencyComponent.js
+
 class FuelEfficiencyComponent {
     constructor(containerId) {
         this.container = document.getElementById(containerId);

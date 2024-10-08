@@ -1,4 +1,5 @@
-// fuelCalculatorComponent.js
+// FILENAME: fuelCalculatorComponent.js
+
 class FuelCalculatorComponent {
     constructor(containerId) {
         this.container = document.getElementById(containerId);

@@ -1,4 +1,4 @@
-// fuelUsageChartComponent.js
+// FILENAME: fuelUsageChartComponent.js
 
 class FuelUsageChartComponent {
     constructor(containerId) {

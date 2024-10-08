@@ -1,0 +1,62 @@
+/* FILENAME: fuel.css */
+
+/* Reset basic elements for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set the background properties */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('background-image.jpg'); /* Replace with your background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
+    position: relative;
+}
+
+/* Overlay to dim the background for better readability */
+.body-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    z-index: -1;
+}
+
+/* Main container for the content */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Card style for components */
+.card {
+    background-color: #fff;
+    padding: 30px;
+}
+
+/* Styling for headers */
+h1, h2 {
+    color: #222;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 40px 10px;
+    }
+    .card {
+        padding: 20px;
+    }
+}

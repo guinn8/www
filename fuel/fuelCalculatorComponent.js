@@ -10,7 +10,6 @@ class FuelCalculatorComponent {
     render() {
         this.container.innerHTML = `
             <div class="component-container">
-                <h1>Backcountry Trip Fuel Calculator</h1>
                 <div class="flex-container">
                     <div class="input-card">
                         <div class="input-group">

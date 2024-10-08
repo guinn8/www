@@ -1,10 +1,5 @@
 /* FILENAME: fuelEfficiencyComponent.css */
 
-.fuel-efficiency-container {
-    margin: 20px 0;
-    font-family: Arial, sans-serif;
-}
-
 .fuel-efficiency-container label {
     font-weight: bold;
     margin-right: 10px;

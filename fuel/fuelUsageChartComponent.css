@@ -1,1 +1,15 @@
 /* FILENAME: fuelUsageChartComponent.css */
+
+.chart-controls {
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.chart-controls label {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.chart-controls input[type="checkbox"] {
+    margin-right: 5px;
+}

@@ -1,3 +1,5 @@
+// fuelUsageChartComponent.js
+
 class FuelUsageChartComponent {
     constructor(containerId) {
         this.container = document.getElementById(containerId);

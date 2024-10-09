@@ -5,6 +5,7 @@ class FuelEfficiencyComponent {
         this.container = document.getElementById(containerId);
         this.render();
         this.attachEventListeners();
+        this.setDefaultEfficiency(); // Set the default efficiency upon initialization
     }
 
     render() {
@@ -44,6 +45,12 @@ class FuelEfficiencyComponent {
         manualEfficiencyInput.addEventListener('input', () => {
             this.dispatchEfficiencyChange();
         });
+    }
+
+    setDefaultEfficiency() {
+        const stoveEfficiencySelect = this.container.querySelector('#stoveEfficiency');
+        stoveEfficiencySelect.value = 'default'; // Set the default option
+        this.dispatchEfficiencyChange(); // Trigger the efficiency change event with default value
     }
 
     dispatchEfficiencyChange() {

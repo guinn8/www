@@ -11,7 +11,6 @@ class GasCanisterInputComponent {
     render() {
         this.container.innerHTML = `
             <div class="gas-canister-input-container">
-                <h2>Gas Canisters Owned</h2>
                 <div id="canister-list"></div>
                 <button id="add-canister">Add Canister</button>
                 <div id="total-gas-owned"></div>

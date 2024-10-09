@@ -60,3 +60,35 @@ h1, h2 {
         padding: 20px;
     }
 }
+
+
+/* FILENAME: fuel.css */
+
+/* Add styling for aligning the containers */
+.flex-container-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+#days-selector-container,
+#fuel-efficiency-container {
+    flex: 1;
+}
+
+#fuel-efficiency-container {
+    text-align: right; /* Align content to the right within the container */
+}
+
+@media (max-width: 768px) {
+    /* On smaller screens, stack the elements vertically */
+    .flex-container-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #fuel-efficiency-container {
+        text-align: left; /* Ensure proper alignment on smaller screens */
+    }
+}

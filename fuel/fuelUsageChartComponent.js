@@ -16,13 +16,13 @@ class FuelUsageChartComponent {
 
     initChart() {
         this.container.innerHTML = `
+            <canvas id="fuelUsageChart" width="400" height="200"></canvas>
             <div class="chart-controls">
                 <label>
                     <input type="checkbox" id="includeBuffer">
                     Include 20% Buffer
                 </label>
             </div>
-            <canvas id="fuelUsageChart" width="400" height="200"></canvas>
             <div id="sufficiency-message"></div>
         `;
 

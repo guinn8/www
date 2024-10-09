@@ -12,25 +12,24 @@ class DaysSelectorComponent {
         this.container.innerHTML = `
             <div class="days-selector-container">
                 <label for="numDays" title="Select the number of days for your trip">Number of Days:</label>
-                <select id="numDays">
-                    ${this.generateDayOptions()}
-                </select>
+                <input type="number" id="numDays" min="1" max="${this.maxDays}" placeholder="Enter days (1-${this.maxDays})" />
             </div>
         `;
     }
 
-    generateDayOptions() {
-        let options = '<option value="">Select Days</option>';
-        for (let i = 1; i <= this.maxDays; i++) {
-            options += `<option value="${i}">${i}</option>`;
-        }
-        return options;
-    }
-
     attachEventListeners() {
-        this.container.querySelector('#numDays').addEventListener('change', (event) => {
-            const selectedDays = parseInt(event.target.value) || 0;
+        this.container.querySelector('#numDays').addEventListener('input', (event) => {
+            let selectedDays = parseInt(event.target.value);
+
+            if (selectedDays > this.maxDays) {
+                selectedDays = this.maxDays; // Cap at maxDays
+                event.target.value = this.maxDays; // Update input value
+            } else if (selectedDays < 1 || isNaN(selectedDays)) {
+                selectedDays = 0;
+            }
+
             console.log(`Number of Days Selected: ${selectedDays}`);
+
             // Dispatch a custom event
             const daysSelectedEvent = new CustomEvent('daysSelected', { detail: { days: selectedDays } });
             this.container.dispatchEvent(daysSelectedEvent);
@@ -46,4 +45,3 @@ class DaysSelectorComponent {
         return parseInt(value) || null;
     }
 }
-

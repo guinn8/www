@@ -62,7 +62,6 @@ h1, h2 {
 }
 
 
-/* FILENAME: fuel.css */
 
 /* Add styling for aligning the containers */
 .flex-container-row {
@@ -78,7 +77,7 @@ h1, h2 {
 }
 
 #fuel-efficiency-container {
-    text-align: right; /* Align content to the right within the container */
+    text-align: left; /* Align content to the right within the container */
 }
 
 @media (max-width: 768px) {

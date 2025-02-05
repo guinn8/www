@@ -1,0 +1,752 @@
+<!-- FILENAME: terminal_toys.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ASCII Animations Collection</title>
+<style>
+body { font-family: monospace; background: #f7f7f7; padding: 20px; }
+h1, h2 { color: #333; }
+section { margin-bottom: 30px; }
+.code-block { background: #fff; border: 1px solid #ddd; padding: 10px; position: relative; white-space: pre-wrap; }
+.copy-btn { position: absolute; top: 10px; right: 10px; cursor: pointer; padding: 5px 10px; background: #007bff; color: #fff; border: none; }
+</style>
+</head>
+<body>
+<h1>ASCII Animations Collection</h1>
+<h2>You should be able to paste and run these in your terminal directly!</h2>
+
+<section id="ascii-fireworks">
+  <h2>Lionel's "ASCII Fireworks"</h2>
+  <div class="code-block">
+    <button class="copy-btn" data-target="code1">Copy</button>
+    <pre><code id="code1">➜  ~ # Lionel's "ASCII Fireworks"
+python3 <<'EOF'
+import curses, time, random
+
+def main(stdscr):
+    curses.curs_set(0)
+    stdscr.nodelay(True)
+    curses.start_color()
+    curses.use_default_colors()
+    for i in range(1, 8):
+        curses.init_pair(i, i, -1)
+
+    maxy, maxx = stdscr.getmaxyx()
+    sparks = []  # (y, x, dy, dx, lifetime, color)
+    new_firework_delay = 20
+    frame = 0
+
+    while True:
+        stdscr.clear()
+        # spawn a new firework occasionally
+        if frame % new_firework_delay == 0:
+            cx = random.randint(maxx//4, 3*maxx//4)
+            # small cluster of sparks
+            for _ in range(random.randint(20, 40)):
+                sparks.append([
+                    random.randint(maxy-5, maxy-2), # start near bottom
+                    cx,
+                    -random.uniform(1,2),
+                    random.uniform(-1,1),
+                    random.randint(10, 30),
+                    curses.color_pair(random.randint(1,7))
+                ])
+
+        # update and draw sparks
+        alive_sparks = []
+        for s in sparks:
+            y, x, dy, dx, life, color = s
+            ny = y + dy
+            nx = x + dx
+            life -= 1
+            if 0 <= int(ny) < maxy and 0 <= int(nx) < maxx and life > 0:
+                try:
+                    stdscr.addch(int(ny), int(nx), '*', color)
+                except:
+                    pass
+                alive_sparks.append([ny, nx, dy, dx, life, color])
+        sparks = alive_sparks
+
+        stdscr.refresh()
+        time.sleep(0.05)
+        frame += 1
+        if stdscr.getch() == ord('q'):
+            break
+
+curses.wrapper(main)
+EOF</code></pre>
+  </div>
+</section>
+
+<section id="binary-downpour">
+  <h2>Thaddeus's "Binary Downpour"</h2>
+  <div class="code-block">
+    <button class="copy-btn" data-target="code2">Copy</button>
+    <pre><code id="code2">➜  ~ # Thaddeus's "Binary Downpour"
+python3 <<'EOF'
+import curses, time, random
+
+def main(stdscr):
+    curses.curs_set(0)
+    stdscr.nodelay(True)
+    maxy, maxx = stdscr.getmaxyx()
+    columns = [0]*maxx  # tracks the "head" of each rain column
+
+    while True:
+        stdscr.clear()
+        # update columns
+        for i in range(maxx):
+            if random.random() > 0.98:
+                columns[i] = 0
+            else:
+                columns[i] += 1
+            col_len = columns[i]
+            start = col_len - 10 if col_len > 10 else 0
+            for row in range(start, col_len):
+                if 0 <= row < maxy:
+                    ch = random.choice(['0','1'])
+                    try:
+                        stdscr.addch(row, i, ch)
+                    except:
+                        pass
+        stdscr.refresh()
+        time.sleep(0.05)
+        if stdscr.getch() == ord('q'):
+            break
+
+curses.wrapper(main)
+EOF</code></pre>
+  </div>
+</section>
+
+<section id="collapsing-circles">
+  <h2>Basil's "Collapsing ASCII Circles"</h2>
+  <div class="code-block">
+    <button class="copy-btn" data-target="code3">Copy</button>
+    <pre><code id="code3">➜  ~ # Basil's "Collapsing ASCII Circles"
+python3 <<'EOF'
+import curses, time, math
+
+def main(stdscr):
+    curses.curs_set(0)
+    stdscr.nodelay(True)
+    maxy, maxx = stdscr.getmaxyx()
+    radius = min(maxy, maxx) // 2
+    step = 0
+    while True:
+        stdscr.clear()
+        current = radius - (step % radius)
+        for angle_deg in range(0, 360, 5):
+            angle = math.radians(angle_deg)
+            y = int((maxy/2) + current * math.sin(angle))
+            x = int((maxx/2) + current * math.cos(angle))
+            if 0 <= y < maxy and 0 <= x < maxx:
+                stdscr.addch(y, x, 'o')
+        stdscr.refresh()
+        time.sleep(0.05)
+        step += 1
+        if stdscr.getch() == ord('q'):
+            break
+
+curses.wrapper(main)
+EOF</code></pre>
+  </div>
+</section>
+
+<section id="bouncing-letters">
+  <h2>A simple color demonstration with random bouncing letters</h2>
+  <div class="code-block">
+    <button class="copy-btn" data-target="code4">Copy</button>
+    <pre><code id="code4">➜  ~ # 4) A simple color demonstration with random bouncing letters
+python3 <<'EOF'
+import curses, time, random, string
+
+def main(stdscr):
+    curses.start_color()
+    curses.use_default_colors()
+    curses.curs_set(0)
+    stdscr.nodelay(True)
+    maxy, maxx = stdscr.getmaxyx()
+    random_chars = [random.choice(string.ascii_letters) for _ in range(10)]
+    positions = [(random.randint(0,maxy-1), random.randint(0,maxx-1)) for _ in range(10)]
+    directions = [(random.choice([-1,1]), random.choice([-1,1])) for _ in range(10)]
+
+    # Initialize some color pairs
+    for i in range(1, 8):
+        curses.init_pair(i, i, -1)
+
+    while True:
+        stdscr.clear()
+        for i in range(10):
+            y, x = positions[i]
+            dy, dx = directions[i]
+            char = random_chars[i]
+            color_pair = curses.color_pair((i % 7) + 1)
+
+            # Draw
+            try:
+                stdscr.addstr(y, x, char, color_pair)
+            except:
+                pass
+
+            # Update
+            ny, nx = y+dy, x+dx
+            if ny < 0 or ny >= maxy:
+                dy = -dy
+                ny = y+dy
+            if nx < 0 or nx >= maxx:
+                dx = -dx
+                nx = x+dx
+            positions[i] = (ny, nx)
+            directions[i] = (dy, dx)
+
+        stdscr.refresh()
+        time.sleep(0.1)
+        if stdscr.getch() == ord("q"):
+            break
+
+curses.wrapper(main)
+EOF</code></pre>
+  </div>
+</section>
+
+<section id="bouncing-box">
+  <h2>Bouncing Box</h2>
+  <div class="code-block">
+    <button class="copy-btn" data-target="code5">Copy</button>
+    <pre><code id="code5">python3 <<'EOF'
+import curses, time
+def main(stdscr):
+    curses.curs_set(0)
+    stdscr.nodelay(True)
+    maxy, maxx = stdscr.getmaxyx()
+    h, w = 3, 5
+    y, x = maxy//2, maxx//2
+    dy, dx = 1, 1
+    while True:
+        stdscr.clear()
+        if y < 0: y = 0
+        if x < 0: x = 0
+        box = [
+            '+' + '-'*(w-2) + '+',
+            '|' + ' '*(w-2) + '|',
+            '+' + '-'*(w-2) + '+'
+        ]
+        for i, line in enumerate(box):
+            if 0 <= y+i < maxy and 0 <= x < maxx:
+                stdscr.addstr(y+i, x, line[:maxx-x])
+        stdscr.refresh()
+        time.sleep(0.05)
+        ny, nx = y+dy, x+dx
+        if ny < 0 or ny > maxy-h: dy = -dy; ny = y+dy
+        if nx < 0 or nx > maxx-w: dx = -dx; nx = x+dx
+        y, x = ny, nx
+        if stdscr.getch() == ord("q"):
+            break
+curses.wrapper(main)
+EOF</code></pre>
+  </div>
+</section>
+
+<section id="fluttering-butterflies">
+  <h2>Cassidy's "Fluttering Butterflies"</h2>
+  <div class="code-block">
+    <button class="copy-btn" data-target="code6">Copy</button>
+    <pre><code id="code6">➜  ~ # Cassidy's "Fluttering Butterflies"
+python3 <<'EOF'
+import curses, time, random
+
+def main(stdscr):
+    curses.curs_set(0)
+    stdscr.nodelay(True)
+    maxy, maxx = stdscr.getmaxyx()
+    # Each butterfly is (y, x, vy, vx, frame)
+    butterflies = []
+    for _ in range(5):
+        y = random.randint(0, maxy-1)
+        x = random.randint(0, maxx-1)
+        vy = random.choice([-1, 0, 1])
+        vx = random.choice([-1, 0, 1])
+        frame = 0
+        butterflies.append([y, x, vy, vx, frame])
+
+    patterns = ['\\/','/\\']
+
+    while True:
+        stdscr.clear()
+        for b in butterflies:
+            y, x, vy, vx, frame = b
+            # draw
+            wing = patterns[frame % 2]
+            try:
+                stdscr.addstr(y, x, wing)
+            except:
+                pass
+            # move
+            ny, nx = y + vy, x + vx
+            if ny < 0 or ny >= maxy:
+                vy = -vy
+                ny = y + vy
+            if nx < 0 or nx >= maxx:
+                vx = -vx
+                nx = x + vx
+            b[0], b[1], b[2], b[3], b[4] = ny, nx, vy, vx, frame+1
+
+        stdscr.refresh()
+        time.sleep(0.1)
+        if stdscr.getch() == ord('q'):
+            break
+
+curses.wrapper(main)
+EOF</code></pre>
+  </div>
+</section>
+
+<section id="spiraling-point">
+  <h2>A spiraling point in the center</h2>
+  <div class="code-block">
+    <button class="copy-btn" data-target="code7">Copy</button>
+    <pre><code id="code7">➜  ~ # 2) A spiraling point in the center
+python3 <<'EOF'
+import curses, time, math
+
+def main(stdscr):
+    curses.curs_set(0)
+    stdscr.nodelay(True)
+    maxy, maxx = stdscr.getmaxyx()
+    cy, cx = maxy // 2, maxx // 2  # center
+    angle = 0
+    radius = min(cy, cx) // 2
+    while True:
+        stdscr.clear()
+        # Convert polar to Cartesian
+        x_offset = int(radius * math.cos(angle))
+        y_offset = int(radius * math.sin(angle))
+        y = cy + y_offset
+        x = cx + x_offset
+        if 0 <= y < maxy and 0 <= x < maxx:
+            stdscr.addch(y, x, 'o')
+        stdscr.refresh()
+        time.sleep(0.05)
+        angle += 0.1
+        if angle > 2 * math.pi:
+            angle -= 2 * math.pi
+        if stdscr.getch() == ord("q"):
+            break
+
+curses.wrapper(main)
+EOF</code></pre>
+  </div>
+</section>
+
+<section id="lightning-flash">
+  <h2>Quincy's "Lightning Flash"</h2>
+  <div class="code-block">
+    <button class="copy-btn" data-target="code8">Copy</button>
+    <pre><code id="code8">➜  ~ # Quincy's "Lightning Flash"
+python3 <<'EOF'
+import curses, time, random
+
+def main(stdscr):
+    curses.curs_set(0)
+    stdscr.nodelay(True)
+    maxy, maxx = stdscr.getmaxyx()
+
+    while True:
+        stdscr.clear()
+        # random chance of lightning
+        if random.random() < 0.05:
+            # draw a lightning "fork"
+            y = 0
+            x = random.randint(0, maxx-1)
+            while y < maxy-1:
+                stdscr.addch(y, x, '|')
+                y += random.randint(1, 2)
+                x += random.choice([-1, 0, 1])
+                x = max(0, min(x, maxx-1))
+            # brief flash
+            stdscr.refresh()
+            time.sleep(0.05)
+            # clear flash
+            stdscr.clear()
+
+        stdscr.refresh()
+        time.sleep(0.1)
+        if stdscr.getch() == ord('q'):
+            break
+
+curses.wrapper(main)
+EOF</code></pre>
+  </div>
+</section>
+
+<section id="rotating-squares">
+  <h2>Rotating squares</h2>
+  <div class="code-block">
+    <button class="copy-btn" data-target="code9">Copy</button>
+    <pre><code id="code9">➜  ~ # 2) Rotating squares
+python3 <<'EOF'
+import curses, time, math
+
+def draw_square(stdscr, cy, cx, size, angle, char):
+    half = size//2
+    for i in range(size):
+        for j in range(size):
+            # rotate around center
+            y_off = i - half
+            x_off = j - half
+            ry = int(y_off*math.cos(angle) - x_off*math.sin(angle))
+            rx = int(y_off*math.sin(angle) + x_off*math.cos(angle))
+            y, x = cy + ry, cx + rx
+            try:
+                stdscr.addch(y, x, char)
+            except:
+                pass
+
+def main(stdscr):
+    curses.curs_set(0)
+    stdscr.nodelay(True)
+    maxy, maxx = stdscr.getmaxyx()
+    angle = 0
+    while True:
+        stdscr.clear()
+        draw_square(stdscr, maxy//2, maxx//3, 7, angle, '#')
+        draw_square(stdscr, maxy//2, 2*maxx//3, 7, -angle, '*')
+        stdscr.refresh()
+        time.sleep(0.05)
+        angle += 0.1
+        if stdscr.getch() == ord('q'):
+            break
+
+curses.wrapper(main)
+EOF</code></pre>
+  </div>
+</section>
+
+<section id="snake">
+  <h2>A "snake" of random direction</h2>
+  <div class="code-block">
+    <button class="copy-btn" data-target="code10">Copy</button>
+    <pre><code id="code10">➜  ~ # 1) A "snake" of random direction
+python3 <<'EOF'
+import curses, time, random
+
+def main(stdscr):
+    curses.curs_set(0)
+    stdscr.nodelay(True)
+    maxy, maxx = stdscr.getmaxyx()
+    snake = [(maxy//2, maxx//2)]
+    direction = (0, 1)
+    length = 20
+    while True:
+        stdscr.clear()
+        heady, headx = snake[-1]
+        newy, newx = heady + direction[0], headx + direction[1]
+        if newy < 0: newy = maxy - 1
+        elif newy >= maxy: newy = 0
+        if newx < 0: newx = maxx - 1
+        elif newx >= maxx: newx = 0
+        snake.append((newy, newx))
+        if len(snake) > length:
+            snake.pop(0)
+        for i, (sy, sx) in enumerate(snake):
+            stdscr.addch(sy, sx, '#' if i < len(snake)-1 else '@')
+        stdscr.refresh()
+        time.sleep(0.05)
+        c = stdscr.getch()
+        if c == ord('q'): break
+        elif c == curses.KEY_UP: direction = (-1, 0)
+        elif c == curses.KEY_DOWN: direction = (1, 0)
+        elif c == curses.KEY_LEFT: direction = (0, -1)
+        elif c == curses.KEY_RIGHT: direction = (0, 1)
+
+curses.wrapper(main)
+EOF</code></pre>
+  </div>
+</section>
+
+<section id="game-of-life">
+  <h2>Color-coded Game of Life (age-based)</h2>
+  <div class="code-block">
+    <button class="copy-btn" data-target="code11">Copy</button>
+    <pre><code id="code11">➜  ~ # Variation 2) Color-coded Game of Life (age-based)
+python3 <<'EOF'
+import curses, time, random
+
+def count_neighbors(grid, r, c):
+    rows = len(grid)
+    cols = len(grid[0])
+    neighbors = 0
+    for dr in [-1, 0, 1]:
+        for dc in [-1, 0, 1]:
+            if dr == 0 and dc == 0:
+                continue
+            rr, cc = r + dr, c + dc
+            if 0 <= rr < rows and 0 <= cc < cols:
+                if grid[rr][cc] > 0:
+                    neighbors += 1
+    return neighbors
+
+def main(stdscr):
+    curses.curs_set(0)
+    stdscr.nodelay(True)
+    curses.start_color()
+    curses.use_default_colors()
+    for i in range(1, 8):
+        curses.init_pair(i, i, -1)
+
+    maxy, maxx = stdscr.getmaxyx()
+    rows, cols = maxy, maxx
+
+    # Grid holds "age" of cell. 0 means dead.
+    grid = [[0]*cols for _ in range(rows)]
+    # Random init
+    for r in range(rows):
+        for c in range(cols):
+            if random.random() < 0.15:
+                grid[r][c] = 1
+
+    while True:
+        stdscr.clear()
+        for r in range(rows):
+            for c in range(cols):
+                age = grid[r][c]
+                if age > 0:
+                    # pick color based on (age mod 7) + 1
+                    color = curses.color_pair((age % 7) + 1)
+                    stdscr.addch(r, c, 'O', color)
+        stdscr.refresh()
+        time.sleep(0.1)
+
+        new_grid = [[0]*cols for _ in range(rows)]
+        for r in range(rows):
+            for c in range(cols):
+                age = grid[r][c]
+                neighbors = count_neighbors(grid, r, c)
+                if age > 0:
+                    # Cell is alive
+                    if neighbors < 2 or neighbors > 3:
+                        new_grid[r][c] = 0
+                    else:
+                        new_grid[r][c] = age + 1
+                else:
+                    # Cell is dead
+                    if neighbors == 3:
+                        new_grid[r][c] = 1
+        grid = new_grid
+
+        if stdscr.getch() == ord('q'):
+            break
+
+curses.wrapper(main)
+EOF</code></pre>
+  </div>
+</section>
+
+<section id="meteor-showers">
+  <h2>Orion's "Meteor Showers"</h2>
+  <div class="code-block">
+    <button class="copy-btn" data-target="code12">Copy</button>
+    <pre><code id="code12">➜  ~ # Orion's "Meteor Showers"
+python3 <<'EOF'
+import curses, time, random
+
+def main(stdscr):
+    curses.curs_set(0)
+    stdscr.nodelay(True)
+    maxy, maxx = stdscr.getmaxyx()
+    meteors = []
+
+    while True:
+        stdscr.clear()
+        # occasionally spawn a new meteor
+        if random.random() < 0.1:
+            y = random.randint(0, maxy//2)
+            x = random.randint(0, maxx-1)
+            length = random.randint(5,10)
+            meteors.append([y, x, length])
+
+        alive = []
+        for m in meteors:
+            y, x, length = m
+            # draw meteor as a line
+            for i in range(length):
+                yy = y + i
+                xx = x + i
+                if 0 <= yy < maxy and 0 <= xx < maxx:
+                    stdscr.addch(yy, xx, '/')
+            # update
+            y += 1
+            x += 1
+            length = max(0, length-1)
+            if y < maxy and x < maxx and length > 0:
+                alive.append([y, x, length])
+        meteors = alive
+
+        stdscr.refresh()
+        time.sleep(0.1)
+        if stdscr.getch() == ord('q'):
+            break
+
+curses.wrapper(main)
+EOF</code></pre>
+  </div>
+</section>
+
+<section id="expanding-spiral">
+  <h2>Nadine's "Expanding Spiral"</h2>
+  <div class="code-block">
+    <button class="copy-btn" data-target="code13">Copy</button>
+    <pre><code id="code13">➜  ~ # Nadine's "Expanding Spiral"
+python3 <<'EOF'
+import curses, time, math
+
+def main(stdscr):
+    curses.curs_set(0)
+    stdscr.nodelay(True)
+    maxy, maxx = stdscr.getmaxyx()
+    angle = 0
+    while True:
+        stdscr.clear()
+        for r in range(min(maxy, maxx)//4):
+            theta = angle + r*0.1
+            y = int((maxy/2) + r*math.sin(theta))
+            x = int((maxx/2) + r*math.cos(theta))
+            if 0 <= y < maxy and 0 <= x < maxx:
+                stdscr.addch(y, x, '*')
+        angle += 0.05
+        stdscr.refresh()
+        time.sleep(0.05)
+        if stdscr.getch() == ord('q'):
+            break
+
+curses.wrapper(main)
+EOF</code></pre>
+  </div>
+</section>
+
+<section id="rotating-polygons">
+  <h2>Roland's "Rotating Polygons"</h2>
+  <div class="code-block">
+    <button class="copy-btn" data-target="code14">Copy</button>
+    <pre><code id="code14">➜  ~ # Roland's "Rotating Polygons"
+python3 <<'EOF'
+import curses, time, math
+
+def draw_polygon(stdscr, center_y, center_x, radius, sides, angle_offset):
+    for i in range(sides):
+        theta1 = angle_offset + (2*math.pi * i / sides)
+        theta2 = angle_offset + (2*math.pi * ((i+1) % sides) / sides)
+        y1 = int(center_y + radius*math.sin(theta1))
+        x1 = int(center_x + radius*math.cos(theta1))
+        y2 = int(center_y + radius*math.sin(theta2))
+        x2 = int(center_x + radius*math.cos(theta2))
+        # draw a line (roughly) from (y1,x1) to (y2,x2)
+        steps = max(abs(y2-y1), abs(x2-x1))
+        for s in range(steps+1):
+            yy = y1 + int(s*(y2-y1)/(steps+1e-9))
+            xx = x1 + int(s*(x2-x1)/(steps+1e-9))
+            try:
+                stdscr.addch(yy, xx, '#')
+            except:
+                pass
+
+def main(stdscr):
+    curses.curs_set(0)
+    stdscr.nodelay(True)
+    maxy, maxx = stdscr.getmaxyx()
+    angle = 0
+    while True:
+        stdscr.clear()
+        draw_polygon(stdscr, maxy//2, maxx//2, min(maxy, maxx)//4, 5, angle)
+        draw_polygon(stdscr, maxy//2, maxx//2, min(maxy, maxx)//6, 8, -angle*2)
+        angle += 0.05
+        stdscr.refresh()
+        time.sleep(0.05)
+        if stdscr.getch() == ord('q'):
+            break
+
+curses.wrapper(main)
+EOF</code></pre>
+  </div>
+</section>
+
+<section id="vertical-bars">
+  <h2>Vertical Bars Animation</h2>
+  <div class="code-block">
+    <button class="copy-btn" data-target="code15">Copy</button>
+    <pre><code id="code15">python3 <<'EOF'
+import curses, time, math
+
+def main(stdscr):
+    curses.curs_set(0)
+    stdscr.nodelay(True)
+    maxy, maxx = stdscr.getmaxyx()
+    t = 0
+    while True:
+        stdscr.clear()
+        for i in range(maxy):
+            phase = math.sin(t + i*0.3)
+            x = int((maxx/2) + (maxx/3)*phase)
+            if 0 <= x < maxx:
+                stdscr.addch(i, x, '|')
+        t += 0.1
+        stdscr.refresh()
+        time.sleep(0.05)
+        if stdscr.getch() == ord('q'):
+            break
+
+curses.wrapper(main)
+EOF</code></pre>
+  </div>
+</section>
+
+<section id="text-whirlwind">
+  <h2>Gretchen's "Text Whirlwind"</h2>
+  <div class="code-block">
+    <button class="copy-btn" data-target="code16">Copy</button>
+    <pre><code id="code16">➜  ~ # Gretchen's "Text Whirlwind"
+python3 <<'EOF'
+import curses, time, math
+
+TEXT = "WHIRLWIND"
+
+def main(stdscr):
+    curses.curs_set(0)
+    stdscr.nodelay(True)
+    maxy, maxx = stdscr.getmaxyx()
+    t = 0
+    while True:
+        stdscr.clear()
+        for i, ch in enumerate(TEXT):
+            angle = t + i*0.6
+            radius = 5 + i*2
+            y = int((maxy/2) + radius*math.sin(angle))
+            x = int((maxx/2) + radius*math.cos(angle))
+            if 0 <= y < maxy and 0 <= x < maxx:
+                stdscr.addch(y, x, ch)
+        t += 0.1
+        stdscr.refresh()
+        time.sleep(0.05)
+        if stdscr.getch() == ord('q'):
+            break
+
+curses.wrapper(main)
+EOF</code></pre>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const codeText = document.getElementById(btn.getAttribute('data-target')).innerText;
+    navigator.clipboard.writeText(codeText);
+    btn.innerText = 'Copied!';
+    setTimeout(() => btn.innerText = 'Copy', 2000);
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!-- FILENAME: bouncing-blob-collision-particles-gravity.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bouncing Blob + Game of Life Collision + Particle Seeding + Light Gravity</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #000; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="game"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('game');
+  const ctx = canvas.getContext('2d');
+
+  const cellSize = 5;
+  const lifeProbability = 0.15;
+  const lifeUpdateFreq = 6;
+  const moveAccel = 0.5;
+  const bounciness = 0.8;
+  const drag = 0.99;
+
+  // 1) Light gravity so things drift downward over time
+  const gravity = 0.08;
+
+  // Particle config
+  const particles = [];
+  const particleSpawnPerFrame = 5;    
+  const particleLifetime = 60;       
+  const particleSpeed = 2;           
+  const spaceSeeding = true;         
+
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  canvas.width = width;
+  canvas.height = height;
+
+  const cols = Math.floor(width / cellSize);
+  const rows = Math.floor(height / cellSize);
+
+  // Initialize Game of Life grid
+  let grid = createGrid(rows, cols);
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      if (Math.random() < lifeProbability) grid[r][c] = 1;
+    }
+  }
+
+  // The blob
+  let blob = {
+    x: width * 0.5,
+    y: height * 0.5,
+    vx: 0,
+    vy: 0,
+    radius: 15
+  };
+
+  let upPressed = false;
+  let downPressed = false;
+  let leftPressed = false;
+  let rightPressed = false;
+  let spacePressed = false;
+
+  let frameCount = 0;
+  const colors = ['#ff0000','#ff7f00','#ffff00','#00ff00','#00ffff','#0000ff','#ff00ff'];
+
+  // Key listeners
+  window.addEventListener('keydown', (e) => {
+    if (e.code === 'ArrowUp')    upPressed = true;
+    if (e.code === 'ArrowDown')  downPressed = true;
+    if (e.code === 'ArrowLeft')  leftPressed = true;
+    if (e.code === 'ArrowRight') rightPressed = true;
+    if (e.code === 'Space')      spacePressed = true;
+  });
+  window.addEventListener('keyup', (e) => {
+    if (e.code === 'ArrowUp')    upPressed = false;
+    if (e.code === 'ArrowDown')  downPressed = false;
+    if (e.code === 'ArrowLeft')  leftPressed = false;
+    if (e.code === 'ArrowRight') rightPressed = false;
+    if (e.code === 'Space')      spacePressed = false;
+  });
+
+  // Main animation loop
+  function animate() {
+    frameCount++;
+    if (frameCount % lifeUpdateFreq === 0) {
+      grid = updateGrid(grid);
+    }
+
+    drawGrid(grid);
+    updateBlob();
+    handleCollision();
+    drawBlob();
+
+    if (spacePressed) spawnParticles();
+    updateParticles();
+    drawParticles();
+
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+
+  function updateBlob() {
+    // Keyboard input accelerations
+    if (upPressed)    blob.vy -= moveAccel;
+    if (downPressed)  blob.vy += moveAccel;
+    if (leftPressed)  blob.vx -= moveAccel;
+    if (rightPressed) blob.vx += moveAccel;
+
+    // 2) Light gravity: blob drifts downward over time
+    blob.vy += gravity;
+
+    // Update position
+    blob.x += blob.vx;
+    blob.y += blob.vy;
+
+    // Drag
+    blob.vx *= drag;
+    blob.vy *= drag;
+
+    // Bounce off screen edges
+    if (blob.x < blob.radius) {
+      blob.x = blob.radius;
+      blob.vx = -blob.vx * bounciness;
+    }
+    if (blob.x > width - blob.radius) {
+      blob.x = width - blob.radius;
+      blob.vx = -blob.vx * bounciness;
+    }
+    if (blob.y < blob.radius) {
+      blob.y = blob.radius;
+      blob.vy = -blob.vy * bounciness;
+    }
+    if (blob.y > height - blob.radius) {
+      blob.y = height - blob.radius;
+      blob.vy = -blob.vy * bounciness;
+    }
+  }
+
+  // Eliminate any living cell that overlaps the blob
+  function handleCollision() {
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        if (grid[r][c] > 0) {
+          const cellX = c * cellSize;
+          const cellY = r * cellSize;
+          if (circleRectOverlap(blob.x, blob.y, blob.radius, cellX, cellY, cellSize, cellSize)) {
+            grid[r][c] = 0;
+          }
+        }
+      }
+    }
+  }
+
+  // --- Particle system ---
+  function spawnParticles() {
+    for (let i = 0; i < particleSpawnPerFrame; i++) {
+      const angle = Math.random() * 2 * Math.PI;
+      particles.push({
+        x: blob.x,
+        y: blob.y,
+        vx: Math.cos(angle) * particleSpeed,
+        vy: Math.sin(angle) * particleSpeed,
+        life: particleLifetime
+      });
+    }
+  }
+
+  function updateParticles() {
+    for (let i = particles.length - 1; i >= 0; i--) {
+      const p = particles[i];
+      // Gravity also affects particles (optional, remove if undesired)
+      p.vy += (gravity * 0.5); // can be smaller so they float more gently
+      p.x += p.vx;
+      p.y += p.vy;
+      p.life--;
+      if (spaceSeeding) {
+        const rr = Math.floor(p.y / cellSize);
+        const cc = Math.floor(p.x / cellSize);
+        if (rr >= 0 && rr < rows && cc >= 0 && cc < cols) {
+          grid[rr][cc] = 1;
+        }
+      }
+      if (p.life <= 0) {
+        particles.splice(i, 1);
+      }
+    }
+  }
+
+  function drawParticles() {
+    ctx.save();
+    ctx.globalAlpha = 0.6;
+    ctx.fillStyle = '#fff';
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 3, 0, 2 * Math.PI);
+      ctx.fill();
+    }
+    ctx.restore();
+  }
+  // --- End particle system ---
+
+  // Draw the blob
+  function drawBlob() {
+    ctx.beginPath();
+    ctx.arc(blob.x, blob.y, blob.radius, 0, 2 * Math.PI);
+    ctx.fillStyle = '#fff';
+    ctx.fill();
+  }
+
+  // Create 2D array of zeros
+  function createGrid(rows, cols) {
+    const g = [];
+    for (let i = 0; i < rows; i++) {
+      g[i] = new Array(cols).fill(0);
+    }
+    return g;
+  }
+
+  // Standard GoL neighbor count
+  function countNeighbors(g, r, c) {
+    let neighbors = 0;
+    for (let dr = -1; dr <= 1; dr++) {
+      for (let dc = -1; dc <= 1; dc++) {
+        if (dr === 0 && dc === 0) continue;
+        const rr = r + dr;
+        const cc = c + dc;
+        if (rr >= 0 && rr < rows && cc >= 0 && cc < cols) {
+          if (g[rr][cc] > 0) neighbors++;
+        }
+      }
+    }
+    return neighbors;
+  }
+
+  // Evolve the Game of Life grid
+  function updateGrid(current) {
+    const newGrid = createGrid(rows, cols);
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const age = current[r][c];
+        const n = countNeighbors(current, r, c);
+        if (age > 0) {
+          if (n < 2 || n > 3) {
+            newGrid[r][c] = 0;
+          } else {
+            newGrid[r][c] = age + 1;
+          }
+        } else {
+          if (n === 3) {
+            newGrid[r][c] = 1;
+          }
+        }
+      }
+    }
+    return newGrid;
+  }
+
+  // Render the Life background
+  function drawGrid(g) {
+    ctx.clearRect(0, 0, width, height);
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const age = g[r][c];
+        if (age > 0) {
+          const colorIndex = (age - 1) % 7;
+          ctx.fillStyle = colors[colorIndex];
+          ctx.fillRect(c * cellSize, r * cellSize, cellSize, cellSize);
+        }
+      }
+    }
+  }
+
+  function circleRectOverlap(cx, cy, cr, rx, ry, rw, rh) {
+    const closestX = clamp(cx, rx, rx + rw);
+    const closestY = clamp(cy, ry, ry + rh);
+    const dx = cx - closestX;
+    const dy = cy - closestY;
+    return (dx * dx + dy * dy) < (cr * cr);
+  }
+
+  function clamp(val, min, max) {
+    return val < min ? min : val > max ? max : val;
+  }
+})();
+</script>
+</body>
+</html>

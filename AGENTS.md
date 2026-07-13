@@ -4,4 +4,4 @@ This is the buildless, static GitHub Pages site for `guinn8.ca`. `index.html` is
 
 Pushing commits to this repository publishes the site to `guinn8.ca`. Treat pushes as production deployments.
 
-There is no package manager or build step. Preserve the existing `FILENAME:` header-comment convention in HTML, CSS, and JavaScript files; `scripts/inject_comment.sh` can add it to staged files, and `scripts/inject_footer.sh` updates the homepage footer date.
+There is no package manager or build step. Preserve the existing `FILENAME:` header-comment convention in HTML, CSS, and JavaScript files.

@@ -1,5 +1,10 @@
 [
   {
+    "slug": "alberta-fish-id",
+    "metadata": "./alberta-fish-id/project.json",
+    "featured": true
+  },
+  {
     "slug": "ai-talk",
     "metadata": "./ai-talk/project.json",
     "featured": true

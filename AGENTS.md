@@ -13,3 +13,5 @@ A project may declare memorable root-level shortcuts with an optional `aliases` 
 Use explicit relative `index.html` links instead of directory-only links so navigation works both from `file://` and GitHub Pages. When adding a project, update both `projects/projects.json` and the static fallback card in `projects/index.html`; browsers commonly block registry `fetch()` when HTML is opened directly from disk. Current projects are `alberta-fish-id`, `ai-talk`, and `portfolio`.
 
 Before publishing, validate JSON and JavaScript, check internal file targets, and exercise representative pages both directly with `file://` and through a local HTTP server. After pushing `master`, allow GitHub Pages a short rebuild interval and verify the production URLs. The public email address is intentionally assembled in JavaScript; do not place the complete address in static HTML.
+
+For projects with a service worker, keep its scope inside the project directory and use a versioned cache name. Bump that cache version whenever the offline app shell changes, then verify both an online update and a reload with the network unavailable.

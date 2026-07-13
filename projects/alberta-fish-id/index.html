@@ -7,6 +7,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#123d32">
   <meta name="description" content="An offline Alberta fish identification field guide and photo quiz.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
   <title>FINMARK — Alberta Fish ID</title>
   <style>:root {
   --paper: #f2eddf;
@@ -898,6 +904,15 @@ body[data-view="quiz"] .app-shell { padding-bottom: 10px; }
   setNavActive("home");
   render();
 })();
+</script>
+<script>
+  if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./service-worker.js").catch((error) => {
+        console.error("FINMARK offline setup failed", error);
+      });
+    });
+  }
 </script>
 </body>
 </html>

@@ -1,0 +1,27 @@
+{
+  "id": "/projects/alberta-fish-id/",
+  "name": "FINMARK — Alberta Fish ID",
+  "short_name": "FINMARK",
+  "description": "An offline Alberta fish identification field guide and photo quiz.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f2eddf",
+  "theme_color": "#123d32",
+  "categories": ["education", "reference", "games"],
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

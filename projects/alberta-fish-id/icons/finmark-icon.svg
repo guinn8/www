@@ -1,0 +1,12 @@
+<!-- FILENAME: finmark-icon.svg -->
+
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">FINMARK fish icon</title>
+  <rect width="512" height="512" fill="#123d32"/>
+  <circle cx="256" cy="256" r="174" fill="#092a22"/>
+  <path d="M143 257c44-76 138-102 221-47l55-42-4 78 4 78-55-42c-83 55-177 29-221-47l-50 22 50 22Z" fill="#fffdf6"/>
+  <path d="M245 205c35-38 81-44 119 5-40-11-76-5-119 25Z" fill="#f36a2d"/>
+  <path d="M245 309c35 38 81 44 119-5-40 11-76 5-119-25Z" fill="#f36a2d"/>
+  <circle cx="193" cy="237" r="12" fill="#092a22"/>
+  <path d="M177 276c47 20 95 19 143-3" fill="none" stroke="#123d32" stroke-width="12" stroke-linecap="round"/>
+</svg>

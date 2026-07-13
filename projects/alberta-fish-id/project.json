@@ -4,6 +4,7 @@
   "description": "An offline field guide and photo quiz for learning to identify Alberta fish.",
   "entry": "./index.html",
   "aliases": ["fish"],
+  "pwa": true,
   "date": "July 2026",
   "tags": ["fish", "field guide", "quiz", "offline"]
 }

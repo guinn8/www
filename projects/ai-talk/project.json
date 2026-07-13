@@ -1,0 +1,9 @@
+{
+  "slug": "ai-talk",
+  "title": "Practical AI",
+  "description": "An interactive presentation about using large language models, with visual explanations and practical examples.",
+  "entry": "./",
+  "thumbnail": "./oai_mold.png",
+  "date": "April 2024",
+  "tags": ["AI", "presentation", "interactive"]
+}

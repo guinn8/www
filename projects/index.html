@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tools, experiments, and presentations by Gavin Guinn.">
     <title>Projects — guinn8.ca</title>
-    <link rel="stylesheet" href="./shared/projects.css">
+    <link rel="stylesheet" href="../shared/projects.css">
 </head>
 <body>
     <header class="site-header">
-        <a class="site-name" href="../">guinn8.ca</a>
-        <a class="home-link" href="../">Portfolio</a>
+        <a class="site-name" href="../index.html">guinn8.ca</a>
+        <a class="home-link" href="./portfolio/index.html">Portfolio</a>
     </header>
 
     <main>
@@ -24,19 +24,37 @@
 
         <section aria-label="Published projects">
             <div id="project-grid" class="project-grid" aria-live="polite">
-                <p class="loading">Loading projects…</p>
+                <article class="project-card">
+                    <a class="project-link" href="./ai-talk/index.html">
+                        <img src="./ai-talk/oai_mold.png" alt="" loading="lazy">
+                        <div class="project-content">
+                            <div class="project-meta">Featured</div>
+                            <h2>Practical AI</h2>
+                            <p>An interactive presentation about using large language models, with visual explanations and practical examples.</p>
+                            <div class="project-details">April 2024 · AI · presentation · interactive</div>
+                        </div>
+                    </a>
+                </article>
+                <article class="project-card">
+                    <a class="project-link" href="./portfolio/index.html">
+                        <img src="./portfolio/image/Gavin_Portrait.jpg" alt="" loading="lazy">
+                        <div class="project-content">
+                            <div class="project-meta">Project</div>
+                            <h2>Professional Portfolio</h2>
+                            <p>A detailed archive of Gavin Guinn's experience, technical work, education, and presentations.</p>
+                            <div class="project-details">portfolio · engineering · archive</div>
+                        </div>
+                    </a>
+                </article>
             </div>
-            <noscript>
-                <p class="notice">JavaScript is required to load the project registry.</p>
-            </noscript>
         </section>
     </main>
 
     <footer>
         <span>Built plainly. Published directly.</span>
-        <a href="../">Back to guinn8.ca</a>
+        <a href="../index.html">Back to guinn8.ca</a>
     </footer>
 
-    <script src="./shared/projects.js"></script>
+    <script src="../shared/projects.js"></script>
 </body>
 </html>

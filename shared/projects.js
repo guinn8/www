@@ -42,6 +42,8 @@ function renderProject(project, registryEntry, metadataUrl) {
 }
 
 async function loadProjects() {
+    if (window.location.protocol === "file:") return;
+
     try {
         const registryResponse = await fetch("./projects.json");
         if (!registryResponse.ok) throw new Error("Project registry could not be loaded.");
@@ -58,10 +60,6 @@ async function loadProjects() {
             renderProject(project, entry, metadataUrl)
         )));
     } catch (error) {
-        const notice = document.createElement("p");
-        notice.className = "notice";
-        notice.textContent = "Projects are temporarily unavailable. Please try again shortly.";
-        grid.replaceChildren(notice);
         console.error(error);
     }
 }

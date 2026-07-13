@@ -1,6 +1,6 @@
 # Repository notes
 
-This is the buildless, static GitHub Pages site for `guinn8.ca`. `index.html` is Gavin Guinn's portfolio. Published tools and presentations live under `projects/<slug>/`; shared portfolio assets live in `image/` and `styles/`.
+This is the buildless, static GitHub Pages site for `guinn8.ca`. Root `index.html` is a minimal personal landing page. Published tools, presentations, and the archived professional portfolio live under `projects/<slug>/`.
 
 Pushing commits to this repository publishes the site to `guinn8.ca`. Treat pushes as production deployments.
 

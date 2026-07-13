@@ -1,0 +1,8 @@
+{
+  "slug": "portfolio",
+  "title": "Professional Portfolio",
+  "description": "A detailed archive of Gavin Guinn's experience, technical work, education, and presentations.",
+  "entry": "./index.html",
+  "thumbnail": "./image/Gavin_Portrait.jpg",
+  "tags": ["portfolio", "engineering", "archive"]
+}

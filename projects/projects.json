@@ -3,5 +3,10 @@
     "slug": "ai-talk",
     "metadata": "./ai-talk/project.json",
     "featured": true
+  },
+  {
+    "slug": "portfolio",
+    "metadata": "./portfolio/project.json",
+    "featured": false
   }
 ]

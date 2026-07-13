@@ -1,0 +1,311 @@
+<!-- FILENAME: index.html -->
+
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gavin Guinn - Embedded Software Engineer</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/components/about-education-section.css">
+    <link rel="stylesheet" href="styles/components/button-matrix.css">
+    <link rel="stylesheet" href="styles/components/copy-button.css">
+    <link rel="stylesheet" href="styles/components/email-box.css">
+    <link rel="stylesheet" href="styles/components/experience-section.css">
+    <link rel="stylesheet" href="styles/components/project-items.css">
+    <link rel="stylesheet" href="styles/components/resume-button.css">
+    <link rel="stylesheet" href="styles/components/skills-matrix.css">
+    <link rel="stylesheet" href="styles/components/header.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+                <h1><a href="https://guinn8.ca">guinn8.ca</a></h1>
+                <ul>
+                    <li><p>A Professional Website by Gavin Guinn</p></li>
+                </ul>
+            </div>
+            <div class="header-right">
+                <div class="button-matrix">
+                    <a href="../index.html" class="icon-button" aria-label="Projects" title="Projects">
+                        <i class="fas fa-folder-open"></i>
+                    </a>
+                    <a href="https://github.com/guinn8/" class="icon-button">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/gavin-guinn-1384a4144/" class="icon-button">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a id="resume-link" class="icon-button resume-button">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Resume</span>
+                    </a>
+                </div>
+
+                <div class="email-box">
+                    <div class="email-container">
+                        <a id="email-link" href="#">Email</a>
+                        <button id="copy-email" class="copy-btn">
+                            <span class="btn-text">Copy</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about-education">
+            <div class="about-education-container">
+                <div class="text-content">
+                    <div>
+                        <h2>About Me</h2>
+                        <p>Embedded Software Engineer with 3 years of experience developing production C/C++ software for micro-controllers and Linux environments. I like to spend my spare time camping and fly-fishing the eastern slopes of the Rocky Mountains. </p>
+                        <ul>
+                            <li>🏠 Located in Calgary, Alberta, Canada.</li>
+                        </ul>
+                        
+                    </div>
+        
+                    <section id="education">
+                        <h2>Education</h2>
+                        <div class="education-item">
+                            <div class="education-header">
+                                <span class="institution">University of Calgary</span>
+                                <span class="experience-date">May 2018 - May 2022</span>
+                            </div>
+                            <h4>Bachelor of Science in Computer Science</h4>
+                            <ul>
+                                <li>President of the Computer Science Undergraduate Society</li>
+                                <li>NSERC Undergraduate Student Research Award</li>
+                                <li>GPA: 3.49 / 4.00</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+                <img src="image/Gavin_Portrait.jpg" alt="Gavin Guinn Portrait" class="portrait-img">
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Professional Experience</h2>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="employer">Simply Embedded</span>
+                    <span class="experience-date">Jan 2021 - May 2024</span>
+                </div>
+                <h4>Firmware Engineer</h4>
+                <ul>
+                    <li>Engineered robust RTOS C/C++ firmware solutions on 32-bit ARM microcontrollers, leading teams to deliver key customer objectives.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="employer">University of Calgary</span>
+                    <span class="experience-date">Sept 2021 - Apr 2022</span>
+                </div>
+                <h4>NSERC Undergraduate Student Research Award</h4>
+                <ul>
+                    <li>Utilized the university's high performance cluster to extend research on Aliquot sequence properties under Dr. Michael J. Jacobson.</li>
+                </ul>
+                <p><i><br>For more detailed information, please refer to my <a href="#" class="resume-link">resume</a>.</i></p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-matrix">
+                <div class="skill-item">
+                    <i class="devicon-c-plain skill-icon"></i>
+                    <span>C</span>
+                </div>
+                <div class="skill-item">
+                    <i class="devicon-cplusplus-plain skill-icon"></i>
+                    <span>C++</span>
+                </div>
+                <div class="skill-item">
+                    <i class="devicon-python-plain skill-icon"></i>
+                    <span>Python</span>
+                </div>
+                <div class="skill-item">
+                    <i class="devicon-linux-plain skill-icon"></i>
+                    <span>Linux</span>
+                </div>
+                <div class="skill-item">
+                    <i class="devicon-git-plain skill-icon"></i>
+                    <span>Git</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-microchip skill-icon"></i>
+                    <span>FreeRTOS</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-bug skill-icon"></i>
+                    <span>JLink</span>
+                </div>
+                <div class="skill-item">
+                    <i class="devicon-html5-plain skill-icon"></i>
+                    <span>HTML</span>
+                </div>
+            <div class="skill-item">
+                <i class="devicon-bash-plain skill-icon"></i>
+                <span>Bash</span>
+            </div>
+            <div class="skill-item">
+                <i class="devicon-docker-plain skill-icon"></i>
+                <span>Docker</span>
+            </div>
+            <div class="skill-item">
+                <i class="devicon-javascript-plain skill-icon"></i>
+                <span>JavaScript</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-hammer skill-icon"></i>
+                <span>CMake</span>
+            </div>
+            <div class="skill-item">
+                <i class="devicon-azure-plain skill-icon"></i>
+                <span>Azure</span>
+            </div>
+            <div class="skill-item">
+                <i class="devicon-jenkins-plain skill-icon"></i>
+                <span>Jenkins</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-wave-square skill-icon"></i>
+                <span>Wireshark</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-tools skill-icon"></i>
+                <span>Make</span>
+            </div>
+            
+            <div class="skill-item">
+                <i class="devicon-jira-plain skill-icon"></i>
+                <span>Jira</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-bug skill-icon"></i>
+                <span>GDB</span>
+            </div>
+            <div class="skill-item">
+                <img src="image/STM.svg" alt="STM32 Logo" class="skill-icon">
+                <span>STM32</span>
+            </div>
+            <div class="skill-item">
+                <img src="image/NXP.svg" alt="nxp Logo" class="skill-icon">
+                <span>NXP</span>
+            </div>
+            
+        </div>
+            
+        </section>
+        
+        <section id="projects">
+            <h2>Projects & Presentations</h2>
+            
+            <a href="https://github.com/guinn8/llm_cube" class="project-item" >
+                <img src="image/llm_cube.png" alt="Lightweight LLM Project">
+                <div class="project-content">
+                    <h4>IoT LLM Weekend Project</h4>
+                    <span class="project-date">(Aug 2024)</span>
+                </div>
+            </a>
+            
+        
+            <a href="https://github.com/guinn8/epaper_llm/tree/master" class="project-item" >
+                <img src="image/llm_epaper.png" alt="Language Model E-Paper Project">
+                <div class="project-content">
+                    <h4>E-Paper LLM Weekend Project</h4>
+                    <span class="project-date">(July 2024)</span>
+                </div>
+            </a>
+        
+            <a href="../ai-talk/index.html" class="project-item" >
+                <img src="../ai-talk/oai_mold.png" alt="AI Talk">
+                <div class="project-content">
+                    <h4>Presentation: Practical AI</h4>
+                    <span class="project-date">(April 2024)</span>
+                </div>
+            </a>
+        
+            <a href="../ai-talk/llm_dev.pdf" class="project-item" >
+                <img src="image/python.png" alt="LLMs for Development">
+                <div class="project-content">
+                    <h4>Presentation: LLMs for Software Development</h4>
+                    <span class="project-date">(May 2023)</span>
+                </div>
+            </a>
+        
+            <a href="https://calgary-hacks-2021.devpost.com/" class="project-item" >
+                <img src="image/calhax.png" alt="CalgaryHacks 2021">
+                <div class="project-content">
+                    <h4>Lead Organizer of CalgaryHacks 2021</h4>
+                    <span class="project-date">(February 2021)</span>
+                </div>
+            </a>
+        
+            <a href="https://guinn8.github.io/aliquot/html/index.html" class="project-item" >
+                <img src="image/aliquot.png" alt="Aliquot Sequences Research">
+                <div class="project-content">
+                    <h4>Aliquot Sequence Research</h4>
+                    <span class="project-date">(Sept 2021 - April 2022)</span>
+                </div>
+            </a>
+        
+        </section>
+        
+    <footer>
+        <div class="footer-container">
+            <a href="#" class="back-to-top">Back to Top</a>
+            <p>Last Modified: <span id="footer-date">Feb. 09, 2025 - 18:53:40</p>
+        </div>
+    </footer>
+
+</body>
+
+
+<script>
+    const resumeLink = "Gavin_Guinn_resume.pdf";
+    const email = ["gavinguinn1", "gmail", "com"].join(".").replace(".", "@");
+
+    document.querySelectorAll('.resume-link').forEach(link => {
+        link.href = resumeLink;
+    });
+
+    document.getElementById('resume-link').href = resumeLink;
+    const emailLink = document.getElementById('email-link');
+    emailLink.href = `mailto:${email}`;
+    emailLink.textContent = email;
+    document.getElementById('copy-email').addEventListener('click', () => copyToClipboard(email));
+
+    function copyToClipboard(text) {
+        const tempInput = document.createElement('input');
+        tempInput.style.position = 'absolute';
+        tempInput.style.left = '-9999px';
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        const copyBtn = document.querySelector('.copy-btn');
+        copyBtn.classList.add('copied');
+        setTimeout(() => {
+            copyBtn.classList.remove('copied');
+        }, 2000);
+    }
+</script>
+
+</html>

@@ -662,26 +662,38 @@
     }
 
     .board-view {
-      width: min(1000px, 100%);
+      width: 100%;
       margin: 0 auto;
-      padding: clamp(18px, 4vh, 44px) 0 30px;
+      padding: 8px 0 30px;
     }
 
     .board-copy {
       position: relative;
-      text-align: center;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 10px;
+      text-align: left;
     }
 
     .board-copy h2 {
-      font-size: clamp(2.3rem, 8vw, 4.5rem);
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      letter-spacing: -.035em;
+      line-height: 1;
+    }
+
+    .board-copy .eyebrow {
+      margin: 0;
+    }
+
+    .board-copy > p:last-child {
+      margin: 0;
+      font-size: .78rem;
+      line-height: 1.2;
     }
 
     .reveal-mark {
-      position: relative;
-      width: 80px;
-      height: 48px;
-      margin: 0 auto 11px;
-      overflow: hidden;
+      display: none;
     }
 
     .reveal-mark::before {
@@ -718,7 +730,7 @@
     }
 
     .landscape-section {
-      margin-top: clamp(28px, 5vh, 50px);
+      margin-top: 12px;
       padding: 12px;
       border: 1px solid rgba(107, 101, 88, .2);
       border-radius: 22px;
@@ -1372,6 +1384,14 @@
         min-height: 36px;
         padding-inline: 7px;
         font-size: .61rem;
+      }
+
+      .board-copy {
+        gap: 7px;
+      }
+
+      .board-copy > p:last-child {
+        display: none;
       }
 
       .capture-view {

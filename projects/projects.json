@@ -10,6 +10,11 @@
     "featured": true
   },
   {
+    "slug": "the-horizon",
+    "metadata": "./the-horizon/project.json",
+    "featured": true
+  },
+  {
     "slug": "portfolio",
     "metadata": "./portfolio/project.json",
     "featured": false

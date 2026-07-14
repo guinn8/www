@@ -1,0 +1,2636 @@
+<!-- FILENAME: index.html -->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f3eee3">
+  <meta name="description" content="Empty your head, then see the shape of things.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="The Horizon">
+  <title>The Horizon</title>
+  <style>
+    :root {
+      --ink: #272d28;
+      --muted: #777970;
+      --paper: #f3eee3;
+      --paper-deep: #e5ddce;
+      --panel: #fffdf6;
+      --line: #d6cebf;
+      --easy: #7d9e6a;
+      --easy-wash: #e4ecd6;
+      --medium: #d29439;
+      --medium-wash: #f8e7b5;
+      --hard: #c56553;
+      --hard-wash: #efd7d0;
+      --shadow: 0 18px 48px rgba(57, 50, 36, .12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: light;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      min-width: 280px;
+      min-height: 100vh;
+      min-height: 100dvh;
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--paper);
+      background-image:
+        linear-gradient(rgba(70, 70, 62, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(70, 70, 62, .035) 1px, transparent 1px);
+      background-size: 24px 24px;
+      font-family: ui-rounded, "SF Pro Rounded", "Avenir Next", Avenir, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overscroll-behavior-x: none;
+    }
+
+    button,
+    input,
+    textarea {
+      color: inherit;
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    [tabindex]:focus-visible {
+      outline: 3px solid rgba(39, 45, 40, .28);
+      outline-offset: 3px;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .app {
+      min-height: 100dvh;
+      padding-bottom: calc(30px + env(safe-area-inset-bottom));
+    }
+
+    .topbar {
+      position: relative;
+      z-index: 20;
+      width: min(1120px, 100%);
+      min-height: 78px;
+      margin: 0 auto;
+      padding: calc(18px + env(safe-area-inset-top)) 18px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-mark {
+      position: relative;
+      width: 42px;
+      height: 30px;
+      flex: 0 0 auto;
+    }
+
+    .brand-mark::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      bottom: 7px;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: #e6a643;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 6px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--ink);
+      box-shadow: 0 5px 0 -0.5px rgba(39, 45, 40, .45);
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      letter-spacing: -.035em;
+      line-height: 1;
+    }
+
+    .brand p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: .68rem;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+
+    .quiet-button {
+      min-height: 38px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 253, 246, .65);
+      color: #5f625b;
+      font-size: .71rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .quiet-button:hover {
+      border-color: #a8a092;
+      background: var(--panel);
+      color: var(--ink);
+    }
+
+    .main {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      padding: 0 14px;
+    }
+
+    .view {
+      animation: view-in .4s cubic-bezier(.2, .8, .2, 1) both;
+    }
+
+    @keyframes view-in {
+      from { transform: translateY(10px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .eyebrow {
+      margin: 0 0 9px;
+      color: #8a877e;
+      font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .capture-view {
+      width: min(760px, 100%);
+      margin: 0 auto;
+      padding: clamp(24px, 7vh, 74px) 0 20px;
+      text-align: center;
+    }
+
+    .capture-copy h2,
+    .sort-copy h2,
+    .board-copy h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 7.5vw, 4rem);
+      font-weight: 500;
+      letter-spacing: -.055em;
+      line-height: .98;
+    }
+
+    .capture-copy > p:last-child,
+    .sort-copy > p:last-child,
+    .board-copy > p:last-child {
+      margin: 13px auto 0;
+      color: var(--muted);
+      font-size: clamp(.8rem, 2.5vw, .94rem);
+      line-height: 1.55;
+    }
+
+    .capture-form {
+      position: relative;
+      display: flex;
+      width: min(680px, 100%);
+      margin: 34px auto 0;
+      padding: 8px;
+      gap: 8px;
+      border: 1px solid #d5cbb9;
+      border-radius: 20px;
+      background: rgba(255, 253, 246, .96);
+      box-shadow: var(--shadow);
+    }
+
+    .capture-form::before {
+      content: "";
+      position: absolute;
+      top: -7px;
+      left: 50%;
+      width: 70px;
+      height: 14px;
+      transform: translateX(-50%) rotate(-1.5deg);
+      background: rgba(222, 203, 149, .7);
+      box-shadow: 0 1px 2px rgba(74, 66, 46, .08);
+    }
+
+    .capture-input {
+      min-width: 0;
+      height: 56px;
+      flex: 1;
+      padding: 0 13px;
+      border: 0;
+      background: transparent;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1rem, 3.6vw, 1.22rem);
+    }
+
+    .capture-input::placeholder {
+      color: #98958b;
+    }
+
+    .capture-input:focus {
+      outline: 0;
+    }
+
+    .ink-button {
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 13px;
+      background: var(--ink);
+      color: #fffdf6;
+      font-size: .77rem;
+      font-weight: 850;
+      box-shadow: 0 4px 0 #111510;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+
+    .ink-button:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #111510;
+    }
+
+    .capture-hint {
+      display: block;
+      margin-top: 10px;
+      color: #908d84;
+      font-size: .68rem;
+    }
+
+    .pile-zone {
+      position: relative;
+      min-height: 270px;
+      margin-top: 22px;
+      padding-top: 6px;
+    }
+
+    .pile-desk {
+      position: relative;
+      width: min(430px, 100%);
+      height: 210px;
+      margin: 0 auto;
+    }
+
+    .pile-desk::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      left: 12%;
+      right: 12%;
+      bottom: 12px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(58, 50, 36, .13);
+      filter: blur(15px);
+    }
+
+    .pile-note {
+      position: absolute;
+      z-index: calc(2 + var(--i));
+      top: 48px;
+      left: 50%;
+      width: min(310px, 78vw);
+      min-height: 112px;
+      padding: 22px 24px;
+      border: 1px solid rgba(86, 76, 55, .14);
+      border-radius: 4px 13px 12px 6px;
+      background: var(--note, #fff0b9);
+      box-shadow: 0 8px 18px rgba(56, 48, 31, .15), inset 0 1px rgba(255, 255, 255, .45);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: .98rem;
+      line-height: 1.35;
+      text-align: left;
+      transform: translate(calc(-50% + var(--x)), var(--y)) rotate(var(--r));
+      transform-origin: 50% 80%;
+      overflow: hidden;
+    }
+
+    .pile-note:nth-child(3n + 1) { --note: #ffefb8; }
+    .pile-note:nth-child(3n + 2) { --note: #e8eed7; }
+    .pile-note:nth-child(3n + 3) { --note: #f1ded7; }
+
+    .pile-note.is-new {
+      animation: note-drop .48s cubic-bezier(.2, .9, .25, 1.18) both;
+    }
+
+    @keyframes note-drop {
+      from { opacity: 0; transform: translate(calc(-50% + var(--x)), calc(var(--y) - 70px)) rotate(calc(var(--r) - 7deg)) scale(1.08); }
+      to { opacity: 1; transform: translate(calc(-50% + var(--x)), var(--y)) rotate(var(--r)) scale(1); }
+    }
+
+    .pile-note span {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+
+    .pile-count {
+      position: relative;
+      z-index: 8;
+      margin: -2px 0 0;
+      color: #6f726a;
+      font-size: .76rem;
+      font-weight: 750;
+    }
+
+    .pile-count b {
+      color: var(--ink);
+    }
+
+    .orient-button {
+      display: inline-flex;
+      min-height: 54px;
+      margin-top: 15px;
+      padding: 0 22px 0 25px;
+      align-items: center;
+      gap: 22px;
+      border-radius: 17px;
+      background: var(--ink);
+      color: #fffdf6;
+      font-size: .82rem;
+      font-weight: 850;
+      box-shadow: 0 6px 0 #121612, 0 14px 30px rgba(41, 43, 35, .16);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .orient-button span {
+      font-size: 1.15rem;
+      transition: transform .15s ease;
+    }
+
+    .orient-button:hover span {
+      transform: translateX(3px);
+    }
+
+    .orient-button:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #121612, 0 8px 18px rgba(41, 43, 35, .14);
+    }
+
+    .sort-view {
+      width: min(900px, 100%);
+      margin: 0 auto;
+      padding: clamp(12px, 3vh, 32px) 0 24px;
+      text-align: center;
+    }
+
+    .sort-copy h2 {
+      font-size: clamp(1.9rem, 6vw, 3.2rem);
+    }
+
+    .sort-count {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 750;
+    }
+
+    .sort-card-stage {
+      position: relative;
+      height: clamp(158px, 25vh, 220px);
+      margin-top: 15px;
+      display: grid;
+      place-items: center;
+    }
+
+    .stack-edge {
+      position: absolute;
+      width: min(520px, 86vw);
+      height: 122px;
+      border: 1px solid rgba(80, 72, 53, .12);
+      border-radius: 6px 16px 14px 7px;
+      background: #e7dfcf;
+      box-shadow: 0 8px 18px rgba(55, 48, 34, .11);
+    }
+
+    .stack-edge.edge-one { transform: translateY(11px) rotate(-1.3deg) scale(.98); }
+    .stack-edge.edge-two { transform: translateY(6px) rotate(.8deg) scale(.99); background: #efe7d7; }
+
+    .sort-card {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      width: min(540px, 90vw);
+      min-height: 136px;
+      padding: 26px 30px 20px;
+      place-items: center;
+      border: 1px solid rgba(83, 74, 51, .15);
+      border-radius: 5px 17px 15px 8px;
+      background: #ffefb9;
+      box-shadow: 0 15px 32px rgba(55, 47, 31, .18), inset 0 1px rgba(255, 255, 255, .5);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.12rem, 4.8vw, 1.55rem);
+      line-height: 1.3;
+      cursor: grab;
+      touch-action: none;
+      user-select: none;
+      transition: opacity .16s ease, transform .16s ease;
+    }
+
+    .sort-card::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      width: 76px;
+      height: 16px;
+      transform: translateX(-50%) rotate(1deg);
+      background: rgba(219, 199, 143, .72);
+    }
+
+    .sort-card.is-dragging,
+    .sort-card.is-committing {
+      opacity: .16;
+      transform: scale(.96);
+    }
+
+    .grab-cue {
+      position: absolute;
+      right: 12px;
+      bottom: 9px;
+      color: rgba(39, 45, 40, .45);
+      font-family: ui-rounded, system-ui, sans-serif;
+      font-size: .58rem;
+      font-weight: 850;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .landing-apparatus {
+      width: min(820px, 100%);
+      margin: 2px auto 0;
+    }
+
+    .landing-prompt {
+      margin: 0 0 9px;
+      color: #696c65;
+      font-size: .74rem;
+    }
+
+    .landing-wrap {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 7px;
+      align-items: stretch;
+    }
+
+    .friction-axis {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      color: #7b7d75;
+      font-size: .58rem;
+      font-weight: 850;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .friction-axis span {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .landing-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-rows: repeat(3, minmax(64px, auto));
+      gap: 4px;
+    }
+
+    .landing-cell {
+      position: relative;
+      min-width: 0;
+      min-height: 68px;
+      border: 1px solid rgba(69, 68, 60, .16);
+      background: var(--wash);
+      overflow: hidden;
+      transition: transform .13s ease, border-color .13s ease, box-shadow .13s ease, filter .13s ease;
+    }
+
+    .landing-cell:nth-child(1) { border-radius: 16px 4px 4px 4px; }
+    .landing-cell:nth-child(5) { border-radius: 4px 16px 4px 4px; }
+    .landing-cell:nth-child(11) { border-radius: 4px 4px 4px 16px; }
+    .landing-cell:nth-child(15) { border-radius: 4px 4px 16px 4px; }
+    .landing-cell[data-friction="hard"] { --wash: rgba(239, 215, 208, .72); --accent: var(--hard); }
+    .landing-cell[data-friction="medium"] { --wash: rgba(248, 231, 181, .7); --accent: var(--medium); }
+    .landing-cell[data-friction="easy"] { --wash: rgba(228, 236, 214, .75); --accent: var(--easy); }
+
+    .landing-cell::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 9px;
+      height: 9px;
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      opacity: .55;
+    }
+
+    .landing-cell:hover,
+    .landing-cell:focus-visible,
+    .landing-cell.is-over {
+      z-index: 2;
+      border-color: var(--accent);
+      box-shadow: 0 8px 20px rgba(58, 52, 40, .16);
+      filter: saturate(1.15);
+      transform: scale(1.07);
+    }
+
+    .landing-cell.is-over::after,
+    .landing-cell.is-chosen::after {
+      background: var(--accent);
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.5);
+    }
+
+    .landing-grid.is-dragging .landing-cell {
+      filter: saturate(1.12);
+    }
+
+    .horizon-axis {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 4px;
+      margin: 7px 0 0 49px;
+      color: #70736b;
+      font-size: .61rem;
+      font-weight: 850;
+    }
+
+    .horizon-axis span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .axis-caption {
+      margin: 9px 0 0 49px;
+      color: #969289;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: .7rem;
+      font-style: italic;
+    }
+
+    .sort-actions {
+      display: flex;
+      min-height: 42px;
+      margin-top: 12px;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .text-action {
+      min-height: 38px;
+      padding: 0 12px;
+      border-radius: 10px;
+      background: transparent;
+      color: #686b64;
+      font-size: .69rem;
+      font-weight: 800;
+    }
+
+    .text-action:hover {
+      background: rgba(255, 253, 246, .62);
+      color: var(--ink);
+    }
+
+    .drag-ghost,
+    .flight-card {
+      position: fixed;
+      z-index: 200;
+      margin: 0;
+      pointer-events: none;
+      transform: rotate(2deg) scale(1.02);
+      box-shadow: 0 25px 60px rgba(44, 37, 24, .27);
+      transition: none;
+    }
+
+    .flight-card {
+      z-index: 190;
+      transition: left .3s cubic-bezier(.2, .75, .25, 1), top .3s cubic-bezier(.2, .75, .25, 1), transform .3s cubic-bezier(.2, .75, .25, 1), opacity .28s ease;
+    }
+
+    .board-view {
+      width: min(1000px, 100%);
+      margin: 0 auto;
+      padding: clamp(18px, 4vh, 44px) 0 30px;
+    }
+
+    .board-copy {
+      position: relative;
+      text-align: center;
+    }
+
+    .board-copy h2 {
+      font-size: clamp(2.3rem, 8vw, 4.5rem);
+    }
+
+    .reveal-mark {
+      position: relative;
+      width: 80px;
+      height: 48px;
+      margin: 0 auto 11px;
+      overflow: hidden;
+    }
+
+    .reveal-mark::before {
+      content: "";
+      position: absolute;
+      left: 25px;
+      bottom: 8px;
+      width: 30px;
+      height: 30px;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: #e6a643;
+    }
+
+    .reveal-mark::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      right: 0;
+      bottom: 7px;
+      height: 2px;
+      background: var(--ink);
+      box-shadow: 0 6px 0 -0.5px rgba(39, 45, 40, .42);
+    }
+
+    .just-oriented .reveal-mark::before {
+      animation: sun-rise .9s cubic-bezier(.18, .8, .24, 1.2) both;
+    }
+
+    @keyframes sun-rise {
+      from { transform: translateY(34px); }
+      to { transform: translateY(0); }
+    }
+
+    .landscape-section {
+      margin-top: clamp(28px, 5vh, 50px);
+      padding: 12px;
+      border: 1px solid rgba(107, 101, 88, .2);
+      border-radius: 22px;
+      background: rgba(255, 253, 246, .34);
+      box-shadow: 0 12px 35px rgba(57, 50, 36, .07);
+      overflow: hidden;
+    }
+
+    .landscape-heading {
+      display: flex;
+      min-height: 36px;
+      padding: 2px 5px 12px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: #76786f;
+      font-size: .65rem;
+      font-weight: 800;
+    }
+
+    .landscape-heading b {
+      color: var(--ink);
+    }
+
+    .landscape-heading > span:last-child {
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .landscape-frame {
+      position: relative;
+      border-radius: 17px;
+      background:
+        radial-gradient(circle at 72% 17%, rgba(230, 166, 67, .09), transparent 23%),
+        radial-gradient(circle at 12% 73%, rgba(125, 158, 106, .08), transparent 26%),
+        linear-gradient(180deg, rgba(255, 254, 249, .74), rgba(241, 235, 222, .66));
+      box-shadow: inset 0 0 0 1px rgba(81, 76, 65, .09);
+      overflow: hidden;
+    }
+
+    .landscape-viewport {
+      position: relative;
+      max-height: min(68dvh, 670px);
+      overflow: auto;
+      overscroll-behavior: contain;
+      scrollbar-color: rgba(77, 74, 66, .24) transparent;
+      scrollbar-width: thin;
+      touch-action: pan-x pan-y;
+    }
+
+    .landscape-viewport:focus-visible {
+      outline: 3px solid rgba(39, 45, 40, .2);
+      outline-offset: -3px;
+    }
+
+    .landscape-canvas {
+      position: relative;
+      min-width: 100%;
+      isolation: isolate;
+      transition: width .28s ease, height .28s ease;
+    }
+
+    .landscape-ground {
+      position: absolute;
+      z-index: 0;
+      right: 18px;
+      bottom: 48px;
+      left: 18px;
+      height: 54px;
+      border-top: 1px solid rgba(65, 70, 62, .22);
+      border-radius: 50% 50% 0 0 / 9px 9px 0 0;
+      background: linear-gradient(180deg, rgba(125, 158, 106, .06), rgba(125, 158, 106, .14));
+      pointer-events: none;
+    }
+
+    .landscape-ground::before,
+    .landscape-ground::after {
+      content: "";
+      position: absolute;
+      top: -5px;
+      height: 1px;
+      background: rgba(65, 70, 62, .08);
+    }
+
+    .landscape-ground::before { right: 9%; left: 6%; }
+    .landscape-ground::after { top: 5px; right: 2%; left: 14%; }
+
+    .altitude-key {
+      position: sticky;
+      z-index: 8;
+      left: 8px;
+      width: 1px;
+      height: 1px;
+      pointer-events: none;
+    }
+
+    .altitude-key span {
+      position: absolute;
+      left: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #85877f;
+      font-size: .52rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .altitude-key span::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      background: rgba(255, 253, 246, .7);
+    }
+
+    .altitude-key .hard { top: 41px; color: var(--hard); }
+    .altitude-key .medium { top: 215px; color: var(--medium); }
+    .altitude-key .easy { top: 389px; color: var(--easy); }
+
+    .landform {
+      position: absolute;
+      z-index: 1;
+      border: 1px solid color-mix(in srgb, var(--accent) 29%, transparent);
+      border-radius: 46% 54% 49% 51% / 55% 45% 55% 45%;
+      background: radial-gradient(ellipse at 50% 58%, color-mix(in srgb, var(--wash) 88%, transparent), color-mix(in srgb, var(--wash) 18%, transparent) 70%, transparent 72%);
+      pointer-events: none;
+      opacity: .78;
+    }
+
+    .landform::before,
+    .landform::after {
+      content: "";
+      position: absolute;
+      border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+      border-radius: inherit;
+    }
+
+    .landform::before { inset: 9px 12px 8px 10px; }
+    .landform::after { inset: 18px 24px 17px 22px; }
+
+    .landform[data-friction="hard"],
+    .landscape-note[data-friction="hard"] { --accent: var(--hard); --wash: var(--hard-wash); }
+    .landform[data-friction="medium"],
+    .landscape-note[data-friction="medium"] { --accent: var(--medium); --wash: var(--medium-wash); }
+    .landform[data-friction="easy"],
+    .landscape-note[data-friction="easy"] { --accent: var(--easy); --wash: var(--easy-wash); }
+
+    .landscape-note {
+      position: absolute;
+      z-index: calc(4 + var(--z));
+      display: grid;
+      padding: 12px 12px 10px 15px;
+      align-content: start;
+      border: 1px solid color-mix(in srgb, var(--accent) 36%, #8f8878);
+      border-radius: 5px 11px 10px 6px;
+      background: color-mix(in srgb, #fffdf6 88%, var(--wash));
+      box-shadow: 0 8px 18px rgba(56, 49, 35, .13), inset 0 1px rgba(255, 255, 255, .65);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: .78rem;
+      line-height: 1.25;
+      text-align: left;
+      overflow: hidden;
+      transform: rotate(var(--r));
+      transform-origin: center;
+      animation: landscape-note-in .5s cubic-bezier(.2, .8, .2, 1) both;
+      animation-delay: calc(var(--z) * 34ms);
+      transition: opacity .22s ease, transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    }
+
+    .landscape-note::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: var(--accent);
+    }
+
+    .landscape-note::after {
+      content: "";
+      position: absolute;
+      top: 7px;
+      right: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: .72;
+    }
+
+    .landscape-note span {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+
+    .landscape-note:hover,
+    .landscape-note:focus-visible,
+    .landscape-note.is-focused {
+      z-index: 30;
+      box-shadow: 0 16px 30px rgba(52, 45, 31, .2), inset 0 1px rgba(255, 255, 255, .7);
+      transform: translateY(-5px) rotate(0) scale(1.035);
+    }
+
+    @keyframes landscape-note-in {
+      from { opacity: 0; transform: translateY(10px) rotate(calc(var(--r) - 2deg)) scale(.96); }
+      to { opacity: 1; transform: translateY(0) rotate(var(--r)) scale(1); }
+    }
+
+    .cluster-more {
+      position: absolute;
+      z-index: 35;
+      min-height: 30px;
+      padding: 0 10px;
+      border: 1px solid color-mix(in srgb, var(--accent) 42%, #9b9486);
+      border-radius: 999px;
+      background: rgba(255, 253, 246, .94);
+      color: #595c55;
+      font-size: .63rem;
+      font-weight: 900;
+      box-shadow: 0 5px 12px rgba(55, 48, 34, .12);
+    }
+
+    .cluster-more:hover,
+    .cluster-more:focus-visible {
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    .cluster-more[data-friction="hard"] { --accent: var(--hard); }
+    .cluster-more[data-friction="medium"] { --accent: var(--medium); }
+    .cluster-more[data-friction="easy"] { --accent: var(--easy); }
+
+    .horizon-marker {
+      position: absolute;
+      z-index: 3;
+      bottom: 11px;
+      min-width: 86px;
+      padding-top: 13px;
+      color: #686b64;
+      font-size: .61rem;
+      font-weight: 900;
+      text-align: center;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    .horizon-marker::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 7px;
+      height: 7px;
+      border: 1.5px solid #777970;
+      border-radius: 50%;
+      background: #f5f0e5;
+      transform: translateX(-50%);
+    }
+
+    .horizon-marker small {
+      display: block;
+      margin-top: 2px;
+      color: #9a978e;
+      font-size: .52rem;
+      font-weight: 700;
+    }
+
+    .landscape-lens {
+      position: absolute;
+      z-index: 80;
+      inset: 0;
+      display: grid;
+      padding: 18px;
+      place-items: center;
+      background: rgba(239, 234, 222, .56);
+      backdrop-filter: blur(1.5px) saturate(.8);
+      animation: lens-in .2s ease both;
+    }
+
+    .focus-card {
+      position: relative;
+      width: min(440px, calc(100% - 12px));
+      max-height: calc(100% - 22px);
+      padding: 26px 24px 20px 28px;
+      border: 1px solid color-mix(in srgb, var(--accent) 40%, #817969);
+      border-radius: 7px 18px 16px 9px;
+      background: color-mix(in srgb, #fffdf6 89%, var(--wash));
+      box-shadow: 0 28px 70px rgba(47, 40, 27, .28);
+      overflow: auto;
+      transform: rotate(-.35deg);
+    }
+
+    .focus-card[data-friction="hard"] { --accent: var(--hard); --wash: var(--hard-wash); }
+    .focus-card[data-friction="medium"] { --accent: var(--medium); --wash: var(--medium-wash); }
+    .focus-card[data-friction="easy"] { --accent: var(--easy); --wash: var(--easy-wash); }
+
+    .focus-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 6px;
+      background: var(--accent);
+    }
+
+    .focus-coordinate {
+      margin: 0 32px 13px 0;
+      color: color-mix(in srgb, var(--accent) 78%, #454941);
+      font-size: .61rem;
+      font-weight: 950;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .focus-text {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.15rem, 4vw, 1.55rem);
+      line-height: 1.32;
+      overflow-wrap: anywhere;
+    }
+
+    .focus-close {
+      position: absolute;
+      top: 11px;
+      right: 11px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 253, 246, .76);
+      color: #686b64;
+      font-size: 1.2rem;
+    }
+
+    .focus-actions {
+      display: flex;
+      margin-top: 22px;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .focus-actions button {
+      min-height: 40px;
+      padding: 0 14px;
+      border: 1px solid rgba(82, 78, 68, .2);
+      border-radius: 12px;
+      background: rgba(255, 253, 246, .72);
+      font-size: .69rem;
+      font-weight: 850;
+    }
+
+    .focus-actions .primary {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: #fffdf6;
+    }
+
+    @keyframes lens-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .landscape-zoom-head {
+      display: flex;
+      min-height: 48px;
+      padding: 4px 6px 11px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid rgba(91, 87, 76, .1);
+    }
+
+    .landscape-zoom-head p {
+      margin: 0;
+      color: #666960;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: .82rem;
+    }
+
+    .landscape-back {
+      min-height: 36px;
+      padding: 0 11px;
+      border: 1px solid rgba(83, 79, 68, .19);
+      border-radius: 999px;
+      background: rgba(255, 253, 246, .68);
+      color: #5f625b;
+      font-size: .65rem;
+      font-weight: 850;
+    }
+
+    .landscape-help {
+      margin: 11px 6px 2px;
+      color: #8c8b83;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: .68rem;
+      font-style: italic;
+      text-align: center;
+    }
+
+    .board-footer {
+      display: flex;
+      margin-top: 22px;
+      justify-content: center;
+    }
+
+    .clear-horizon {
+      min-height: 300px;
+      display: grid;
+      place-items: center;
+      color: #8a887f;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1rem;
+      font-style: italic;
+      text-align: center;
+    }
+
+    dialog {
+      width: min(560px, 100%);
+      max-width: none;
+      max-height: min(88dvh, 760px);
+      margin: auto 0 0;
+      padding: 0;
+      border: 0;
+      border-radius: 26px 26px 0 0;
+      background: var(--panel);
+      color: var(--ink);
+      box-shadow: 0 -16px 60px rgba(44, 39, 30, .22);
+    }
+
+    dialog::backdrop {
+      background: rgba(47, 44, 37, .4);
+      backdrop-filter: blur(2px);
+    }
+
+    .sheet {
+      padding: 13px 18px calc(20px + env(safe-area-inset-bottom));
+    }
+
+    .sheet-grip {
+      width: 42px;
+      height: 4px;
+      margin: 0 auto 14px;
+      border-radius: 999px;
+      background: #d3ccbe;
+    }
+
+    .sheet-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 13px;
+    }
+
+    .sheet h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+    }
+
+    .close-button {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: #eee8dd;
+      font-size: 1.25rem;
+    }
+
+    .edit-text {
+      width: 100%;
+      min-height: 96px;
+      resize: vertical;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: #fbf6ec;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.08rem;
+      line-height: 1.4;
+    }
+
+    .sheet-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+      margin-top: 14px;
+    }
+
+    .sheet-button {
+      min-height: 46px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #f5efe4;
+      font-size: .74rem;
+      font-weight: 820;
+    }
+
+    .sheet-button.primary {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: white;
+    }
+
+    .sheet-button.danger {
+      border-color: transparent;
+      background: transparent;
+      color: #a65143;
+    }
+
+    .cleared-list {
+      display: grid;
+      max-height: 55dvh;
+      gap: 8px;
+      overflow-y: auto;
+    }
+
+    .cleared-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      gap: 6px;
+      padding: 9px 9px 9px 13px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #f8f3e9;
+    }
+
+    .cleared-row span {
+      min-width: 0;
+      overflow: hidden;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: .83rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .mini-button {
+      min-height: 34px;
+      padding: 0 9px;
+      border-radius: 9px;
+      background: #e9e2d5;
+      font-size: .64rem;
+      font-weight: 850;
+    }
+
+    .mini-button.danger {
+      background: transparent;
+      color: #a65143;
+    }
+
+    .toast {
+      position: fixed;
+      z-index: 250;
+      left: 50%;
+      bottom: calc(18px + env(safe-area-inset-bottom));
+      display: flex;
+      min-width: min(320px, calc(100vw - 30px));
+      min-height: 50px;
+      padding: 7px 8px 7px 16px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      border-radius: 15px;
+      background: var(--ink);
+      color: white;
+      box-shadow: 0 13px 32px rgba(32, 30, 24, .28);
+      font-size: .78rem;
+      transform: translate(-50%, 24px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .toast.is-visible {
+      transform: translate(-50%, 0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .toast button {
+      min-height: 35px;
+      padding: 0 11px;
+      border-radius: 10px;
+      background: #efb356;
+      color: var(--ink);
+      font-size: .7rem;
+      font-weight: 900;
+    }
+
+    .shake {
+      animation: shake .27s ease;
+    }
+
+    @keyframes shake {
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(4px); }
+      75% { transform: translateX(-2px); }
+    }
+
+    @media (min-width: 620px) {
+      .topbar {
+        padding-inline: 24px;
+      }
+
+      dialog {
+        margin: auto;
+        border-radius: 26px;
+      }
+
+      .sheet {
+        padding: 18px 22px 24px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .topbar {
+        min-height: 70px;
+        padding-inline: 12px;
+      }
+
+      .brand p {
+        display: none;
+      }
+
+      .brand h1 {
+        font-size: 1.15rem;
+      }
+
+      .brand-mark {
+        width: 32px;
+      }
+
+      .brand {
+        gap: 6px;
+      }
+
+      .header-actions {
+        gap: 4px;
+      }
+
+      .quiet-button {
+        min-height: 36px;
+        padding-inline: 7px;
+        font-size: .61rem;
+      }
+
+      .capture-view {
+        padding-top: 34px;
+      }
+
+      .capture-form {
+        padding: 7px;
+      }
+
+      .capture-input {
+        height: 52px;
+        padding-inline: 8px;
+      }
+
+      .ink-button {
+        padding-inline: 13px;
+        font-size: .69rem;
+      }
+
+      .capture-hint {
+        display: none;
+      }
+
+      .pile-zone {
+        min-height: 250px;
+      }
+
+      .pile-desk {
+        height: 195px;
+      }
+
+      .sort-card-stage {
+        height: 174px;
+      }
+
+      .landing-wrap {
+        grid-template-columns: 33px minmax(0, 1fr);
+        gap: 4px;
+      }
+
+      .friction-axis {
+        font-size: .49rem;
+      }
+
+      .landing-grid {
+        gap: 3px;
+      }
+
+      .landing-cell {
+        min-height: 62px;
+      }
+
+      .horizon-axis {
+        gap: 2px;
+        margin-left: 37px;
+        font-size: .51rem;
+      }
+
+      .axis-caption {
+        margin-left: 37px;
+        font-size: .63rem;
+      }
+
+      .landscape-section {
+        margin-inline: -4px;
+        padding: 7px;
+        border-radius: 17px;
+      }
+
+      .landscape-heading {
+        padding-inline: 3px;
+      }
+
+      .landscape-heading > span:last-child {
+        max-width: 48%;
+      }
+
+      .landscape-frame {
+        border-radius: 13px;
+      }
+
+      .landscape-viewport {
+        max-height: min(69dvh, 625px);
+      }
+
+      .altitude-key span {
+        left: 5px;
+        font-size: .46rem;
+      }
+
+      .altitude-key span::before {
+        width: 6px;
+        height: 6px;
+      }
+
+      .landscape-note {
+        padding: 10px 9px 8px 12px;
+        font-size: .7rem;
+      }
+
+      .focus-actions {
+        flex-direction: column-reverse;
+      }
+
+      .focus-actions button {
+        width: 100%;
+      }
+
+      .sheet-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div>
+          <h1>The Horizon</h1>
+          <p>Empty your head. See the shape of things.</p>
+        </div>
+      </div>
+      <div class="header-actions" id="headerActions"></div>
+    </header>
+    <main class="main" id="appMain"></main>
+  </div>
+
+  <dialog id="noteDialog">
+    <form class="sheet" id="noteForm" method="dialog">
+      <div class="sheet-grip" aria-hidden="true"></div>
+      <div class="sheet-head">
+        <h2>Lifted from the horizon</h2>
+        <button class="close-button" type="button" data-action="close-note" aria-label="Close">×</button>
+      </div>
+      <label class="sr-only" for="noteText">Note text</label>
+      <textarea class="edit-text" id="noteText" maxlength="180" required></textarea>
+      <div class="sheet-actions">
+        <button class="sheet-button primary" type="submit">Save wording</button>
+        <button class="sheet-button" id="replaceButton" type="button" data-action="replace-card">Place it again</button>
+        <button class="sheet-button" id="clearButton" type="button" data-action="clear-card">Clear from horizon</button>
+        <button class="sheet-button danger" type="button" data-action="delete-card">Delete note</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="clearedDialog">
+    <div class="sheet">
+      <div class="sheet-grip" aria-hidden="true"></div>
+      <div class="sheet-head">
+        <h2>Cleared from view</h2>
+        <button class="close-button" type="button" data-action="close-cleared" aria-label="Close">×</button>
+      </div>
+      <div class="cleared-list" id="clearedList"></div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden>
+    <span id="toastMessage"></span>
+    <button id="toastAction" type="button" hidden>Undo</button>
+  </div>
+  <div class="sr-only" id="live" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const HORIZONS = [
+        { id: "today", label: "Today", short: "Today" },
+        { id: "week", label: "This Week", short: "Week" },
+        { id: "month", label: "This Month", short: "Month" },
+        { id: "later", label: "Later", short: "Later" },
+        { id: "someday", label: "Someday", short: "Someday" }
+      ];
+      const FRICTIONS = [
+        { id: "hard", label: "Hard" },
+        { id: "medium", label: "Medium" },
+        { id: "easy", label: "Easy" }
+      ];
+
+      /* LANDSCAPE_ENGINE_START */
+      const LandscapeEngine = (() => {
+        const horizonIds = ["today", "week", "month", "later", "someday"];
+        const frictionIds = ["hard", "medium", "easy"];
+        const horizonLabels = {
+          today: "Today",
+          week: "This Week",
+          month: "This Month",
+          later: "Later",
+          someday: "Someday"
+        };
+        const frictionLabels = { hard: "Hard", medium: "Medium", easy: "Easy" };
+        const clamp = (value, minimum, maximum) => Math.min(maximum, Math.max(minimum, value));
+        const clusterKey = (horizon, friction) => `${horizon}:${friction}`;
+
+        function hashString(value) {
+          let hash = 2166136261;
+          for (const character of String(value)) {
+            hash ^= character.charCodeAt(0);
+            hash = Math.imul(hash, 16777619);
+          }
+          return hash >>> 0;
+        }
+
+        function rotationFor(id) {
+          return ((hashString(id) % 37) - 18) / 10;
+        }
+
+        function stableCards(cards) {
+          return cards.slice().sort((a, b) => {
+            const timeDifference = (Number(a.createdAt) || 0) - (Number(b.createdAt) || 0);
+            return timeDifference || String(a.id).localeCompare(String(b.id));
+          });
+        }
+
+        function validCards(cards) {
+          return stableCards(cards.filter(card =>
+            card &&
+            typeof card.id === "string" &&
+            horizonIds.includes(card.horizon) &&
+            frictionIds.includes(card.friction)
+          ));
+        }
+
+        function groupCards(cards) {
+          const groups = new Map();
+          for (const card of cards) {
+            const key = clusterKey(card.horizon, card.friction);
+            if (!groups.has(key)) groups.set(key, []);
+            groups.get(key).push(card);
+          }
+          return groups;
+        }
+
+        function computeOverview(cards, options) {
+          const source = validCards(cards);
+          const viewportWidth = clamp(Number(options.viewportWidth) || 900, 280, 1600);
+          const compact = viewportWidth < 560;
+          const noteWidth = compact ? 138 : 174;
+          const noteHeight = compact ? 70 : 76;
+          const noteGapX = compact ? 9 : 12;
+          const noteGapY = compact ? 9 : 11;
+          const topPadding = compact ? 31 : 36;
+          const axisHeight = compact ? 60 : 64;
+          const outerPadding = compact ? 24 : 38;
+          const maxVisiblePerCluster = 4;
+          const groups = groupCards(source);
+          const largestVisibleCluster = Math.max(1, ...Array.from(groups.values(), group => Math.min(group.length, maxVisiblePerCluster)));
+          const largestRowCount = largestVisibleCluster > 2 ? 2 : 1;
+          const bandHeight = largestRowCount * noteHeight + (largestRowCount - 1) * noteGapY + (compact ? 46 : 52);
+          const occupiedHorizons = horizonIds.filter(horizon =>
+            source.some(card => card.horizon === horizon)
+          );
+
+          const horizonSpecs = occupiedHorizons.map(horizon => {
+            const counts = frictionIds.map(friction => Math.min(
+              groups.get(clusterKey(horizon, friction))?.length || 0,
+              maxVisiblePerCluster
+            ));
+            const maximumVisible = Math.max(1, ...counts);
+            const columns = maximumVisible > 1 ? 2 : 1;
+            return {
+              id: horizon,
+              index: horizonIds.indexOf(horizon),
+              count: source.filter(card => card.horizon === horizon).length,
+              width: columns * noteWidth + (columns - 1) * noteGapX + (compact ? 34 : 42)
+            };
+          });
+
+          const gaps = horizonSpecs.slice(1).map((spec, index) => {
+            const semanticDistance = spec.index - horizonSpecs[index].index;
+            return (compact ? 20 : 28) + Math.min(semanticDistance - 1, 2) * (compact ? 7 : 10);
+          });
+          const contentWidth = outerPadding * 2 +
+            horizonSpecs.reduce((sum, spec) => sum + spec.width, 0) +
+            gaps.reduce((sum, gap) => sum + gap, 0);
+          const width = Math.max(viewportWidth, contentWidth || viewportWidth);
+          const height = topPadding + bandHeight * frictionIds.length + axisHeight;
+          let cursor = (width - contentWidth) / 2 + outerPadding;
+          const horizons = [];
+
+          horizonSpecs.forEach((spec, index) => {
+            spec.centerX = cursor + spec.width / 2;
+            horizons.push({
+              id: spec.id,
+              label: horizonLabels[spec.id],
+              index: spec.index,
+              x: spec.centerX,
+              count: spec.count
+            });
+            cursor += spec.width + (gaps[index] || 0);
+          });
+
+          const nodes = [];
+          const clusters = [];
+          let z = 0;
+
+          for (const horizon of horizonSpecs) {
+            frictionIds.forEach((friction, frictionIndex) => {
+              const key = clusterKey(horizon.id, friction);
+              const clusterCards = groups.get(key) || [];
+              if (!clusterCards.length) return;
+              const visibleCards = clusterCards.slice(0, maxVisiblePerCluster);
+              const columns = visibleCards.length > 1 ? 2 : 1;
+              const rows = Math.ceil(visibleCards.length / columns);
+              const clusterWidth = columns * noteWidth + (columns - 1) * noteGapX;
+              const clusterHeight = rows * noteHeight + (rows - 1) * noteGapY;
+              const bandTop = topPadding + frictionIndex * bandHeight;
+              const startX = horizon.centerX - clusterWidth / 2;
+              const startY = bandTop + (bandHeight - clusterHeight) / 2;
+
+              visibleCards.forEach((card, cardIndex) => {
+                const row = Math.floor(cardIndex / columns);
+                const isLonelyFinalCard = columns === 2 && cardIndex === visibleCards.length - 1 && visibleCards.length % 2 === 1;
+                const column = isLonelyFinalCard ? .5 : cardIndex % columns;
+                const x = isLonelyFinalCard
+                  ? horizon.centerX - noteWidth / 2
+                  : startX + column * (noteWidth + noteGapX);
+                const y = startY + row * (noteHeight + noteGapY);
+                nodes.push({
+                  id: card.id,
+                  clusterKey: key,
+                  horizon: card.horizon,
+                  friction: card.friction,
+                  x,
+                  y,
+                  width: noteWidth,
+                  height: noteHeight,
+                  rotation: rotationFor(card.id),
+                  z: z++
+                });
+              });
+
+              clusters.push({
+                key,
+                horizon: horizon.id,
+                friction,
+                x: startX - (compact ? 15 : 19),
+                y: Math.max(4, startY - (compact ? 13 : 16)),
+                width: clusterWidth + (compact ? 30 : 38),
+                height: clusterHeight + (compact ? 26 : 32),
+                count: clusterCards.length,
+                visibleCount: visibleCards.length,
+                hiddenCount: clusterCards.length - visibleCards.length,
+                cardIds: clusterCards.map(card => card.id)
+              });
+            });
+          }
+
+          return {
+            mode: "overview",
+            width,
+            height,
+            noteWidth,
+            noteHeight,
+            nodes,
+            clusters,
+            horizons,
+            frictionGuides: frictionIds.map((id, index) => ({ id, index }))
+              .filter(guide => source.some(card => card.friction === guide.id))
+              .map(guide => ({ id: guide.id, y: topPadding + guide.index * bandHeight + 8 })),
+            sourceCount: source.length,
+            visibleCount: nodes.length,
+            hiddenCount: source.length - nodes.length
+          };
+        }
+
+        function computeCluster(cards, options) {
+          const source = validCards(cards);
+          const [horizon, friction] = String(options.focusClusterKey || "").split(":");
+          const clusterCards = source.filter(card => card.horizon === horizon && card.friction === friction);
+          if (!clusterCards.length) return computeOverview(source, options);
+          const viewportWidth = clamp(Number(options.viewportWidth) || 900, 280, 1600);
+          const compact = viewportWidth < 560;
+          const outerPadding = compact ? 24 : 40;
+          const gap = compact ? 10 : 14;
+          const noteWidth = compact
+            ? Math.min(148, Math.max(118, (viewportWidth - outerPadding * 2 - gap) / 2))
+            : 218;
+          const noteHeight = compact ? 94 : 102;
+          const availableWidth = viewportWidth - outerPadding * 2;
+          const columns = compact
+            ? (availableWidth >= noteWidth * 2 + gap ? 2 : 1)
+            : clamp(Math.floor((availableWidth + gap) / (noteWidth + gap)), 1, 3);
+          const rows = Math.ceil(clusterCards.length / columns);
+          const gridWidth = columns * noteWidth + Math.max(0, columns - 1) * gap;
+          const gridHeight = rows * noteHeight + Math.max(0, rows - 1) * gap;
+          const topPadding = compact ? 38 : 46;
+          const axisHeight = 64;
+          const width = Math.max(viewportWidth, gridWidth + outerPadding * 2);
+          const height = topPadding + gridHeight + axisHeight;
+          const startX = (width - gridWidth) / 2;
+          const nodes = clusterCards.map((card, index) => ({
+            id: card.id,
+            clusterKey: clusterKey(horizon, friction),
+            horizon,
+            friction,
+            x: startX + (index % columns) * (noteWidth + gap),
+            y: topPadding + Math.floor(index / columns) * (noteHeight + gap),
+            width: noteWidth,
+            height: noteHeight,
+            rotation: rotationFor(card.id) * .45,
+            z: index
+          }));
+
+          return {
+            mode: "cluster",
+            focusClusterKey: clusterKey(horizon, friction),
+            coordinate: `${horizonLabels[horizon]} · ${frictionLabels[friction]}`,
+            width,
+            height,
+            noteWidth,
+            noteHeight,
+            nodes,
+            clusters: [{
+              key: clusterKey(horizon, friction),
+              horizon,
+              friction,
+              x: startX - 20,
+              y: topPadding - 18,
+              width: gridWidth + 40,
+              height: gridHeight + 36,
+              count: clusterCards.length,
+              visibleCount: clusterCards.length,
+              hiddenCount: 0,
+              cardIds: clusterCards.map(card => card.id)
+            }],
+            horizons: [{
+              id: horizon,
+              label: horizonLabels[horizon],
+              index: horizonIds.indexOf(horizon),
+              x: width / 2,
+              count: clusterCards.length
+            }],
+            frictionGuides: [],
+            sourceCount: clusterCards.length,
+            visibleCount: clusterCards.length,
+            hiddenCount: 0
+          };
+        }
+
+        function compute(cards, options = {}) {
+          return options.focusClusterKey
+            ? computeCluster(cards, options)
+            : computeOverview(cards, options);
+        }
+
+        function validateLayout(layout) {
+          const errors = [];
+          const ids = new Set();
+          for (const node of layout.nodes) {
+            if (ids.has(node.id)) errors.push(`Duplicate node: ${node.id}`);
+            ids.add(node.id);
+            if (node.x < -0.01 || node.y < -0.01 || node.x + node.width > layout.width + .01 || node.y + node.height > layout.height + .01) {
+              errors.push(`Out of bounds: ${node.id}`);
+            }
+          }
+
+          for (let firstIndex = 0; firstIndex < layout.nodes.length; firstIndex += 1) {
+            const first = layout.nodes[firstIndex];
+            for (let secondIndex = firstIndex + 1; secondIndex < layout.nodes.length; secondIndex += 1) {
+              const second = layout.nodes[secondIndex];
+              const overlapX = Math.min(first.x + first.width, second.x + second.width) - Math.max(first.x, second.x);
+              const overlapY = Math.min(first.y + first.height, second.y + second.height) - Math.max(first.y, second.y);
+              if (overlapX > .01 && overlapY > .01) errors.push(`Overlap: ${first.id} / ${second.id}`);
+            }
+          }
+
+          const orderedHorizons = layout.horizons.slice().sort((a, b) => a.index - b.index);
+          for (let index = 1; index < orderedHorizons.length; index += 1) {
+            if (orderedHorizons[index].x <= orderedHorizons[index - 1].x) {
+              errors.push(`Horizon order: ${orderedHorizons[index - 1].id} / ${orderedHorizons[index].id}`);
+            }
+          }
+
+          if (layout.mode === "overview") {
+            const meanY = friction => {
+              const nodes = layout.nodes.filter(node => node.friction === friction);
+              return nodes.length
+                ? nodes.reduce((sum, node) => sum + node.y + node.height / 2, 0) / nodes.length
+                : null;
+            };
+            const hardY = meanY("hard");
+            const mediumY = meanY("medium");
+            const easyY = meanY("easy");
+            if (hardY !== null && mediumY !== null && hardY >= mediumY) errors.push("Hard must rise above medium");
+            if (mediumY !== null && easyY !== null && mediumY >= easyY) errors.push("Medium must rise above easy");
+            if (hardY !== null && easyY !== null && hardY >= easyY) errors.push("Hard must rise above easy");
+          }
+
+          return { ok: errors.length === 0, errors };
+        }
+
+        return {
+          compute,
+          validateLayout,
+          clusterKey,
+          horizonIds: horizonIds.slice(),
+          frictionIds: frictionIds.slice()
+        };
+      })();
+      globalThis.__HORIZON_LANDSCAPE__ = LandscapeEngine;
+      /* LANDSCAPE_ENGINE_END */
+
+      const STORAGE_KEY = "the-horizon:v2";
+      const LEGACY_KEY = "the-horizon:v1";
+      const byId = id => document.getElementById(id);
+      const appMain = byId("appMain");
+      const headerActions = byId("headerActions");
+      const noteDialog = byId("noteDialog");
+      const noteForm = byId("noteForm");
+      const noteText = byId("noteText");
+      const replaceButton = byId("replaceButton");
+      const clearButton = byId("clearButton");
+      const clearedDialog = byId("clearedDialog");
+      const clearedList = byId("clearedList");
+      const toast = byId("toast");
+      const toastMessage = byId("toastMessage");
+      const toastAction = byId("toastAction");
+      const live = byId("live");
+      let state = loadState();
+      let view = initialView();
+      let editingCardId = null;
+      let priorityCardId = null;
+      let lastPlacementId = null;
+      let newCardId = null;
+      let drag = null;
+      let placing = false;
+      let justOriented = false;
+      let focusedClusterKey = null;
+      let focusedCardId = null;
+      let landscapeResizeObserver = null;
+      let landscapeViewportWidth = 0;
+      let toastTimer = null;
+      let storageWarningShown = false;
+
+      function makeId() {
+        if (globalThis.crypto && typeof globalThis.crypto.randomUUID === "function") return globalThis.crypto.randomUUID();
+        return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+      }
+
+      function escapeHTML(value) {
+        return value.replace(/[&<>"']/g, character => ({
+          "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#039;"
+        })[character]);
+      }
+
+      function normalizeCard(card) {
+        if (!card || typeof card.text !== "string" || !card.text.trim()) return null;
+        const validHorizon = HORIZONS.some(item => item.id === card.horizon);
+        const validFriction = FRICTIONS.some(item => item.id === card.friction);
+        let status = ["loose", "placed", "completed"].includes(card.status) ? card.status : null;
+        if (!status) status = card.completed ? "completed" : validHorizon && validFriction ? "placed" : "loose";
+        if (status === "placed" && (!validHorizon || !validFriction)) status = "loose";
+        return {
+          id: typeof card.id === "string" ? card.id : makeId(),
+          text: card.text.trim().slice(0, 180),
+          status,
+          horizon: validHorizon ? card.horizon : null,
+          friction: validFriction ? card.friction : null,
+          createdAt: Number(card.createdAt) || Date.now(),
+          updatedAt: Number(card.updatedAt) || Number(card.createdAt) || Date.now()
+        };
+      }
+
+      function loadState() {
+        try {
+          const current = localStorage.getItem(STORAGE_KEY);
+          const legacy = current ? null : localStorage.getItem(LEGACY_KEY);
+          const parsed = JSON.parse(current || legacy || "{\"cards\":[]}");
+          const cards = Array.isArray(parsed.cards) ? parsed.cards.map(normalizeCard).filter(Boolean) : [];
+          return { version: 2, cards };
+        } catch (_) {
+          return { version: 2, cards: [] };
+        }
+      }
+
+      function persist() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (_) {
+          if (!storageWarningShown) {
+            storageWarningShown = true;
+            showToast("This browser blocked local saving.");
+          }
+        }
+      }
+
+      function initialView() {
+        if (state.cards.some(card => card.status === "loose")) return "capture";
+        if (state.cards.some(card => card.status === "placed")) return "board";
+        return "capture";
+      }
+
+      function looseCards() {
+        const cards = state.cards.filter(card => card.status === "loose").sort((a, b) => a.createdAt - b.createdAt);
+        if (!priorityCardId) return cards;
+        return cards.sort((a, b) => Number(b.id === priorityCardId) - Number(a.id === priorityCardId));
+      }
+
+      function placedCards() {
+        return state.cards.filter(card => card.status === "placed");
+      }
+
+      function completedCards() {
+        return state.cards.filter(card => card.status === "completed");
+      }
+
+      function currentSortCard() {
+        return looseCards()[0] || null;
+      }
+
+      function horizonLabel(id) {
+        return HORIZONS.find(item => item.id === id)?.label || "the horizon";
+      }
+
+      function renderHeader() {
+        const loose = looseCards().length;
+        const placed = placedCards().length;
+        const completed = completedCards().length;
+        const actions = [];
+        if (completed) actions.push(`<button class="quiet-button" type="button" data-action="open-cleared">${completed} cleared</button>`);
+        if (view === "capture" && placed) actions.push(`<button class="quiet-button" type="button" data-action="view-board">See horizon</button>`);
+        if (view === "sort") actions.push(`<button class="quiet-button" type="button" data-action="back-pile">Back to pile</button>`);
+        if (view === "board") {
+          if (loose) actions.push(`<button class="quiet-button" type="button" data-action="view-pile">${loose} loose</button>`);
+          actions.push(`<button class="quiet-button" type="button" data-action="add-thoughts">+ Add thoughts</button>`);
+        }
+        headerActions.innerHTML = actions.join("");
+      }
+
+      function pileTransform(index, length) {
+        const transforms = [
+          { x: "-22px", y: "19px", r: "-5deg" },
+          { x: "18px", y: "14px", r: "4deg" },
+          { x: "-12px", y: "10px", r: "-2.2deg" },
+          { x: "12px", y: "5px", r: "1.8deg" },
+          { x: "0px", y: "0px", r: "-.5deg" }
+        ];
+        return transforms[Math.max(0, transforms.length - length + index)];
+      }
+
+      function renderPile(cards) {
+        const visible = cards.slice(-5);
+        return visible.map((card, index) => {
+          const transform = pileTransform(index, visible.length);
+          return `<button class="pile-note ${card.id === newCardId ? "is-new" : ""}" type="button" data-action="open-card" data-card-id="${card.id}" style="--i:${index};--x:${transform.x};--y:${transform.y};--r:${transform.r}" aria-label="Edit ${escapeHTML(card.text)}"><span>${escapeHTML(card.text)}</span></button>`;
+        }).join("");
+      }
+
+      function renderCapture() {
+        const loose = looseCards();
+        const placed = placedCards().length;
+        const heading = placed ? "What else is taking up space?" : "First, get it out.";
+        const pile = loose.length ? `<div class="pile-zone">
+          <div class="pile-desk">${renderPile(loose)}</div>
+          <p class="pile-count"><b>${loose.length}</b> ${loose.length === 1 ? "thought is" : "thoughts are"} safely down.</p>
+          <button class="orient-button" type="button" data-action="orient">Lay out ${loose.length === 1 ? "this thought" : `these ${loose.length} thoughts`} <span aria-hidden="true">→</span></button>
+        </div>` : "";
+        appMain.innerHTML = `<section class="view capture-view" aria-labelledby="captureHeading">
+          <div class="capture-copy">
+            <p class="eyebrow">No decisions yet</p>
+            <h2 id="captureHeading">${heading}</h2>
+            <p>Put down each thought as it arrives. Sorting comes after your head goes quiet.</p>
+          </div>
+          <form class="capture-form" id="captureForm">
+            <label class="sr-only" for="captureInput">What is taking up space?</label>
+            <input class="capture-input" id="captureInput" maxlength="180" autocomplete="off" placeholder="What’s taking up space?">
+            <button class="ink-button" type="submit">Put it down</button>
+          </form>
+          <small class="capture-hint">Press Enter. The field stays ready for the next thought.</small>
+          ${pile}
+        </section>`;
+        requestAnimationFrame(() => byId("captureInput")?.focus());
+      }
+
+      function renderLandingCells() {
+        return FRICTIONS.map(friction => HORIZONS.map(horizon =>
+          `<button class="landing-cell" type="button" data-action="place-card" data-horizon="${horizon.id}" data-friction="${friction.id}" aria-label="${horizon.label}, ${friction.label} friction"></button>`
+        ).join("")).join("");
+      }
+
+      function renderHorizonAxis() {
+        return HORIZONS.map(item => `<span>${item.short}</span>`).join("");
+      }
+
+      function renderSort() {
+        const cards = looseCards();
+        const card = cards[0];
+        if (!card) {
+          view = "board";
+          justOriented = true;
+          render();
+          return;
+        }
+        appMain.innerHTML = `<section class="view sort-view" aria-labelledby="sortHeading">
+          <div class="sort-copy">
+            <p class="eyebrow">One thought at a time</p>
+            <h2 id="sortHeading">Where does this live?</h2>
+            <p class="sort-count">${cards.length} ${cards.length === 1 ? "thought" : "thoughts"} left in the loose pile</p>
+          </div>
+          <div class="sort-card-stage">
+            ${cards.length > 2 ? `<div class="stack-edge edge-one" aria-hidden="true"></div>` : ""}
+            ${cards.length > 1 ? `<div class="stack-edge edge-two" aria-hidden="true"></div>` : ""}
+            <article class="sort-card" id="sortCard" data-card-id="${card.id}" tabindex="0" aria-label="${escapeHTML(card.text)}. Drag to the map or choose a landing spot.">
+              <span>${escapeHTML(card.text)}</span>
+              <small class="grab-cue">drag me</small>
+            </article>
+          </div>
+          <div class="landing-apparatus">
+            <p class="landing-prompt">Drag it into place—or tap where it belongs.</p>
+            <div class="landing-wrap">
+              <div class="friction-axis" aria-hidden="true"><span>Hard</span><span>Medium</span><span>Easy</span></div>
+              <div class="landing-grid" id="landingGrid">${renderLandingCells()}</div>
+            </div>
+            <div class="horizon-axis" aria-hidden="true">${renderHorizonAxis()}</div>
+            <p class="axis-caption">Sooner on the left. More distant on the right.</p>
+          </div>
+          <div class="sort-actions">
+            <button class="text-action" type="button" data-action="undo-placement" ${lastPlacementId ? "" : "hidden"}>Undo last placement</button>
+            <button class="text-action" type="button" data-action="back-pile">Return to loose pile</button>
+          </div>
+        </section>`;
+      }
+
+      function landscapeNodeMarkup(node, card) {
+        const horizon = horizonLabel(card.horizon);
+        const friction = FRICTIONS.find(item => item.id === card.friction)?.label || card.friction;
+        return `<button class="landscape-note" type="button" data-action="focus-landscape-note" data-card-id="${card.id}" data-landscape-node="${card.id}" data-horizon="${card.horizon}" data-friction="${card.friction}" style="left:${node.x.toFixed(2)}px;top:${node.y.toFixed(2)}px;width:${node.width.toFixed(2)}px;height:${node.height.toFixed(2)}px;--r:${node.rotation.toFixed(2)}deg;--z:${node.z}" aria-label="Focus ${escapeHTML(card.text)}. ${horizon}, ${friction} friction"><span>${escapeHTML(card.text)}</span></button>`;
+      }
+
+      function landscapeMarkup(layout, cards) {
+        const cardsById = new Map(cards.map(card => [card.id, card]));
+        const landforms = layout.clusters.map(cluster =>
+          `<div class="landform" data-cluster-key="${cluster.key}" data-friction="${cluster.friction}" style="left:${cluster.x.toFixed(2)}px;top:${cluster.y.toFixed(2)}px;width:${cluster.width.toFixed(2)}px;height:${cluster.height.toFixed(2)}px" aria-hidden="true"></div>`
+        ).join("");
+        const nodes = layout.nodes.map(node => {
+          const card = cardsById.get(node.id);
+          return card ? landscapeNodeMarkup(node, card) : "";
+        }).join("");
+        const clusterButtons = layout.mode === "overview" ? layout.clusters.filter(cluster => cluster.count > 1).map(cluster => {
+          const left = Math.max(4, Math.min(layout.width - 98, cluster.x + cluster.width - 78));
+          const top = Math.max(4, Math.min(layout.height - 40, cluster.y + cluster.height - 13));
+          const label = `Open all ${cluster.count} thoughts in ${horizonLabel(cluster.horizon)}, ${cluster.friction} friction`;
+          const text = cluster.hiddenCount > 0 ? `+${cluster.hiddenCount} nearby` : `${cluster.count} together`;
+          return `<button class="cluster-more" type="button" data-action="focus-cluster" data-cluster-key="${cluster.key}" data-friction="${cluster.friction}" style="left:${left.toFixed(2)}px;top:${top.toFixed(2)}px" aria-label="${label}">${text}</button>`;
+        }).join("") : "";
+        const markers = layout.horizons.map(horizon =>
+          `<div class="horizon-marker" style="left:${horizon.x.toFixed(2)}px"><span>${horizon.label}</span><small>${horizon.count} ${horizon.count === 1 ? "thought" : "thoughts"}</small></div>`
+        ).join("");
+        const altitude = layout.mode === "overview" ? `<div class="altitude-key" aria-hidden="true">${layout.frictionGuides.map(guide => `<span class="${guide.id}" style="top:${guide.y.toFixed(2)}px">${FRICTIONS.find(item => item.id === guide.id)?.label || guide.id}</span>`).join("")}</div>` : "";
+        return `${altitude}<div class="landscape-ground" aria-hidden="true"></div>${landforms}${nodes}${clusterButtons}${markers}`;
+      }
+
+      function layoutLandscape() {
+        const viewport = byId("landscapeViewport");
+        const canvas = byId("landscapeCanvas");
+        if (!viewport || !canvas) return;
+        const cards = placedCards();
+        const viewportWidth = Math.max(280, Math.round(viewport.clientWidth));
+        const layout = LandscapeEngine.compute(cards, { viewportWidth, focusClusterKey: focusedClusterKey });
+        const validation = LandscapeEngine.validateLayout(layout);
+        canvas.style.width = `${layout.width}px`;
+        canvas.style.height = `${layout.height}px`;
+        canvas.dataset.layoutMode = layout.mode;
+        canvas.dataset.layoutValid = String(validation.ok);
+        canvas.dataset.sourceCount = String(layout.sourceCount);
+        canvas.dataset.visibleCount = String(layout.visibleCount);
+        canvas.dataset.hiddenCount = String(layout.hiddenCount);
+        canvas.innerHTML = landscapeMarkup(layout, cards);
+        viewport.setAttribute("aria-label", layout.mode === "cluster"
+          ? `${layout.coordinate}. ${layout.visibleCount} thoughts in focus.`
+          : `${layout.sourceCount} thoughts arranged by time and friction. Harder thoughts rise higher; later thoughts gather farther right.`
+        );
+        if (!validation.ok) console.error("Landscape invariant failed", validation.errors);
+      }
+
+      function mountLandscape() {
+        const viewport = byId("landscapeViewport");
+        if (!viewport) return;
+        landscapeViewportWidth = Math.round(viewport.clientWidth);
+        layoutLandscape();
+        if (typeof ResizeObserver !== "function") return;
+        landscapeResizeObserver = new ResizeObserver(entries => {
+          const width = Math.round(entries[0]?.contentRect.width || 0);
+          if (!width || width === landscapeViewportWidth) return;
+          landscapeViewportWidth = width;
+          requestAnimationFrame(layoutLandscape);
+        });
+        landscapeResizeObserver.observe(viewport);
+      }
+
+      function renderBoard() {
+        const placed = placedCards();
+        if (focusedClusterKey && !placed.some(card => `${card.horizon}:${card.friction}` === focusedClusterKey)) {
+          focusedClusterKey = null;
+        }
+        focusedCardId = null;
+        const focusCluster = focusedClusterKey
+          ? placed.filter(card => `${card.horizon}:${card.friction}` === focusedClusterKey)
+          : [];
+        const [focusHorizon, focusFriction] = focusedClusterKey ? focusedClusterKey.split(":") : [];
+        const zoomHead = focusedClusterKey ? `<div class="landscape-zoom-head">
+          <button class="landscape-back" type="button" data-action="close-cluster">← Whole horizon</button>
+          <p><b>${horizonLabel(focusHorizon)}</b> · ${FRICTIONS.find(item => item.id === focusFriction)?.label || focusFriction} · ${focusCluster.length} ${focusCluster.length === 1 ? "thought" : "thoughts"}</p>
+        </div>` : "";
+        const landscape = placed.length ? `<div class="landscape-section ${focusedClusterKey ? "is-cluster-view" : ""}">
+          <div class="landscape-heading"><span><b>${placed.length}</b> ${placed.length === 1 ? "thought" : "thoughts"} on the horizon</span><span>${focusedClusterKey ? "A closer view, with its place intact." : "Sooner gathers left. Harder rises."}</span></div>
+          ${zoomHead}
+          <div class="landscape-frame" id="landscapeFrame">
+            <div class="landscape-viewport" id="landscapeViewport" tabindex="0">
+              <div class="landscape-canvas" id="landscapeCanvas"></div>
+            </div>
+            <div class="landscape-lens" id="landscapeLens" role="dialog" aria-modal="false" aria-labelledby="focusText" hidden>
+              <article class="focus-card" id="focusCard" tabindex="-1">
+                <button class="focus-close" type="button" data-action="close-landscape-focus" aria-label="Return to the landscape">×</button>
+                <p class="focus-coordinate" id="focusCoordinate"></p>
+                <p class="focus-text" id="focusText"></p>
+                <div class="focus-actions"><button class="primary" type="button" data-action="edit-focused-card">Edit or move this note</button></div>
+              </article>
+            </div>
+          </div>
+          <p class="landscape-help">Tap a note to bring it into focus${focusedClusterKey ? "." : "; drag sideways when the landscape grows."}</p>
+        </div>` : `<div class="landscape-section clear-horizon">Your horizon is clear.<br>Enjoy the room.</div>`;
+        appMain.innerHTML = `<section class="view board-view ${justOriented ? "just-oriented" : ""}" aria-labelledby="boardHeading">
+          <div class="board-copy">
+            <div class="reveal-mark" aria-hidden="true"></div>
+            <p class="eyebrow">Oriented</p>
+            <h2 id="boardHeading">There it is.</h2>
+            <p>The shape of things, for now.</p>
+          </div>
+          ${landscape}
+          <div class="board-footer"><button class="orient-button" type="button" data-action="add-thoughts">Add another thought <span aria-hidden="true">+</span></button></div>
+        </section>`;
+        if (placed.length) requestAnimationFrame(mountLandscape);
+        justOriented = false;
+      }
+
+      function render() {
+        landscapeResizeObserver?.disconnect();
+        landscapeResizeObserver = null;
+        renderHeader();
+        if (view === "capture") renderCapture();
+        else if (view === "sort") renderSort();
+        else renderBoard();
+      }
+
+      function announce(message) {
+        live.textContent = "";
+        requestAnimationFrame(() => { live.textContent = message; });
+      }
+
+      function pulse(strong = false) {
+        if (navigator.vibrate) navigator.vibrate(strong ? [10, 25, 10] : 8);
+      }
+
+      function showToast(message, actionLabel = "", action = null) {
+        clearTimeout(toastTimer);
+        toast.hidden = false;
+        toastMessage.textContent = message;
+        toastAction.hidden = !action;
+        toastAction.textContent = actionLabel;
+        toastAction.onclick = action;
+        toast.classList.add("is-visible");
+        toastTimer = setTimeout(() => {
+          toast.classList.remove("is-visible");
+          setTimeout(() => {
+            if (!toast.classList.contains("is-visible")) {
+              toast.hidden = true;
+              toastAction.hidden = true;
+            }
+          }, 220);
+        }, action ? 20000 : 3200);
+      }
+
+      function hideToast() {
+        clearTimeout(toastTimer);
+        toast.classList.remove("is-visible");
+        toast.hidden = true;
+        toastAction.hidden = true;
+      }
+
+      function openLandscapeFocus(id) {
+        const card = state.cards.find(item => item.id === id && item.status === "placed");
+        const lens = byId("landscapeLens");
+        const focusCard = byId("focusCard");
+        const frame = byId("landscapeFrame");
+        if (!card || !lens || !focusCard || !frame) return;
+        focusedCardId = card.id;
+        frame.querySelectorAll(".landscape-note").forEach(note => {
+          note.classList.toggle("is-focused", note.dataset.cardId === card.id);
+        });
+        focusCard.dataset.friction = card.friction;
+        byId("focusCoordinate").textContent = `${horizonLabel(card.horizon)} · ${FRICTIONS.find(item => item.id === card.friction)?.label || card.friction} friction`;
+        byId("focusText").textContent = card.text;
+        lens.hidden = false;
+        requestAnimationFrame(() => focusCard.focus({ preventScroll: true }));
+        announce(`${card.text}. In focus.`);
+      }
+
+      function closeLandscapeFocus({ restoreFocus = true } = {}) {
+        const previousId = focusedCardId;
+        const lens = byId("landscapeLens");
+        lens?.setAttribute("hidden", "");
+        document.querySelectorAll(".landscape-note.is-focused").forEach(note => note.classList.remove("is-focused"));
+        focusedCardId = null;
+        if (restoreFocus && previousId) {
+          requestAnimationFrame(() => Array.from(document.querySelectorAll("[data-landscape-node]")).find(note => note.dataset.cardId === previousId)?.focus({ preventScroll: true }));
+        }
+      }
+
+      function openCard(id) {
+        const card = state.cards.find(item => item.id === id);
+        if (!card || card.status === "completed") return;
+        editingCardId = card.id;
+        noteText.value = card.text;
+        replaceButton.hidden = card.status !== "placed";
+        clearButton.hidden = card.status !== "placed";
+        noteDialog.showModal();
+        requestAnimationFrame(() => noteText.focus());
+      }
+
+      function closeNote() {
+        editingCardId = null;
+        if (noteDialog.open) noteDialog.close();
+      }
+
+      function openCleared() {
+        const cards = completedCards().sort((a, b) => b.updatedAt - a.updatedAt);
+        clearedList.innerHTML = cards.map(card => `<div class="cleared-row">
+          <span>${escapeHTML(card.text)}</span>
+          <button class="mini-button" type="button" data-action="restore-card" data-card-id="${card.id}">Restore</button>
+          <button class="mini-button danger" type="button" data-action="delete-cleared" data-card-id="${card.id}">Delete</button>
+        </div>`).join("") || `<p class="clear-horizon">Nothing cleared yet.</p>`;
+        clearedDialog.showModal();
+      }
+
+      function closeCleared() {
+        if (clearedDialog.open) clearedDialog.close();
+      }
+
+      function addThought(text) {
+        const card = {
+          id: makeId(),
+          text,
+          status: "loose",
+          horizon: null,
+          friction: null,
+          createdAt: Date.now(),
+          updatedAt: Date.now()
+        };
+        state.cards.push(card);
+        newCardId = card.id;
+        persist();
+        pulse();
+        render();
+        announce("Thought safely down");
+        setTimeout(() => { newCardId = null; }, 600);
+      }
+
+      function animatePlacement(card, horizon, friction, target) {
+        if (placing) return;
+        placing = true;
+        const source = byId("sortCard");
+        const sourceRect = source?.getBoundingClientRect();
+        const targetRect = target?.getBoundingClientRect();
+        source?.classList.add("is-committing");
+        target?.classList.add("is-chosen");
+        let flight = null;
+        if (source && sourceRect && targetRect) {
+          flight = source.cloneNode(true);
+          flight.removeAttribute("id");
+          flight.classList.add("flight-card");
+          flight.classList.remove("is-committing", "is-dragging");
+          Object.assign(flight.style, {
+            left: `${sourceRect.left}px`,
+            top: `${sourceRect.top}px`,
+            width: `${sourceRect.width}px`,
+            height: `${sourceRect.height}px`
+          });
+          document.body.appendChild(flight);
+          requestAnimationFrame(() => {
+            flight.style.left = `${targetRect.left + targetRect.width / 2 - sourceRect.width / 2}px`;
+            flight.style.top = `${targetRect.top + targetRect.height / 2 - sourceRect.height / 2}px`;
+            flight.style.transform = "rotate(-2deg) scale(.16)";
+            flight.style.opacity = ".18";
+          });
+        }
+        setTimeout(() => {
+          card.status = "placed";
+          card.horizon = horizon;
+          card.friction = friction;
+          card.updatedAt = Date.now();
+          lastPlacementId = card.id;
+          if (priorityCardId === card.id) priorityCardId = null;
+          persist();
+          pulse();
+          flight?.remove();
+          placing = false;
+          if (!looseCards().length) {
+            view = "board";
+            justOriented = true;
+            pulse(true);
+            announce("Everything has a place. Your horizon is ready.");
+          } else {
+            announce(`Placed ${horizonLabel(horizon)}, ${friction} friction`);
+          }
+          render();
+        }, 310);
+      }
+
+      function placeCurrent(horizon, friction, target) {
+        const card = currentSortCard();
+        if (card) animatePlacement(card, horizon, friction, target);
+      }
+
+      function undoPlacement() {
+        const card = state.cards.find(item => item.id === lastPlacementId && item.status === "placed");
+        if (!card) return;
+        card.status = "loose";
+        card.updatedAt = Date.now();
+        priorityCardId = card.id;
+        lastPlacementId = null;
+        view = "sort";
+        persist();
+        render();
+        announce("Last placement undone");
+      }
+
+      function startDrag(event, cardElement) {
+        if (placing || event.button > 0) return;
+        event.preventDefault();
+        const rect = cardElement.getBoundingClientRect();
+        const ghost = cardElement.cloneNode(true);
+        ghost.removeAttribute("id");
+        ghost.classList.add("drag-ghost");
+        Object.assign(ghost.style, { width: `${rect.width}px`, height: `${rect.height}px` });
+        document.body.appendChild(ghost);
+        cardElement.classList.add("is-dragging");
+        cardElement.setPointerCapture(event.pointerId);
+        byId("landingGrid")?.classList.add("is-dragging");
+        drag = { pointerId: event.pointerId, cardElement, ghost };
+        moveDrag(event.clientX, event.clientY);
+      }
+
+      function moveDrag(x, y) {
+        if (!drag) return;
+        const rect = drag.ghost.getBoundingClientRect();
+        drag.ghost.style.left = `${x - rect.width / 2}px`;
+        drag.ghost.style.top = `${y - 34}px`;
+        document.querySelectorAll(".landing-cell.is-over").forEach(cell => cell.classList.remove("is-over"));
+        document.elementFromPoint(x, y)?.closest(".landing-cell")?.classList.add("is-over");
+      }
+
+      function finishDrag(event, cancelled = false) {
+        if (!drag || drag.pointerId !== event.pointerId) return;
+        const target = cancelled ? null : document.elementFromPoint(event.clientX, event.clientY)?.closest(".landing-cell");
+        try { drag.cardElement.releasePointerCapture(drag.pointerId); } catch (_) {}
+        drag.ghost.remove();
+        drag.cardElement.classList.remove("is-dragging");
+        byId("landingGrid")?.classList.remove("is-dragging");
+        drag = null;
+        if (target) placeCurrent(target.dataset.horizon, target.dataset.friction, target);
+      }
+
+      function deleteCard(id, fromCleared = false) {
+        const index = state.cards.findIndex(card => card.id === id);
+        if (index < 0) return;
+        const removed = state.cards[index];
+        state.cards.splice(index, 1);
+        persist();
+        if (fromCleared) openClearedRefresh();
+        else closeNote();
+        render();
+        showToast("Note removed.", "Undo", () => {
+          state.cards.splice(index, 0, removed);
+          persist();
+          hideToast();
+          render();
+          announce("Note restored");
+        });
+      }
+
+      function openClearedRefresh() {
+        const wasOpen = clearedDialog.open;
+        if (wasOpen) closeCleared();
+        if (completedCards().length) openCleared();
+      }
+
+      appMain.addEventListener("submit", event => {
+        if (event.target.id !== "captureForm") return;
+        event.preventDefault();
+        const input = byId("captureInput");
+        const text = input.value.trim();
+        if (!text) {
+          event.target.classList.remove("shake");
+          requestAnimationFrame(() => event.target.classList.add("shake"));
+          input.focus();
+          return;
+        }
+        addThought(text);
+      });
+
+      noteForm.addEventListener("submit", event => {
+        event.preventDefault();
+        const card = state.cards.find(item => item.id === editingCardId);
+        const text = noteText.value.trim();
+        if (!card || !text) {
+          noteText.focus();
+          return;
+        }
+        card.text = text;
+        card.updatedAt = Date.now();
+        persist();
+        closeNote();
+        render();
+        announce("Wording saved");
+      });
+
+      document.addEventListener("click", event => {
+        const actionTarget = event.target.closest("[data-action]");
+        if (!actionTarget) return;
+        const action = actionTarget.dataset.action;
+        if (action === "orient") {
+          view = "sort";
+          lastPlacementId = null;
+          focusedClusterKey = null;
+          render();
+        } else if (action === "view-board") {
+          view = "board";
+          focusedClusterKey = null;
+          render();
+        } else if (action === "add-thoughts" || action === "view-pile" || action === "back-pile") {
+          view = "capture";
+          focusedClusterKey = null;
+          render();
+        } else if (action === "place-card") {
+          placeCurrent(actionTarget.dataset.horizon, actionTarget.dataset.friction, actionTarget);
+        } else if (action === "undo-placement") {
+          undoPlacement();
+        } else if (action === "focus-landscape-note") {
+          openLandscapeFocus(actionTarget.dataset.cardId);
+        } else if (action === "close-landscape-focus") {
+          closeLandscapeFocus();
+        } else if (action === "edit-focused-card") {
+          const id = focusedCardId;
+          closeLandscapeFocus({ restoreFocus: false });
+          if (id) openCard(id);
+        } else if (action === "focus-cluster") {
+          closeLandscapeFocus({ restoreFocus: false });
+          focusedClusterKey = actionTarget.dataset.clusterKey;
+          render();
+          requestAnimationFrame(() => document.querySelector('[data-action="close-cluster"]')?.focus({ preventScroll: true }));
+          announce("Cluster opened. Its place on the horizon is unchanged.");
+        } else if (action === "close-cluster") {
+          focusedClusterKey = null;
+          render();
+          requestAnimationFrame(() => byId("landscapeViewport")?.focus({ preventScroll: true }));
+          announce("Whole horizon restored");
+        } else if (action === "open-card") {
+          openCard(actionTarget.dataset.cardId);
+        } else if (action === "close-note") {
+          closeNote();
+        } else if (action === "replace-card") {
+          const card = state.cards.find(item => item.id === editingCardId);
+          if (!card) return;
+          card.status = "loose";
+          card.updatedAt = Date.now();
+          priorityCardId = card.id;
+          lastPlacementId = null;
+          focusedClusterKey = null;
+          persist();
+          closeNote();
+          view = "sort";
+          render();
+        } else if (action === "clear-card") {
+          const card = state.cards.find(item => item.id === editingCardId);
+          if (!card) return;
+          const previousStatus = card.status;
+          card.status = "completed";
+          card.updatedAt = Date.now();
+          persist();
+          closeNote();
+          render();
+          pulse();
+          showToast("Cleared from your horizon.", "Undo", () => {
+            card.status = previousStatus;
+            card.updatedAt = Date.now();
+            persist();
+            hideToast();
+            render();
+            announce("Note returned to the horizon");
+          });
+        } else if (action === "delete-card") {
+          deleteCard(editingCardId);
+        } else if (action === "open-cleared") {
+          openCleared();
+        } else if (action === "close-cleared") {
+          closeCleared();
+        } else if (action === "restore-card") {
+          const card = state.cards.find(item => item.id === actionTarget.dataset.cardId);
+          if (!card) return;
+          card.status = card.horizon && card.friction ? "placed" : "loose";
+          card.updatedAt = Date.now();
+          persist();
+          closeCleared();
+          focusedClusterKey = null;
+          view = card.status === "placed" ? "board" : "capture";
+          render();
+          announce("Note restored");
+        } else if (action === "delete-cleared") {
+          deleteCard(actionTarget.dataset.cardId, true);
+        }
+      });
+
+      document.addEventListener("pointerdown", event => {
+        const card = event.target.closest("#sortCard");
+        if (card) startDrag(event, card);
+      });
+      document.addEventListener("pointermove", event => {
+        if (drag && drag.pointerId === event.pointerId) moveDrag(event.clientX, event.clientY);
+      });
+      document.addEventListener("pointerup", event => finishDrag(event));
+      document.addEventListener("pointercancel", event => finishDrag(event, true));
+
+      noteDialog.addEventListener("click", event => {
+        if (event.target === noteDialog) closeNote();
+      });
+      clearedDialog.addEventListener("click", event => {
+        if (event.target === clearedDialog) closeCleared();
+      });
+
+      document.addEventListener("click", event => {
+        if (event.target === byId("landscapeLens")) closeLandscapeFocus();
+      });
+
+      document.addEventListener("keydown", event => {
+        if (event.key !== "Escape") return;
+        if (focusedCardId && !noteDialog.open && !clearedDialog.open) {
+          event.preventDefault();
+          closeLandscapeFocus();
+        }
+      });
+
+      render();
+    })();
+  </script>
+</body>
+</html>

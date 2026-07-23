@@ -15,6 +15,11 @@
     "featured": true
   },
   {
+    "slug": "pocket-search",
+    "metadata": "./pocket-search/project.json",
+    "featured": true
+  },
+  {
     "slug": "portfolio",
     "metadata": "./portfolio/project.json",
     "featured": false

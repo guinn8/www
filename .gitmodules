@@ -1,0 +1,3 @@
+[submodule "projects/pocket-search"]
+	path = projects/pocket-search
+	url = https://github.com/guinn8/pocket-search.git

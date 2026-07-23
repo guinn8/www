@@ -12,6 +12,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="The Horizon">
   <title>The Horizon</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="./icons/icon-180.png">
   <style>
     :root {
       --ink: #272d28;
@@ -183,6 +186,13 @@
       border-color: #a8a092;
       background: var(--panel);
       color: var(--ink);
+    }
+
+    .menu-button {
+      width: 38px;
+      padding: 0;
+      font-size: .88rem;
+      letter-spacing: .08em;
     }
 
     .main {
@@ -1198,6 +1208,13 @@
       font-weight: 500;
     }
 
+    .sheet-copy {
+      margin: 0;
+      color: var(--muted);
+      font-size: .78rem;
+      line-height: 1.55;
+    }
+
     .close-button {
       width: 38px;
       height: 38px;
@@ -1562,6 +1579,22 @@
     </div>
   </dialog>
 
+  <dialog id="dataDialog">
+    <div class="sheet">
+      <div class="sheet-grip" aria-hidden="true"></div>
+      <div class="sheet-head">
+        <h2>Keep your horizon safe</h2>
+        <button class="close-button" type="button" data-action="close-data" aria-label="Close">×</button>
+      </div>
+      <p class="sheet-copy">Your notes stay on this device and work offline. Export a backup before clearing browser data or moving to another device.</p>
+      <div class="sheet-actions">
+        <button class="sheet-button primary" type="button" data-action="export-data">Export backup</button>
+        <button class="sheet-button" type="button" data-action="import-data">Restore backup</button>
+      </div>
+      <input class="sr-only" id="importFile" type="file" accept="application/json,.json">
+    </div>
+  </dialog>
+
   <div class="toast" id="toast" role="status" aria-live="polite" hidden>
     <span id="toastMessage"></span>
     <button id="toastAction" type="button" hidden>Undo</button>
@@ -1921,6 +1954,8 @@
       const clearButton = byId("clearButton");
       const clearedDialog = byId("clearedDialog");
       const clearedList = byId("clearedList");
+      const dataDialog = byId("dataDialog");
+      const importFile = byId("importFile");
       const toast = byId("toast");
       const toastMessage = byId("toastMessage");
       const toastAction = byId("toastAction");
@@ -2033,6 +2068,7 @@
           if (loose) actions.push(`<button class="quiet-button" type="button" data-action="view-pile">${loose} loose</button>`);
           actions.push(`<button class="quiet-button" type="button" data-action="add-thoughts">+ Add thoughts</button>`);
         }
+        actions.push(`<button class="quiet-button menu-button" type="button" data-action="open-data" aria-label="Back up or restore your horizon" title="Back up or restore">•••</button>`);
         headerActions.innerHTML = actions.join("");
       }
 
@@ -2346,6 +2382,61 @@
         if (clearedDialog.open) clearedDialog.close();
       }
 
+      function openData() {
+        dataDialog.showModal();
+      }
+
+      function closeData() {
+        if (dataDialog.open) dataDialog.close();
+      }
+
+      function exportData() {
+        const backup = {
+          format: "the-horizon-backup",
+          version: 1,
+          exportedAt: new Date().toISOString(),
+          state
+        };
+        const blob = new Blob([`${JSON.stringify(backup, null, 2)}\n`], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = `the-horizon-${new Date().toISOString().slice(0, 10)}.json`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 0);
+        closeData();
+        showToast("Backup exported.");
+        announce("Horizon backup exported");
+      }
+
+      async function importData(file) {
+        try {
+          const parsed = JSON.parse(await file.text());
+          const importedState = parsed?.format === "the-horizon-backup" ? parsed.state : parsed;
+          if (!importedState || !Array.isArray(importedState.cards)) throw new Error("Invalid backup");
+          const cards = importedState.cards.map(normalizeCard).filter(Boolean);
+          if (importedState.cards.length && !cards.length) throw new Error("Invalid cards");
+          if (state.cards.length && !confirm("Replace this device’s current horizon with the backup?")) return;
+          state = { version: 2, cards };
+          persist();
+          priorityCardId = null;
+          lastPlacementId = null;
+          focusedClusterKey = null;
+          focusedCardId = null;
+          view = initialView();
+          closeData();
+          render();
+          showToast("Backup restored.");
+          announce("Horizon backup restored");
+        } catch (_) {
+          showToast("That file isn’t a Horizon backup.");
+        } finally {
+          importFile.value = "";
+        }
+      }
+
       function addThought(text) {
         const card = {
           id: makeId(),
@@ -2617,7 +2708,20 @@
           announce("Note restored");
         } else if (action === "delete-cleared") {
           deleteCard(actionTarget.dataset.cardId, true);
+        } else if (action === "open-data") {
+          openData();
+        } else if (action === "close-data") {
+          closeData();
+        } else if (action === "export-data") {
+          exportData();
+        } else if (action === "import-data") {
+          importFile.click();
         }
+      });
+
+      importFile.addEventListener("change", () => {
+        const [file] = importFile.files;
+        if (file) importData(file);
       });
 
       document.addEventListener("pointerdown", event => {
@@ -2636,6 +2740,9 @@
       clearedDialog.addEventListener("click", event => {
         if (event.target === clearedDialog) closeCleared();
       });
+      dataDialog.addEventListener("click", event => {
+        if (event.target === dataDialog) closeData();
+      });
 
       document.addEventListener("click", event => {
         if (event.target === byId("landscapeLens")) closeLandscapeFocus();
@@ -2649,7 +2756,41 @@
         }
       });
 
+      function offerAppUpdate(worker) {
+        showToast("A fresh Horizon is ready.", "Update", () => {
+          worker.postMessage({ type: "SKIP_WAITING" });
+        });
+      }
+
+      function registerServiceWorker() {
+        if (!("serviceWorker" in navigator) || !["http:", "https:"].includes(location.protocol)) return;
+        let reloading = false;
+        navigator.serviceWorker.addEventListener("controllerchange", () => {
+          if (reloading) return;
+          reloading = true;
+          location.reload();
+        });
+        window.addEventListener("load", async () => {
+          try {
+            const registration = await navigator.serviceWorker.register("./service-worker.js", { scope: "./" });
+            if (registration.waiting) offerAppUpdate(registration.waiting);
+            registration.addEventListener("updatefound", () => {
+              const worker = registration.installing;
+              worker?.addEventListener("statechange", () => {
+                if (worker.state === "installed" && navigator.serviceWorker.controller) offerAppUpdate(worker);
+              });
+            });
+          } catch (_) {
+            showToast("Offline setup couldn’t finish.");
+          }
+        });
+      }
+
+      window.addEventListener("offline", () => showToast("You’re offline. Horizon still works."));
+      window.addEventListener("online", () => showToast("Back online."));
+      navigator.storage?.persist?.().catch(() => {});
       render();
+      registerServiceWorker();
     })();
   </script>
 </body>
